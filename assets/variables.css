@@ -1,0 +1,40 @@
+:root {
+  --color-primary: #000000;
+  --color-secondary: #ffffff;
+  --color-tertiary: #efc400;
+  --color-grey: rgb(0 0 0 / 25%);
+  --color-grey-light: rgb(255 255 255 / 20%);
+
+  --font-heading: 'Antonio', sans-serif;
+  --font-body: 'Syne', sans-serif;
+
+  --font-size-h1: 80px;
+  --font-size-h2: 60px;
+  --font-size-h3: 45px;
+  --font-size-h4: 36px;
+  --font-size-h5: 28px;
+  --font-size-h6: 18px;
+  --line-height-heading: 1;
+
+  --font-size-body: 18px;
+  --line-height-body: 22px;
+  --heading-margin-bottom: 30px;
+  --font-weight-300: 300;
+  --font-weight-400: 400;
+  --font-weight-500: 500;
+  --font-weight-600: 600;
+  --font-weight-700: 700;
+
+  --space-2xs: 10px;
+  --space-xs: 12px;
+  --space-sm: 16px;
+  --space-md: 20px;
+  --space-lg: 24px;
+  --space-xl: 28px;
+  --space-2xl: 30px;
+  --space-3xl: 48px;
+
+  --icon-size-sm: 18px;
+  --icon-size-md: 22px;
+  --logo-height: 48px;
+}

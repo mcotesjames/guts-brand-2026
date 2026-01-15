@@ -13,10 +13,19 @@
   "sections": {
     "header": {
       "type": "header",
-      "settings": {}
+      "settings": {
+        "menu": "main-menu",
+        "logo_image": "shopify://shop_images/Guts_07_1.webp",
+        "logo_width": 160,
+        "b2b_label": "B2B Login",
+        "b2b_url": "",
+        "show_search": true,
+        "search_placeholder": "Search products",
+        "show_cart": true
+      }
     }
   },
   "order": [
     "header"
-  ],
+  ]
 }

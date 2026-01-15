@@ -11,10 +11,43 @@
   "sections": {
     "main": {
       "type": "hello-world",
+      "disabled": true,
       "settings": {}
+    },
+    "custom_fullscreen_video_hrTAzP": {
+      "type": "custom-fullscreen-video",
+      "name": "Custom Fullscreen Video",
+      "settings": {
+        "video": "shopify://files/videos/MONTAGE_GUTS_B&W_MOVIE_2025_1.webm",
+        "poster": "shopify://shop_images/MONTAGE_GUTS_B_W_MOVIE_2025_1.jpg",
+        "show_cta": true,
+        "cta_label": "Dive in",
+        "cta_url": ""
+      }
+    },
+    "custom_variant_carousel_74hb38": {
+      "type": "custom-variant-carousel",
+      "name": "Custom Variant Carousel",
+      "settings": {
+        "heading": "the jane collection",
+        "product": "jane-helmet-copy",
+        "link_text": "> View the Jane Collection"
+      }
+    },
+    "custom_collection_carousel_JDFNPD": {
+      "type": "custom-collection-carousel",
+      "name": "Custom Collection Carousel",
+      "settings": {
+        "heading": "All products",
+        "collection": "the-jane-collection",
+        "link_text": "> View all products"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "custom_fullscreen_video_hrTAzP",
+    "custom_variant_carousel_74hb38",
+    "custom_collection_carousel_JDFNPD"
   ]
 }
