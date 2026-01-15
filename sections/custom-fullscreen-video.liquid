@@ -1,0 +1,63 @@
+{{ 'component-custom-fullscreen-video.css' | asset_url | stylesheet_tag }}
+
+<section class="custom-fullscreen-video full-width">
+  <div class="custom-fullscreen-video__media">
+    {% if section.settings.video != blank %}
+      {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true }}
+    {% elsif section.settings.poster != blank %}
+      {{ section.settings.poster | image_url: width: 2400 | image_tag: alt: section.settings.heading, loading: 'lazy' }}
+    {% else %}
+      <div class="custom-fullscreen-video__placeholder" role="img" aria-label="Video placeholder"></div>
+    {% endif %}
+  </div>
+
+  {% if section.settings.show_cta %}
+    <div class="custom-fullscreen-video__cta">
+      {% render 'custom-button',
+        label: section.settings.cta_label,
+        url: section.settings.cta_url,
+        variant: 'standout-white'
+      %}
+    </div>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Custom Fullscreen Video",
+  "settings": [
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+      "type": "image_picker",
+      "id": "poster",
+      "label": "Poster image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "label": "Show CTA",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA label",
+      "default": "Dive in"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Fullscreen Video"
+    }
+  ]
+}
+{% endschema %}

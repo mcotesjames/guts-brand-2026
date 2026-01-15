@@ -1,0 +1,9 @@
+{{ 'component-custom-button.css' | asset_url | stylesheet_tag }}
+
+{%- assign button_label = label | default: 'Button' -%}
+{%- assign button_url = url | default: '#' -%}
+{%- assign button_variant = variant | default: 'primary' -%}
+
+<a class="custom-button custom-button--{{ button_variant }}" href="{{ button_url }}">
+  {{ button_label }}
+</a>

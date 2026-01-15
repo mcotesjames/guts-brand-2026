@@ -1,0 +1,117 @@
+{{ 'component-custom-variant-carousel.css' | asset_url | stylesheet_tag }}
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+  defer
+></script>
+<script src="{{ 'component-custom-variant-carousel.js' | asset_url }}" defer></script>
+<script src="{{ 'component-custom-quick-add.js' | asset_url }}" defer></script>
+
+<section class="custom-variant-carousel" id="variants">
+  <div class="container-xl">
+    <div class="custom-variant-carousel__header">
+      {% if section.settings.heading != blank %}
+        <h2 class="custom-variant-carousel__title">{{ section.settings.heading }}</h2>
+      {% endif %}
+
+      {% if section.settings.product != blank and section.settings.link_text != blank %}
+        <a class="custom-variant-carousel__link" href="{{ section.settings.product.url }}">
+          {{ section.settings.link_text }}
+        </a>
+      {% endif %}
+    </div>
+
+    {% if section.settings.product != blank %}
+      {%- assign color_index = nil -%}
+      {%- assign size_index = nil -%}
+      {%- for option in section.settings.product.options_with_values -%}
+        {%- if option.name == 'Color' -%}
+          {%- assign color_index = forloop.index -%}
+        {%- endif -%}
+        {%- if option.name == 'Size' -%}
+          {%- assign size_index = forloop.index -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      <div class="custom-variant-carousel__track" data-variant-carousel>
+        {%- if color_index != nil -%}
+          {%- assign color_option = nil -%}
+          {%- for option in section.settings.product.options_with_values -%}
+            {%- if option.name == 'Color' -%}
+              {%- assign color_option = option -%}
+            {%- endif -%}
+          {%- endfor -%}
+          {%- for color_value in color_option.values -%}
+            {%- case color_index -%}
+              {%- when 1 -%}
+                {%- assign color_variants = section.settings.product.variants | where: 'option1', color_value -%}
+              {%- when 2 -%}
+                {%- assign color_variants = section.settings.product.variants | where: 'option2', color_value -%}
+              {%- when 3 -%}
+                {%- assign color_variants = section.settings.product.variants | where: 'option3', color_value -%}
+            {%- endcase -%}
+            <div class="custom-variant-carousel__slide">
+              {% render 'custom-variant-color-card',
+                product: section.settings.product,
+                variants: color_variants,
+                color_value: color_value,
+                color_index: color_index,
+                size_index: size_index
+              %}
+            </div>
+          {%- endfor -%}
+        {%- else -%}
+          <div class="custom-variant-carousel__slide">
+            {% render 'custom-variant-color-card',
+              product: section.settings.product,
+              variants: section.settings.product.variants,
+              color_value: '',
+              color_index: -1,
+              size_index: size_index
+            %}
+          </div>
+        {%- endif -%}
+      </div>
+    {% else %}
+      <p class="custom-variant-carousel__empty">Select a product to display variants.</p>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom Variant Carousel",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Title",
+      "default": "All Variants"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Product link text",
+      "default": "View product"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Variant Carousel"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,28 @@
+{%- assign variant_image = variant.image | default: product.featured_image -%}
+
+<article class="custom-variant-card">
+  <a class="custom-variant-card__image" href="{{ product.url }}?variant={{ variant.id }}">
+    {% if variant_image != blank %}
+      {{ variant_image | image_url: width: 900 | image_tag: alt: product.title, loading: 'lazy' }}
+    {% endif %}
+  </a>
+
+  <div class="custom-variant-card__details">
+    <div class="custom-variant-card__info">
+      <h3 class="custom-variant-card__title">{{ product.title }}</h3>
+      <div class="custom-variant-card__variant">{{ variant.title }}</div>
+      <div class="custom-variant-card__price">
+        {{ variant.price | money }}
+      </div>
+    </div>
+
+    <button
+      class="custom-variant-card__cart"
+      type="button"
+      aria-label="Add to cart"
+      data-variant-id="{{ variant.id }}"
+    >
+      {{ 'icon-add-to-cart.svg' | inline_asset_content }}
+    </button>
+  </div>
+</article>

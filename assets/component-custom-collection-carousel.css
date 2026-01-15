@@ -1,0 +1,210 @@
+.custom-collection-carousel {
+  padding: 60px clamp(var(--space-sm), 5vw, 80px);
+}
+
+.custom-collection-carousel__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.custom-collection-carousel__title {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.custom-collection-carousel__link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.custom-collection-carousel__track {
+  margin: 0 -12px;
+}
+
+.custom-collection-carousel__slide {
+  padding: 0 12px;
+}
+
+.custom-collection-carousel__empty {
+  color: var(--color-primary);
+}
+
+.custom-product-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.custom-product-card__image {
+  display: block;
+  background: transparent;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.custom-product-card__image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.custom-product-card__image--hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  /* transition: opacity 0s ease; */
+}
+
+.custom-product-card__image:hover .custom-product-card__image--hover {
+  opacity: 1;
+}
+
+.custom-product-card__details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.custom-product-card__title {
+  margin: 0;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.custom-product-card__price {
+  font-size: 14px;
+}
+
+.custom-product-card__swatches {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.custom-product-card__swatch {
+  width: 18px;
+  height: 18px;
+  border: 1px solid transparent;
+  padding: 1px;
+  background-clip: content-box;
+  background: transparent;
+  cursor: pointer;
+}
+
+.custom-product-card__swatch.is-active {
+  border-color: var(--color-primary);
+  box-shadow: inset 0 0 0 1px var(--color-secondary);
+}
+
+.custom-product-card__sizes {
+  display: none;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.custom-product-card__sizes.is-active {
+  display: flex;
+}
+
+.custom-product-card__size {
+  min-width: 48px;
+  height: 36px;
+  border: 1px solid var(--color-primary);
+  padding: 1px 10px;
+  background: transparent;
+  background-clip: content-box;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.custom-product-card__size.is-active {
+  background: var(--color-primary);
+  box-shadow: inset 0 0 0 1px var(--color-secondary);
+  color: var(--color-secondary);
+}
+
+.custom-product-card__quick-add {
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  border: 0;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.custom-product-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-product-card__icon--cart {
+  display: none;
+}
+
+.custom-product-card__quick-add.is-ready .custom-product-card__icon--cart {
+  display: inline-flex;
+}
+
+.custom-product-card__quick-add.is-ready .custom-product-card__icon--plus {
+  display: none;
+}
+
+.custom-product-card__quick-add.is-awaiting-size {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.custom-product-card__quick-add.is-awaiting-size .custom-product-card__icon--cart {
+  display: inline-flex;
+}
+
+.custom-product-card__quick-add.is-awaiting-size .custom-product-card__icon--plus {
+  display: none;
+}
+
+.custom-product-card__quick-add svg {
+  width: 18px;
+  height: 18px;
+}
+
+.custom-collection-carousel .slick-dots li button:before,
+.custom-collection-carousel .slick-prev:before,
+.custom-collection-carousel .slick-next:before {
+  color: var(--color-primary);
+}
+
+.custom-collection-carousel .slick-prev,
+.custom-collection-carousel .slick-next {
+  width: 40px;
+  height: 40px;
+}
+
+.custom-collection-carousel .slick-track {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.custom-collection-carousel .slick-dots {
+  bottom: -40px;
+}
+
+.custom-product-card__sizes .slick-track {
+  display: flex;
+  gap: 8px;
+}
+
+.custom-product-card__sizes .slick-slide {
+  height: auto;
+}
