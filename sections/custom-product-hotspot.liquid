@@ -1,0 +1,246 @@
+{{ 'component-custom-product-hotspot.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'component-custom-product-hotspot.js' | asset_url }}" defer></script>
+
+<section class="custom-product-hotspot section-padding--md full-width" id="custom-product-hotspot-{{ section.id }}">
+  <div class="container-xl g-5">
+    <div class="custom-product-hotspot__intro">
+      {% if section.settings.heading != blank %}
+        <h2>{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.description != blank %}
+      <div>
+        {{ section.settings.description }}
+      </div>
+      {% endif %}
+    </div>
+    {% if section.settings.image != blank %}
+      <div class="custom-product-hotspot__layout {% if section.settings.show_cta != blank %}is-cta{% endif %}" data-hotspot-section>
+        <div class="custom-product-hotspot__side custom-product-hotspot__side--left">
+          {% for block in section.blocks %}
+            {%- assign hotspot_x = block.settings.hotspot_x | default: 50 -%}
+            {%- assign hotspot_y = block.settings.hotspot_y | default: 50 -%}
+            {%- assign side = 'right' -%}
+            {%- if hotspot_x < 50 -%}
+              {%- assign side = 'left' -%}
+            {%- endif -%}
+            {% if side == 'left' %}
+              <article
+                class="custom-product-hotspot__card custom-product-hotspot__card--left"
+                data-hotspot-card
+                data-block-id="{{ block.id }}"
+                style="--hotspot-y: {{ hotspot_y }}%;"
+                {{ block.shopify_attributes }}
+              >
+                <div class="custom-product-hotspot__card-media">
+                  {% if block.settings.image != blank %}
+                    {{ block.settings.image | image_url: width: 360 | image_tag: alt: block.settings.title, loading: 'lazy', class: 'custom-product-hotspot__card-image' }}
+                  {% endif %}
+                </div>
+                <div class="custom-product-hotspot__card-content">
+                  {% if block.settings.title != blank %}
+                    <h3 class="custom-product-hotspot__card-title heading-style-h6">{{ block.settings.title }}</h3>
+                  {% endif %}
+                  {% if block.settings.description != blank %}
+                    <div class="custom-product-hotspot__card-description">{{ block.settings.description }}</div>
+                  {% endif %}
+                </div>
+              </article>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <div class="custom-product-hotspot__image-wrap">
+          {{ section.settings.image | image_url: width: 1200 | image_tag: alt: section.settings.image.alt, loading: 'lazy', class: 'custom-product-hotspot__image' }}
+          <div class="custom-product-hotspot__hotspots">
+            {% for block in section.blocks %}
+              {%- assign hotspot_x = block.settings.hotspot_x | default: 50 -%}
+              {%- assign hotspot_y = block.settings.hotspot_y | default: 50 -%}
+              {%- assign side = 'right' -%}
+              {%- if hotspot_x < 50 -%}
+                {%- assign side = 'left' -%}
+              {%- endif -%}
+              <button
+                class="custom-product-hotspot__dot"
+                type="button"
+                aria-label="{{ block.settings.title | escape }}"
+                aria-controls="HotspotCard-{{ section.id }}-{{ block.id }}"
+                data-hotspot-dot
+                data-block-id="{{ block.id }}"
+                style="--hotspot-x: {{ hotspot_x }}%; --hotspot-y: {{ hotspot_y }}%;"
+              >
+                <span class="custom-product-hotspot__dot-plus" aria-hidden="true"></span>
+              </button>
+              <span
+                class="custom-product-hotspot__line custom-product-hotspot__line--{{ side }}"
+                style="--hotspot-x: {{ hotspot_x }}%; --hotspot-y: {{ hotspot_y }}%;"
+                data-block-id="{{ block.id }}"
+                aria-hidden="true"
+              ></span>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="custom-product-hotspot__side custom-product-hotspot__side--right">
+          {% for block in section.blocks %}
+            {%- assign hotspot_x = block.settings.hotspot_x | default: 50 -%}
+            {%- assign hotspot_y = block.settings.hotspot_y | default: 50 -%}
+            {%- assign side = 'right' -%}
+            {%- if hotspot_x < 50 -%}
+              {%- assign side = 'left' -%}
+            {%- endif -%}
+            {% if side == 'right' %}
+              <article
+                class="custom-product-hotspot__card custom-product-hotspot__card--right"
+                data-hotspot-card
+                data-block-id="{{ block.id }}"
+                style="--hotspot-y: {{ hotspot_y }}%;"
+                {{ block.shopify_attributes }}
+              >
+                <div class="custom-product-hotspot__card-media">
+                  {% if block.settings.image != blank %}
+                    {{ block.settings.image | image_url: width: 360 | image_tag: alt: block.settings.title, loading: 'lazy', class: 'custom-product-hotspot__card-image' }}
+                  {% endif %}
+                </div>
+                <div class="custom-product-hotspot__card-content">
+                  {% if block.settings.title != blank %}
+                    <h3 class="custom-product-hotspot__card-title heading-style-h6">{{ block.settings.title }}</h3>
+                  {% endif %}
+                  {% if block.settings.description != blank %}
+                    <div class="custom-product-hotspot__card-description">{{ block.settings.description }}</div>
+                  {% endif %}
+                </div>
+              </article>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="custom-product-hotspot__mobile-cards">
+        {% for block in section.blocks %}
+          <article
+            class="custom-product-hotspot__mobile-card{% if forloop.first %} is-active{% endif %}"
+            data-hotspot-mobile-card
+            data-block-id="{{ block.id }}"
+            id="HotspotCard-{{ section.id }}-{{ block.id }}"
+          >
+            <div class="custom-product-hotspot__mobile-card-media">
+              {% if block.settings.image != blank %}
+                {{ block.settings.image | image_url: width: 360 | image_tag: alt: block.settings.title, loading: 'lazy', class: 'custom-product-hotspot__mobile-card-image' }}
+              {% endif %}
+            </div>
+            <div class="custom-product-hotspot__mobile-card-content">
+              {% if block.settings.title != blank %}
+                <h3 class="custom-product-hotspot__card-title heading-style-h5">{{ block.settings.title }}</h3>
+              {% endif %}
+              {% if block.settings.description != blank %}
+                <div class="custom-product-hotspot__card-description">{{ block.settings.description }}</div>
+              {% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="custom-product-hotspot__empty">Select an image and add hotspot blocks.</p>
+    {% endif %}
+    {% if section.settings.show_cta != blank %}
+      {% render 'custom-button',
+        label: section.settings.cta_label,
+        url: section.settings.cta_url,
+        variant: 'standout-black'
+      %}
+      {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom Product Hotspot",
+  "settings": [
+    {
+      "type" : "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Product Diagram"
+    },
+    {
+      "type" : "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Short description.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Product image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "label": "Show CTA",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA Label",
+      "default": "Label"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "hotspot",
+      "name": "Hotspot",
+      "settings": [
+        {
+          "type": "range",
+          "id": "hotspot_x",
+          "label": "Hotspot X position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "hotspot_y",
+          "label": "Hotspot Y position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 50
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Hotspot image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature title"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Short supporting statement.</p>"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Custom Product Hotspot"
+    }
+  ]
+}
+{% endschema %}

@@ -43,6 +43,18 @@
     });
   };
 
+  const updateCartCount = async () => {
+    const response = await fetch('/cart.js');
+    if (!response.ok) return;
+    const cart = await response.json();
+    const count = Number(cart.item_count || 0);
+    document.querySelectorAll('[data-cart-count]').forEach((badge) => {
+      badge.textContent = count;
+      badge.classList.toggle('is-hidden', count === 0);
+    });
+    return cart;
+  };
+
   const getSelectedColor = (card) => {
     const fixedColor = card.dataset.fixedColor;
     if (fixedColor) return fixedColor;
@@ -151,10 +163,9 @@
 
         if (hasSize && !selectedSize) {
           if (mode === 'variant') {
+            sizeList?.classList.add('is-active');
             if (sizeList && sizeList.classList.contains('is-active')) {
               quickAdd.classList.add('is-awaiting-size');
-            } else {
-              sizeList?.classList.add('is-active');
             }
           } else {
             sizeList?.classList.add('is-active');
@@ -169,7 +180,13 @@
         };
 
         const variantId = getVariantId(variants, colorIndex, sizeIndex, selected);
+        console.log(variants, colorIndex, sizeIndex, selected);
+        // console.log(variantId);
         await addToCart(variantId);
+        const cart = await updateCartCount();
+        if (cart) {
+          document.dispatchEvent(new CustomEvent('cart:updated', { detail: { cart } }));
+        }
         quickAdd.classList.add('is-ready');
         quickAdd.classList.remove('is-awaiting-size');
       });

@@ -8,5 +8,13 @@
  * ------------------------------------------------------------
  */
 {
-  "current": {}
+  "current": {
+    "newsletter_bg_video": "shopify://files/videos/286278_medium.webm",
+    "footer_menu_upsell": "upsell-menu",
+    "footer_menu_support": "support_menu",
+    "footer_menu_contact": "contact",
+    "footer_menu_legal": "legal",
+    "footer_background_image": "shopify://shop_images/guts-white-vector.svg",
+    "content_for_index": []
+  }
 }

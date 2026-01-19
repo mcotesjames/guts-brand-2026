@@ -15,8 +15,8 @@
 <script src="{{ 'component-custom-variant-carousel.js' | asset_url }}" defer></script>
 <script src="{{ 'component-custom-quick-add.js' | asset_url }}" defer></script>
 
-<section class="custom-variant-carousel" id="variants">
-  <div class="container-xl">
+<section class="custom-variant-carousel section-padding full-width" id="variants">
+  <div class="container-xl g-5">
     <div class="custom-variant-carousel__header">
       {% if section.settings.heading != blank %}
         <h2 class="custom-variant-carousel__title">{{ section.settings.heading }}</h2>
@@ -34,10 +34,10 @@
       {%- assign size_index = nil -%}
       {%- for option in section.settings.product.options_with_values -%}
         {%- if option.name == 'Color' -%}
-          {%- assign color_index = forloop.index -%}
+          {%- assign color_index = forloop.index0 -%}
         {%- endif -%}
         {%- if option.name == 'Size' -%}
-          {%- assign size_index = forloop.index -%}
+          {%- assign size_index = forloop.index0 -%}
         {%- endif -%}
       {%- endfor -%}
 
@@ -51,11 +51,11 @@
           {%- endfor -%}
           {%- for color_value in color_option.values -%}
             {%- case color_index -%}
-              {%- when 1 -%}
+              {%- when 0 -%}
                 {%- assign color_variants = section.settings.product.variants | where: 'option1', color_value -%}
-              {%- when 2 -%}
+              {%- when 1 -%}
                 {%- assign color_variants = section.settings.product.variants | where: 'option2', color_value -%}
-              {%- when 3 -%}
+              {%- when 2 -%}
                 {%- assign color_variants = section.settings.product.variants | where: 'option3', color_value -%}
             {%- endcase -%}
             <div class="custom-variant-carousel__slide">

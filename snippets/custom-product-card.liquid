@@ -1,5 +1,6 @@
 {%- assign product_image = product.featured_image -%}
-{%- assign product_focus_image = product.metafields.custom.product_focus_image -%}
+{%- assign primary_variant = product.selected_or_first_available_variant -%}
+{%- assign product_focus_image = primary_variant.metafields.custom.product_focus_image | default: product.metafields.custom.product_focus_image -%}
 
 {%- capture variant_images_json -%}
   [
@@ -41,6 +42,7 @@
     {% if product_image != blank %}
       {{ product_image | image_url: width: 900 | image_tag: alt: product.title, loading: 'lazy', class: 'custom-product-card__image-main' }}
     {% endif %}
+    {{product_focus_image}}
     {% if product_focus_image != blank %}
       {{ product_focus_image | image_url: width: 900 | image_tag: alt: product.title, loading: 'lazy', class: 'custom-product-card__image--hover' }}
     {% endif %}

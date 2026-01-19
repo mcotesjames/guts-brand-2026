@@ -1,0 +1,187 @@
+{{ 'component-custom-ambassadors.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'component-custom-ambassadors.js' | asset_url }}" defer></script>
+
+<section class="custom-ambassadors full-width" data-ambassadors-root>
+  <div class="ambassadors-accordion" data-ambassadors-accordion>
+    {% assign ambassador_blocks = section.blocks | where: 'type', 'ambassador' %}
+    {% for block in ambassador_blocks %}
+      {% assign ambassador_position = forloop.index %}
+      {% assign ambassador_index = ambassador_position | prepend: '00' | slice: -3, 3 %}
+      {% assign panel_id = section.id | append: '-ambassador-' | append: ambassador_position %}
+      <article
+        class="ambassadors-accordion__item{% if forloop.first %} is-active{% endif %}"
+        data-ambassadors-item
+        {{ block.shopify_attributes }}
+      >
+        <div class="ambassadors-accordion__media">
+          {% if block.settings.image != blank %}
+            {% assign image_style = 'object-position: ' | append: block.settings.image_position | append: ';' %}
+            {{
+              block.settings.image
+              | image_url: width: 2000
+              | image_tag: loading: 'lazy', class: 'ambassadors-accordion__image', style: image_style
+            }}
+          {% endif %}
+        </div>
+
+        <button
+          class="ambassadors-accordion__toggle"
+          type="button"
+          aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
+          aria-controls="{{ panel_id }}"
+          data-ambassadors-toggle
+        >
+          <span class="visually-hidden">Open ambassador {{ ambassador_position }}</span>
+        </button>
+
+        <h2 class="ambassadors-accordion__eyebrow heading-style-h5">
+          GUTS AMBASSADOR <span class="ambassadors-accordion__index">{{ ambassador_index }}</span>
+        </h2>
+
+        <div class="ambassadors-accordion__content" id="{{ panel_id }}">
+          {% if block.settings.name != blank %}
+            <h3 class="ambassadors-accordion__name">{{ block.settings.name }}</h3>
+          {% endif %}
+          {% if block.settings.description != blank %}
+            <div class="ambassadors-accordion__description rte">{{ block.settings.description }}</div>
+          {% endif %}
+
+          {% if block.settings.instagram_url != blank
+            or block.settings.tiktok_url != blank
+            or block.settings.linkedin_url != blank
+            or block.settings.youtube_url != blank
+          %}
+            <div class="ambassadors-accordion__socials">
+              {% if block.settings.instagram_url != blank %}
+                <a
+                  class="ambassadors-accordion__social"
+                  href="{{ block.settings.instagram_url }}"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Instagram"
+                >
+                  <span class="ambassadors-accordion__social-label">IG</span>
+                </a>
+              {% endif %}
+              {% if block.settings.tiktok_url != blank %}
+                <a
+                  class="ambassadors-accordion__social"
+                  href="{{ block.settings.tiktok_url }}"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="TikTok"
+                >
+                  <span class="ambassadors-accordion__social-label">TT</span>
+                </a>
+              {% endif %}
+              {% if block.settings.linkedin_url != blank %}
+                <a
+                  class="ambassadors-accordion__social"
+                  href="{{ block.settings.linkedin_url }}"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="LinkedIn"
+                >
+                  <span class="ambassadors-accordion__social-label">IN</span>
+                </a>
+              {% endif %}
+              {% if block.settings.youtube_url != blank %}
+                <a
+                  class="ambassadors-accordion__social"
+                  href="{{ block.settings.youtube_url }}"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="YouTube"
+                >
+                  <span class="ambassadors-accordion__social-label">YT</span>
+                </a>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+
+        <span class="ambassadors-accordion__label">{{ block.settings.name }}</span>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ambassadors Accordion",
+  "settings": [
+  ],
+  "blocks": [
+    {
+      "type": "ambassador",
+      "name": "Ambassador",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "image_position",
+          "label": "Image focal point",
+          "options": [
+            { "value": "center center", "label": "Center" },
+            { "value": "top center", "label": "Top" },
+            { "value": "bottom center", "label": "Bottom" },
+            { "value": "center left", "label": "Left" },
+            { "value": "center right", "label": "Right" },
+            { "value": "top left", "label": "Top left" },
+            { "value": "top right", "label": "Top right" },
+            { "value": "bottom left", "label": "Bottom left" },
+            { "value": "bottom right", "label": "Bottom right" }
+          ],
+          "default": "center center"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Mahohi Nguyen"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis dapibus enim vitae blandit.</p>"
+        },
+        {
+          "type": "url",
+          "id": "instagram_url",
+          "label": "Instagram URL"
+        },
+        {
+          "type": "url",
+          "id": "tiktok_url",
+          "label": "TikTok URL"
+        },
+        {
+          "type": "url",
+          "id": "linkedin_url",
+          "label": "LinkedIn URL"
+        },
+        {
+          "type": "url",
+          "id": "youtube_url",
+          "label": "YouTube URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ambassadors Accordion",
+      "blocks": [
+        { "type": "ambassador" },
+        { "type": "ambassador" },
+        { "type": "ambassador" }
+      ]
+    }
+  ]
+}
+{% endschema %}

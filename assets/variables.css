@@ -6,19 +6,23 @@
   --color-grey-light: rgb(255 255 255 / 20%);
 
   --font-heading: 'Antonio', sans-serif;
-  --font-body: 'Syne', sans-serif;
+  --font-body: 'Karla', 'Syne', sans-serif;
 
   --font-size-h1: 80px;
   --font-size-h2: 60px;
   --font-size-h3: 45px;
   --font-size-h4: 36px;
   --font-size-h5: 28px;
+  --font-size-h5-mob: 22px;
   --font-size-h6: 18px;
   --line-height-heading: 1;
 
-  --font-size-body: 18px;
+  --font-size-body: 16px;
+  --font-size-body-sm: 15px;
+
   --line-height-body: 22px;
   --heading-margin-bottom: 30px;
+  --heading-margin-bottom-mobile: 20px;
   --font-weight-300: 300;
   --font-weight-400: 400;
   --font-weight-500: 500;
@@ -33,6 +37,7 @@
   --space-xl: 28px;
   --space-2xl: 30px;
   --space-3xl: 48px;
+  --space-4xl: 80px;
 
   --icon-size-sm: 18px;
   --icon-size-md: 22px;
