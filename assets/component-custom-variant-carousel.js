@@ -11,7 +11,9 @@
       slidesToScroll: 3,
       arrows: true,
       dots: true,
-      infinite: false,
+      infinite: true,
+      autoplay: true,
+      autoplaySpeed: 3000,
       responsive: [
         {
           breakpoint: 992,

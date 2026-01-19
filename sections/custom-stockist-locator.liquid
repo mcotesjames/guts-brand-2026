@@ -1,0 +1,187 @@
+{{ 'component-custom-stockist-locator.css' | asset_url | stylesheet_tag }}
+{{ 'component-custom-button.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'component-custom-stockist-locator.js' | asset_url }}" defer></script>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4Sl7S8OgpuCL4nF45rpvk9mqgWkWjJcQ"
+  defer
+></script>
+
+<section
+  class="custom-stockist-locator full-width section-padding--md-top"
+  data-marker-default="{{ 'icon-marker.svg' | asset_url }}"
+  data-marker-active="{{ 'icon-marker-active.svg' | asset_url }}"
+>
+  <div class="container-xl g-5">
+    <div class="custom-stockist-locator__header">
+      {% if section.settings.heading != blank %}
+        <h2 class="custom-stockist-locator__heading heading-style-h2">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.subheading != blank %}
+        <div class="custom-stockist-locator__subheading">{{ section.settings.subheading }}</div>
+      {% endif %}
+    </div>
+
+    <form class="custom-stockist-locator__search" data-stockist-search>
+      <div class="custom-stockist-locator__controls">
+        <div
+          class="custom-input custom-input--search"
+          style="--custom-input-icon: url('{{ 'icon-input-search.svg' | asset_url }}');"
+        >
+          <label class="custom-input__label" for="StockistAddress-{{ section.id }}">Enter address</label>
+          <input
+            class="custom-input__field custom-stockist-locator__input"
+            id="StockistAddress-{{ section.id }}"
+            type="text"
+            required
+          >
+          <button class="custom-input__icon-button" type="submit" aria-label="Search"></button>
+        </div>
+        <div class="custom-stockist-locator__selects">
+          <div
+            class="custom-stockist-locator__select-wrap"
+            style="--custom-select-icon: url('{{ 'icon-dropdown.svg' | asset_url }}');"
+          >
+            <select class="custom-stockist-locator__select custom-stockist-locator__select--radius" data-stockist-radius>
+              <option value="" selected disabled>Search radius</option>
+              <option value="10-mi">10 mi</option>
+              <option value="20-mi">20 mi</option>
+              <option value="50-mi">50 mi</option>
+              <option value="10-km">10 km</option>
+              <option value="20-km">20 km</option>
+              <option value="50-km">50 km</option>
+            </select>
+          </div>
+          <div
+            class="custom-stockist-locator__select-wrap"
+            style="--custom-select-icon: url('{{ 'icon-dropdown.svg' | asset_url }}');"
+          >
+            <select class="custom-stockist-locator__select custom-stockist-locator__select--type" data-stockist-type>
+              <option value="" selected disabled>Store type</option>
+              <option value="all">All</option>
+              <option value="shop">Shops</option>
+              <option value="school">Schools</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="custom-stockist-locator__body" data-stockist-section>
+      <div class="custom-stockist-locator__list" data-stockist-list>
+        {% for block in section.blocks %}
+          {% assign store_type = block.settings.store_type %}
+          {% if block.settings.is_school %}
+            {% assign store_type = 'school' %}
+          {% endif %}
+          <article
+            class="custom-stockist-locator__card"
+            data-stockist-card
+            data-store-id="{{ block.id }}"
+            data-store-name="{{ block.settings.name | escape }}"
+            data-store-address="{{ block.settings.address | strip_newlines | escape }}"
+            data-store-phone="{{ block.settings.phone | escape }}"
+            data-store-url="{{ block.settings.url }}"
+            data-store-lat="{{ block.settings.latitude }}"
+            data-store-lng="{{ block.settings.longitude }}"
+            data-store-type="{{ store_type }}"
+            {{ block.shopify_attributes }}
+          >
+            <h3 class="custom-stockist-locator__card-title heading-style-h5">{{ block.settings.name }}</h3>
+            <div class="custom-stockist-locator__card-detail">
+              {{ block.settings.address | newline_to_br }}
+            </div>
+            {% if block.settings.phone != blank %}
+              <div class="custom-stockist-locator__card-detail">{{ block.settings.phone }}</div>
+            {% endif %}
+            <div class="custom-stockist-locator__card-detail">
+              <span data-stockist-distance>Distance: —</span>
+            </div>
+            {% if block.settings.url != blank %}
+              <a class="custom-stockist-locator__cta custom-button custom-button--secondary" href="{{ block.settings.url }}">
+                View store
+              </a>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+
+      <div class="custom-stockist-locator__map" data-stockist-map></div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom Stockist Locator",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Find GUTS near you"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>Find GUTS products in your area. We are based in France but can be found internationally too.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "store",
+      "name": "Store",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Store name",
+          "default": "Store name"
+        },
+        {
+          "type": "textarea",
+          "id": "address",
+          "label": "Address",
+          "default": "Street address, City, State, Postcode, Country"
+        },
+        {
+          "type": "text",
+          "id": "phone",
+          "label": "Phone"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Store URL"
+        },
+        {
+          "type": "text",
+          "id": "latitude",
+          "label": "Latitude (optional)"
+        },
+        {
+          "type": "text",
+          "id": "longitude",
+          "label": "Longitude (optional)"
+        },
+        {
+          "type": "select",
+          "id": "store_type",
+          "label": "Store type",
+          "default": "shop",
+          "options": [
+            { "value": "shop", "label": "Shop" },
+            { "value": "school", "label": "School" }
+          ]
+        }
+      ]
+    }
+  ],
+  "max_blocks": 30,
+  "presets": [
+    {
+      "name": "Custom Stockist Locator"
+    }
+  ]
+}
+{% endschema %}

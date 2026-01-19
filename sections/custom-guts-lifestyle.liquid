@@ -1,0 +1,143 @@
+{{ 'component-custom-guts-lifestyle.css' | asset_url | stylesheet_tag }}
+
+<section class="custom-guts-lifestyle section-padding full-width">
+  <div class="container-xl g-5">
+    <div class="custom-guts-lifestyle__grid">
+      <div class="custom-guts-lifestyle__col custom-guts-lifestyle__col--primary">
+        {% if section.settings.heading_1 != blank %}
+          <h2 class="custom-guts-lifestyle__heading heading-style-h2">{{ section.settings.heading_1 }}</h2>
+        {% endif %}
+
+        {% if section.settings.image_1 != blank %}
+          <div class="custom-guts-lifestyle__media">
+            {{ section.settings.image_1 | image_url: width: 900 | image_tag: alt: section.settings.heading_1, loading: 'lazy' }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="custom-guts-lifestyle__description">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.cta_label != blank and section.settings.cta_url != blank %}
+          <div class="custom-guts-lifestyle__cta">
+            {% render 'custom-button',
+              label: section.settings.cta_label,
+              url: section.settings.cta_url,
+              variant: section.settings.cta_variant
+            %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="custom-guts-lifestyle__col custom-guts-lifestyle__col--secondary">
+        {% if section.settings.image_2 != blank %}
+          <div class="custom-guts-lifestyle__media">
+            {{ section.settings.image_2 | image_url: width: 900 | image_tag: alt: section.settings.heading_1, loading: 'lazy' }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.image_3 != blank %}
+          <div class="custom-guts-lifestyle__media">
+            {{ section.settings.image_3 | image_url: width: 900 | image_tag: alt: section.settings.heading_1, loading: 'lazy' }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="custom-guts-lifestyle__col custom-guts-lifestyle__col--tertiary">
+        {% if section.settings.image_4 != blank %}
+          <div class="custom-guts-lifestyle__media">
+            {{ section.settings.image_4 | image_url: width: 900 | image_tag: alt: section.settings.heading_2, loading: 'lazy' }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.heading_2 != blank %}
+          <h3 class="custom-guts-lifestyle__heading custom-guts-lifestyle__heading--secondary heading-style-h3">
+            {{ section.settings.heading_2 }}
+          </h3>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom Guts Lifestyle",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_1",
+      "label": "Heading 1",
+      "default": "Guts lifestyle"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Column 1 image"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Short supporting paragraph goes here.</p>"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA label",
+      "default": "Contact us"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA URL"
+    },
+    {
+      "type": "select",
+      "id": "cta_variant",
+      "label": "CTA style",
+      "default": "standout-black",
+      "options": [
+        { "value": "primary", "label": "Primary" },
+        { "value": "secondary", "label": "Secondary" },
+        { "value": "standout-black", "label": "Standout black" },
+        { "value": "standout-white", "label": "Standout white" }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Column 2 image (top)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Column 2 image (bottom)"
+    },
+    {
+      "type": "text",
+      "id": "culture_text",
+      "label": "Culture text",
+      "default": "Culture"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_4",
+      "label": "Column 3 image"
+    },
+    {
+      "type": "text",
+      "id": "heading_2",
+      "label": "Heading 2",
+      "default": "Heading"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Guts Lifestyle"
+    }
+  ]
+}
+{% endschema %}

@@ -14,14 +14,14 @@
 {%- endcapture -%}
 
 {%- assign size_values = '' -%}
-{%- if size_index != blank and size_index > 0 -%}
+{%- if size_index != blank and size_index >= 0 -%}
   {%- for variant in variants -%}
     {%- case size_index -%}
-      {%- when 1 -%}
+      {%- when 0 -%}
         {%- assign size_value = variant.option1 -%}
-      {%- when 2 -%}
+      {%- when 1 -%}
         {%- assign size_value = variant.option2 -%}
-      {%- when 3 -%}
+      {%- when 2 -%}
         {%- assign size_value = variant.option3 -%}
     {%- endcase -%}
     {%- if size_value != blank -%}

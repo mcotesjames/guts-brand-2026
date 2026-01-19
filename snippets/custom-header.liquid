@@ -16,6 +16,9 @@
                 aria-expanded="false"
               >
                 <span class="custom-header__link-text">{{ link.title }}</span>
+                <span class="custom-header__dropdown-icon" aria-hidden="true">
+                  {{ 'icon-dropdown.svg' | inline_asset_content }}
+                </span>
               </button>
               <ul class="dropdown-menu" aria-labelledby="HeaderDropdown-{{ section.id }}-{{ forloop.index }}">
                 {% for child_link in link.links %}
@@ -57,15 +60,6 @@
         </a>
       {% endif %}
 
-      {% if section.settings.show_cart %}
-        <a class="custom-header__icon-button" href="{{ routes.cart_url }}" aria-label="Cart">
-          {{ 'icon-cart.svg' | inline_asset_content }}
-          {% if cart.item_count > 0 %}
-            <span class="custom-header__cart-count">{{ cart.item_count }}</span>
-          {% endif %}
-        </a>
-      {% endif %}
-
       {% if section.settings.show_search %}
         <button
           class="custom-header__icon-button"
@@ -77,6 +71,22 @@
         >
           <span class="visually-hidden">Search</span>
           {{ 'icon-search.svg' | inline_asset_content }}
+        </button>
+      {% endif %}
+      {% if section.settings.show_cart %}
+        <button
+          class="custom-header__icon-button"
+          type="button"
+          aria-label="Cart"
+          data-cart-drawer-trigger
+        >
+          {{ 'icon-cart.svg' | inline_asset_content }}
+          <span
+            class="custom-header__cart-count{% if cart.item_count == 0 %} is-hidden{% endif %}"
+            data-cart-count
+          >
+            {{ cart.item_count }}
+          </span>
         </button>
       {% endif %}
       <span class="custom-header__locale"><mark>EN</mark> | FR</span>

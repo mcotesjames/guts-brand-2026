@@ -79,5 +79,82 @@
         "default": 4
       }
     ]
+  },
+  {
+    "name": "Newsletter",
+    "settings": [
+      {
+        "type": "text",
+        "id": "newsletter_title",
+        "label": "Title",
+        "default": "Keep updated"
+      },
+      {
+        "type": "richtext",
+        "id": "newsletter_subtitle",
+        "label": "Subtitle",
+        "default": "<p>Stay connected to our community.</p>"
+      },
+      {
+        "type": "video",
+        "id": "newsletter_bg_video",
+        "label": "Background video"
+      },
+      {
+        "type": "image_picker",
+        "id": "newsletter_bg_poster",
+        "label": "Background poster"
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "footer_menu_upsell",
+        "label": "Upsell menu"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_menu_support",
+        "label": "Support menu"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_menu_contact",
+        "label": "Contact menu"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_menu_legal",
+        "label": "Legal menu"
+      },
+      {
+        "type": "image_picker",
+        "id": "footer_background_image",
+        "label": "Background image"
+      },
+      {
+        "type": "text",
+        "id": "footer_social_instagram",
+        "label": "Instagram URL"
+      },
+      {
+        "type": "text",
+        "id": "footer_social_linkedin",
+        "label": "LinkedIn URL"
+      },
+      {
+        "type": "text",
+        "id": "footer_social_tiktok",
+        "label": "TikTok URL"
+      },
+      {
+        "type": "text",
+        "id": "footer_social_facebook",
+        "label": "Facebook URL"
+      }
+    ]
   }
 ]

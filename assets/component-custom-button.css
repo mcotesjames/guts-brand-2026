@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-xs) var(--space-lg);
+  padding: var(--space-sm) var(--space-xl);
   font-family: var(--font-heading);
   font-size: 16px;
   letter-spacing: 0.08em;
