@@ -122,6 +122,10 @@ mark {
   padding-block: 80px;
 }
 
+.section-padding--lg-bottom {
+  padding-bottom: 80px;
+}
+
 @media (max-width: 768px) {
   .section-padding {
     padding-block: 30px;
@@ -184,4 +188,8 @@ mark {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 24px 24px;
+}
+
+.slick-disabled {
+  display: none!important;
 }

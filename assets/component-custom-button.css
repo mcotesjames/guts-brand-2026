@@ -36,7 +36,7 @@
 }
 
 .custom-button--standout-white {
-  border-color: var(--color-grey-light);
+  border-color: var(--color-grey-dark);
 }
 
 .custom-button--standout-black {
