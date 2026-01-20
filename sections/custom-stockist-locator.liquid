@@ -42,9 +42,8 @@
             style="--custom-select-icon: url('{{ 'icon-dropdown.svg' | asset_url }}');"
           >
             <select class="custom-stockist-locator__select custom-stockist-locator__select--radius" data-stockist-radius>
-              <option value="" selected disabled>Search radius</option>
               <option value="10-mi">10 mi</option>
-              <option value="20-mi">20 mi</option>
+              <option value="20-mi" selected>20 mi</option>
               <option value="50-mi">50 mi</option>
               <option value="10-km">10 km</option>
               <option value="20-km">20 km</option>
@@ -56,8 +55,7 @@
             style="--custom-select-icon: url('{{ 'icon-dropdown.svg' | asset_url }}');"
           >
             <select class="custom-stockist-locator__select custom-stockist-locator__select--type" data-stockist-type>
-              <option value="" selected disabled>Store type</option>
-              <option value="all">All</option>
+              <option value="all" selected>All</option>
               <option value="shop">Shops</option>
               <option value="school">Schools</option>
             </select>
@@ -97,7 +95,7 @@
               <span data-stockist-distance>Distance: —</span>
             </div>
             {% if block.settings.url != blank %}
-              <a class="custom-stockist-locator__cta custom-button custom-button--secondary" href="{{ block.settings.url }}">
+              <a class="custom-stockist-locator__cta custom-button custom-button--primary" href="{{ block.settings.url }}">
                 View store
               </a>
             {% endif %}
