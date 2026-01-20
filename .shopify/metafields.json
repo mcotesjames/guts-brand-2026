@@ -30,6 +30,16 @@
         "name": "file_reference",
         "category": "REFERENCE"
       }
+    },
+    {
+      "key": "variant_images",
+      "namespace": "custom",
+      "name": "Variant Images",
+      "description": "",
+      "type": {
+        "name": "list.file_reference",
+        "category": "REFERENCE"
+      }
     }
   ],
   "shop": []

@@ -16,19 +16,23 @@
           </div>
         {% endif %}
 
-        {% if section.settings.description != blank %}
-          <div class="custom-guts-lifestyle__description">
-            {{ section.settings.description }}
-          </div>
-        {% endif %}
+        {% if section.settings.description != blank or section.settings.cta_label != blank and section.settings.cta_url != blank %}
+          <div class="custom-guts-lifestyle__content">
+            {% if section.settings.description != blank %}
+              <div class="custom-guts-lifestyle__description">
+                {{ section.settings.description }}
+              </div>
+            {% endif %}
 
-        {% if section.settings.cta_label != blank and section.settings.cta_url != blank %}
-          <div class="custom-guts-lifestyle__cta">
-            {% render 'custom-button',
-              label: section.settings.cta_label,
-              url: section.settings.cta_url,
-              variant: section.settings.cta_variant
-            %}
+            {% if section.settings.cta_label != blank and section.settings.cta_url != blank %}
+              <div class="custom-guts-lifestyle__cta">
+                {% render 'custom-button',
+                  label: section.settings.cta_label,
+                  url: section.settings.cta_url,
+                  variant: section.settings.cta_variant
+                %}
+              </div>
+            {% endif %}
           </div>
         {% endif %}
       </div>

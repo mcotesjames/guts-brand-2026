@@ -1,17 +1,15 @@
 .custom-guts-lifestyle {
   background: transparent;
-  --guts-lifestyle-gap: var(--space-3xl);
-  --guts-lifestyle-col-gap: var(--space-3xl);
+  --guts-lifestyle-gap: var(--space-2xl);
+  --guts-lifestyle-col-gap: var(--space-2xl);
   --guts-lifestyle-text-width: 320px;
   --guts-lifestyle-mobile-gap: var(--space-l);
   --guts-lifestyle-mobile-col-gap: var(--space-s);
   --guts-lifestyle-heading-offset: var(--space-xs);
   --guts-lifestyle-cta-offset: var(--space-2xs);
-  padding-right: calc(var(--bs-gutter-x) * .5);
-  padding-left: calc(var(--bs-gutter-x) * .5);
   /* max-width: 1600px; */
-  padding-right: calc(var(--bs-gutter-x) * .5);
-  padding-left: calc(var(--bs-gutter-x) * .5);
+  padding-right: calc(var(--bs-gutter-x) * 0.75);
+  padding-left: calc(var(--bs-gutter-x) * 0.75);
   margin: 0 auto;
   padding-bottom: 100px;
 }
@@ -66,8 +64,14 @@
   margin-top: var(--guts-lifestyle-heading-offset);
 }
 
+.custom-guts-lifestyle__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
 .custom-guts-lifestyle__cta {
-  margin-top: var(--guts-lifestyle-cta-offset);
+  margin-top: 0;
 }
 
 @media (max-width: 768px) {
