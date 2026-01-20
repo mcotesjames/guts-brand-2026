@@ -211,6 +211,12 @@
     const setActiveStore = (store) => {
       stores.forEach((item) => {
         item.card.classList.toggle('is-active', item.id === store.id);
+        const cta = item.card.querySelector('.custom-stockist-locator__cta');
+        if (cta) {
+          const isActive = item.id === store.id;
+          cta.classList.toggle('custom-button--secondary', isActive);
+          cta.classList.toggle('custom-button--primary', !isActive);
+        }
         if (item.marker) {
           item.marker.setIcon(item.id === store.id ? activeIcon : defaultIcon);
         }

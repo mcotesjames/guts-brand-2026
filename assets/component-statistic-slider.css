@@ -9,6 +9,19 @@
   text-align: center;
 }
 
+.statistic-slider .slick-slide {
+  opacity: 0;
+  transition: opacity 400ms ease-in-out;
+}
+
+.statistic-slider .slick-current {
+  opacity: 1;
+}
+
+.statistic-slider.statistic-slider--fading-out .slick-current {
+  opacity: 0;
+}
+
 .statistic-slider::after {
   content: '';
   position: absolute;

@@ -7,7 +7,7 @@
 ></script>
 
 <section
-  class="custom-stockist-locator full-width section-padding--md-top"
+  class="custom-stockist-locator full-width section-padding--md"
   data-marker-default="{{ 'icon-marker.svg' | asset_url }}"
   data-marker-active="{{ 'icon-marker-active.svg' | asset_url }}"
 >
@@ -42,10 +42,7 @@
             style="--custom-select-icon: url('{{ 'icon-dropdown.svg' | asset_url }}');"
           >
             <select class="custom-stockist-locator__select custom-stockist-locator__select--radius" data-stockist-radius>
-              <option value="10-mi">10 mi</option>
-              <option value="20-mi" selected>20 mi</option>
-              <option value="50-mi">50 mi</option>
-              <option value="10-km">10 km</option>
+              <option value="10-km" selected>10 km</option>
               <option value="20-km">20 km</option>
               <option value="50-km">50 km</option>
             </select>

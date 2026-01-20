@@ -1,6 +1,10 @@
 {{ 'component-custom-fullscreen-video.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'component-custom-fullscreen-video.js' | asset_url }}" defer></script>
 
-<section class="custom-fullscreen-video full-width">
+<section
+  class="custom-fullscreen-video full-width{% if section.settings.is_hero %} custom-fullscreen-video--hero{% endif %}"
+  {% if section.settings.is_hero %}data-custom-fullscreen-hero{% endif %}
+>
   <div class="custom-fullscreen-video__media">
     {% if section.settings.video != blank %}
       {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true }}
@@ -26,6 +30,12 @@
 {
   "name": "Custom Fullscreen Video",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "is_hero",
+      "label": "Use as hero animation",
+      "default": false
+    },
     {
       "type": "video",
       "id": "video",

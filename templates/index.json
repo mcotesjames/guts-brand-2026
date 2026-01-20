@@ -18,18 +18,19 @@
       "type": "custom-fullscreen-video",
       "name": "Custom Fullscreen Video",
       "settings": {
+        "is_hero": true,
         "video": "shopify://files/videos/MONTAGE_GUTS_B&W_MOVIE_2025_1.webm",
         "poster": "shopify://shop_images/MONTAGE_GUTS_B_W_MOVIE_2025_1.jpg",
         "show_cta": true,
         "cta_label": "Dive in",
-        "cta_url": ""
+        "cta_url": "#variants"
       }
     },
     "custom_variant_carousel_74hb38": {
       "type": "custom-variant-carousel",
       "name": "Custom Variant Carousel",
       "settings": {
-        "heading": "the jane collection",
+        "heading": "The Jane Collection",
         "product": "jane-helmet-copy",
         "link_text": "> View the Jane Collection"
       }
@@ -37,28 +38,68 @@
     "custom_statistic_slider_pdHi8a": {
       "type": "custom-statistic-slider",
       "blocks": {
-        "statistic_cL44Ai": {
+        "statistic_YbGUtr": {
+          "type": "statistic",
+          "settings": {
+            "stat": "40",
+            "metric": "%",
+            "description": "of all of surf-related injuries involve the head",
+            "source": "XXX"
+          }
+        },
+        "statistic_Y7LKTk": {
+          "type": "statistic",
+          "settings": {
+            "stat": "1",
+            "metric": " million+",
+            "description": "surfers in France, +100% post COVID",
+            "source": "Ministère des Sports via Fédération Française de Surf (2025 data)"
+          }
+        },
+        "statistic_fkkkfN": {
+          "type": "statistic",
+          "settings": {
+            "stat": "35",
+            "metric": " million",
+            "description": "de surfeurs mondiaux (+25%) since 2018",
+            "source": "XXX"
+          }
+        },
+        "statistic_BJnHk8": {
+          "type": "statistic",
+          "settings": {
+            "stat": "70",
+            "metric": "%",
+            "description": "of surfers report at least one head or face injury during their surfing life",
+            "source": "XXX"
+          }
+        },
+        "statistic_fqBJWY": {
           "type": "statistic",
           "settings": {
             "stat": "2,100",
             "metric": "",
-            "description": "from surfing are serious enough to require U.S. emergency care each year.",
-            "source": "Concussions in surfing, surfing today"
+            "description": "surfing head injuries per year in average are severe enough to reach US emergency departments",
+            "source": "XXX"
           }
         },
-        "statistic_h8G8zj": {
+        "statistic_Ax3k3K": {
           "type": "statistic",
           "settings": {
-            "stat": "73",
-            "metric": "%",
-            "description": "of injuries from surfing are serious enough to require U.S. emergency care each year.",
-            "source": "Concussions in surfing, surfing today"
+            "stat": "50",
+            "metric": "%+",
+            "description": "of French Aquitaine Coast surf accidents hit the head",
+            "source": "XXX"
           }
         }
       },
       "block_order": [
-        "statistic_cL44Ai",
-        "statistic_h8G8zj"
+        "statistic_YbGUtr",
+        "statistic_Y7LKTk",
+        "statistic_fkkkfN",
+        "statistic_BJnHk8",
+        "statistic_fqBJWY",
+        "statistic_Ax3k3K"
       ],
       "name": "Statistic Slider",
       "settings": {
@@ -161,6 +202,7 @@
       "type": "custom-fullscreen-video",
       "name": "Custom Fullscreen Video",
       "settings": {
+        "is_hero": false,
         "poster": "shopify://shop_images/guts-lifestyle.jpg",
         "show_cta": false,
         "cta_label": "Dive in",
@@ -268,8 +310,8 @@
             "address": "2nd Floor, 411-413 Sheko Village, Hong Kong island, Hong Kong  5496 7462",
             "phone": "",
             "url": "shopify://products/guts-tote-bag",
-            "latitude": "22.2382787",
-            "longitude": "114.2388337",
+            "latitude": "22.285042",
+            "longitude": "114.2142524",
             "store_type": "school"
           }
         },

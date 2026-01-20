@@ -40,7 +40,7 @@
     <div class="statistic-slider__progress" aria-hidden="true">
       <span class="statistic-slider__progress-bar" data-statistic-slider-progress></span>
     </div>
-    <button
+    {% comment %} <button
       class="statistic-slider__arrow statistic-slider__arrow--prev"
       type="button"
       aria-label="Previous"
@@ -55,7 +55,7 @@
       data-statistic-slider-next
     >
       {{ 'icon-arrow-right.svg' | inline_asset_content }}
-    </button>
+    </button> {% endcomment %}
 
     {% comment %} <div class="custom-variant-carousel__header">
       {% if section.settings.heading != blank %}

@@ -5,7 +5,7 @@
 
 .custom-ambassadors .ambassadors-accordion {
   display: flex;
-  height: 95svh;
+  height: 100svh;
   width: 100%;
 }
 
@@ -118,6 +118,8 @@
   font-size: 16px;
   max-width: 520px;
   margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-secondary);
 }
 
 .custom-ambassadors .ambassadors-accordion__socials {

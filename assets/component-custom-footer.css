@@ -52,10 +52,14 @@
 }
 
 .custom-footer__link {
+  font-size: 13px;
   color: inherit;
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+}
+
+.custom-footer__link h3 {
+  letter-spacing: 0.06rem;
 }
 
 .custom-footer__contact {

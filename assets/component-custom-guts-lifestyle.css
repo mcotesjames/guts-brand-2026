@@ -1,12 +1,19 @@
 .custom-guts-lifestyle {
   background: transparent;
-  --guts-lifestyle-gap: var(--space-xl);
-  --guts-lifestyle-col-gap: var(--space-m);
+  --guts-lifestyle-gap: var(--space-3xl);
+  --guts-lifestyle-col-gap: var(--space-3xl);
   --guts-lifestyle-text-width: 320px;
   --guts-lifestyle-mobile-gap: var(--space-l);
   --guts-lifestyle-mobile-col-gap: var(--space-s);
   --guts-lifestyle-heading-offset: var(--space-xs);
   --guts-lifestyle-cta-offset: var(--space-2xs);
+  padding-right: calc(var(--bs-gutter-x) * .5);
+  padding-left: calc(var(--bs-gutter-x) * .5);
+  /* max-width: 1600px; */
+  padding-right: calc(var(--bs-gutter-x) * .5);
+  padding-left: calc(var(--bs-gutter-x) * .5);
+  margin: 0 auto;
+  padding-bottom: 100px;
 }
 
 .custom-guts-lifestyle__grid {
@@ -20,6 +27,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--guts-lifestyle-col-gap);
+  height: 100%;
 }
 
 .custom-guts-lifestyle__heading {
@@ -28,17 +36,29 @@
 }
 
 .custom-guts-lifestyle__heading--secondary {
-  margin-top: var(--guts-lifestyle-heading-offset);
+  /* margin-top: var(--guts-lifestyle-heading-offset); */
 }
 
 .custom-guts-lifestyle__media img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  object-fit: cover;
 }
 
-.custom-guts-lifestyle__description {
-  max-width: var(--guts-lifestyle-text-width);
+.custom-guts-lifestyle__media {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.custom-guts-lifestyle__reveal {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  transform: translateY(0%);
+  z-index: 1;
+  will-change: transform;
 }
 
 .custom-guts-lifestyle__culture {

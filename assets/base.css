@@ -73,7 +73,7 @@ h4,
 h5,
 .heading-style-h5 {
   font-size: var(--font-size-h5);
-  line-height: 1.1;
+  line-height: 1.3;
 }
 
 @media (max-width: 768px) {

@@ -27,6 +27,7 @@
 .custom-button--standout-white {
   position: relative;
   background-color: transparent;
+  border-width: 2px;
 }
 
 .custom-button--standout-black,
@@ -62,22 +63,22 @@
 
 .custom-button--standout-black::before,
 .custom-button--standout-white::before {
-  top: -1px;
-  right: -1px;
-  border-width: 1px 1px 0 0;
+  top: -2px;
+  right: -2px;
+  border-width: 2px 2px 0 0;
 }
 
 .custom-button--standout-black::after,
 .custom-button--standout-white::after {
-  bottom: -1px;
-  left: -1px;
-  border-width: 0 0 1px 1px;
+  bottom: -2px;
+  left: -2px;
+  border-width: 0 0 2px 2px;
 }
 
 .custom-button--standout-black:hover::before,
 .custom-button--standout-black:hover::after,
 .custom-button--standout-white:hover::before,
 .custom-button--standout-white:hover::after {
-  width: calc(100% + 2px);
-  height: calc(100% + 2px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
 }

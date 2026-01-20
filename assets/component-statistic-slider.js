@@ -3,13 +3,17 @@
     const $root = window.jQuery;
     if (!$root || !root) return;
 
-    const $track = $root(root).find('[data-statistic-slider-carousel]');
+    const $section = $root(root);
+    const $track = $section.find('[data-statistic-slider-carousel]');
     if (!$track.length || $track.data('slick-initialized')) return;
 
-    const $prevArrow = $root(root).find('[data-statistic-slider-prev]');
-    const $nextArrow = $root(root).find('[data-statistic-slider-next]');
-    const $progressBar = $root(root).find('[data-statistic-slider-progress]');
+    const $prevArrow = $section.find('[data-statistic-slider-prev]');
+    const $nextArrow = $section.find('[data-statistic-slider-next]');
+    const $progressBar = $section.find('[data-statistic-slider-progress]');
     const autoplaySpeed = 5000;
+    const fadeDuration = 400;
+    let timer = null;
+    let isAnimating = false;
 
     const startProgress = () => {
       if (!$progressBar.length) return;
@@ -21,24 +25,74 @@
       });
     };
 
-    $track.on('init', () => {
+    const scheduleNext = () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        transitionTo('next');
+      }, autoplaySpeed);
       startProgress();
+    };
+
+    const transitionTo = (direction) => {
+      if (isAnimating) return;
+      isAnimating = true;
+      window.clearTimeout(timer);
+
+      $section.addClass('statistic-slider--fading-out');
+
+      window.setTimeout(() => {
+        if (direction === 'prev') {
+          $track.slick('slickPrev');
+        } else if (direction === 'next') {
+          $track.slick('slickNext');
+        } else {
+          $track.slick('slickGoTo', direction);
+        }
+
+        $section.removeClass('statistic-slider--fading-out');
+        isAnimating = false;
+      }, fadeDuration);
+    };
+
+    $track.on('init', () => {
+      scheduleNext();
     });
 
     $track.on('afterChange', () => {
-      startProgress();
+      scheduleNext();
     });
 
     $track.slick({
       slidesToShow: 1,
       slidesToScroll: 1,
-      arrows: true,
+      arrows: false,
       prevArrow: $prevArrow.length ? $prevArrow : undefined,
       nextArrow: $nextArrow.length ? $nextArrow : undefined,
       infinite: true,
-      autoplay: true,
-      autoplaySpeed,
+      autoplay: false,
+      speed: 0,
+      swipe: false,
+      draggable: false,
+      touchMove: false,
+      waitForAnimate: false,
+      hoverOnFocus: false,
+      pauseOnHover: false
     });
+
+    if ($prevArrow.length) {
+      $prevArrow.on('click', (event) => {
+        event.preventDefault();
+        transitionTo('prev');
+      });
+    }
+
+    if ($nextArrow.length) {
+      $nextArrow.on('click', (event) => {
+        event.preventDefault();
+        transitionTo('next');
+      });
+    }
+
   };
 
   const initAll = (root = document) => {

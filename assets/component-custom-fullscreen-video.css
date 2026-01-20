@@ -6,6 +6,16 @@
   color: var(--color-secondary);
 }
 
+.custom-fullscreen-video--hero {
+  will-change: transform;
+  z-index: 2;
+  margin-bottom: calc(-1 * var(--hero-overlap, 15vh));
+}
+
+.custom-fullscreen-video--hero + * {
+  position: relative;
+}
+
 .custom-fullscreen-video__media,
 .custom-fullscreen-video__media img,
 .custom-fullscreen-video__media video {

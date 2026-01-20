@@ -1,16 +1,18 @@
 {{ 'component-custom-guts-lifestyle.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'component-custom-guts-lifestyle.js' | asset_url }}" defer></script>
 
-<section class="custom-guts-lifestyle section-padding full-width">
-  <div class="container-xl g-5">
+<section class="custom-guts-lifestyle section-padding--md full-width g-5">
+  <div>
     <div class="custom-guts-lifestyle__grid">
       <div class="custom-guts-lifestyle__col custom-guts-lifestyle__col--primary">
         {% if section.settings.heading_1 != blank %}
-          <h2 class="custom-guts-lifestyle__heading heading-style-h2">{{ section.settings.heading_1 }}</h2>
+          <h2 class="custom-guts-lifestyle__heading heading-style-h1">{{ section.settings.heading_1 }}</h2>
         {% endif %}
 
         {% if section.settings.image_1 != blank %}
-          <div class="custom-guts-lifestyle__media">
+          <div class="custom-guts-lifestyle__media" data-guts-lifestyle-reveal>
             {{ section.settings.image_1 | image_url: width: 900 | image_tag: alt: section.settings.heading_1, loading: 'lazy' }}
+            <span class="custom-guts-lifestyle__reveal" aria-hidden="true"></span>
           </div>
         {% endif %}
 
@@ -33,27 +35,30 @@
 
       <div class="custom-guts-lifestyle__col custom-guts-lifestyle__col--secondary">
         {% if section.settings.image_2 != blank %}
-          <div class="custom-guts-lifestyle__media">
+          <div class="custom-guts-lifestyle__media" data-guts-lifestyle-reveal>
             {{ section.settings.image_2 | image_url: width: 900 | image_tag: alt: section.settings.heading_1, loading: 'lazy' }}
+            <span class="custom-guts-lifestyle__reveal" aria-hidden="true"></span>
           </div>
         {% endif %}
 
         {% if section.settings.image_3 != blank %}
-          <div class="custom-guts-lifestyle__media">
+          <div class="custom-guts-lifestyle__media" data-guts-lifestyle-reveal>
             {{ section.settings.image_3 | image_url: width: 900 | image_tag: alt: section.settings.heading_1, loading: 'lazy' }}
+            <span class="custom-guts-lifestyle__reveal" aria-hidden="true"></span>
           </div>
         {% endif %}
       </div>
 
       <div class="custom-guts-lifestyle__col custom-guts-lifestyle__col--tertiary">
         {% if section.settings.image_4 != blank %}
-          <div class="custom-guts-lifestyle__media">
+          <div class="custom-guts-lifestyle__media" data-guts-lifestyle-reveal>
             {{ section.settings.image_4 | image_url: width: 900 | image_tag: alt: section.settings.heading_2, loading: 'lazy' }}
+            <span class="custom-guts-lifestyle__reveal" aria-hidden="true"></span>
           </div>
         {% endif %}
 
         {% if section.settings.heading_2 != blank %}
-          <h3 class="custom-guts-lifestyle__heading custom-guts-lifestyle__heading--secondary heading-style-h3">
+          <h3 class="custom-guts-lifestyle__heading custom-guts-lifestyle__heading--secondary heading-style-h1">
             {{ section.settings.heading_2 }}
           </h3>
         {% endif %}

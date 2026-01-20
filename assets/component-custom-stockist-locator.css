@@ -109,7 +109,7 @@
 
 .custom-stockist-locator__card {
   border: 1px solid var(--color-grey);
-  padding: 16px;
+  padding: var(--space-md);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -122,6 +122,10 @@
 .custom-stockist-locator__card.is-active {
   background: var(--color-primary);
   color: var(--color-secondary);
+}
+
+.custom-stockist-locator__card.is-active .custom-stockist-locator__card-title {
+  color: var(--color-tertiary);
 }
 
 .custom-stockist-locator__card-title {
