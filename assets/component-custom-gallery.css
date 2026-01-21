@@ -1,0 +1,42 @@
+.custom-gallery {
+  overflow: hidden;
+}
+
+.custom-gallery__viewport {
+  position: relative;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.custom-gallery__track {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  cursor: grab;
+  touch-action: pan-y;
+  will-change: transform;
+}
+
+.custom-gallery__track.is-dragging {
+  cursor: grabbing;
+}
+
+.custom-gallery__item {
+  flex: 0 0 auto;
+  height: 100%;
+}
+
+.custom-gallery__media {
+  display: block;
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .custom-gallery__viewport {
+    height: 28vh;
+  }
+}

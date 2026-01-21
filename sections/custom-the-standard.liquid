@@ -1,0 +1,127 @@
+{{ 'component-custom-the-standard.css' | asset_url | stylesheet_tag }}
+
+<section class="custom-the-standard section-padding--md-bottom full-width" id="custom-the-standard-{{ section.id }}">
+  <div class="custom-the-standard__media" aria-hidden="true">
+    {% if section.settings.video != blank %}
+      {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true }}
+    {% elsif section.settings.poster != blank %}
+      {{ section.settings.poster | image_url: width: 2400 | image_tag: alt: section.settings.heading, loading: 'lazy' }}
+    {% endif %}
+  </div>
+
+  <div class="container-xl g-5 d-flex justify-content-end custom-the-standard__content-wrap">
+    <div class="custom-the-standard__content">
+      {% if section.settings.heading != blank %}
+        <h2 class="custom-the-standard__heading heading-style-h3">{{ section.settings.heading }}</h2>
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <div class="custom-the-standard__description">
+          {{ section.settings.description }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.primary_label != blank and section.settings.primary_url != blank
+        or section.settings.secondary_label != blank and section.settings.secondary_url != blank %}
+        <div class="custom-the-standard__actions stacked-actions">
+          {% if section.settings.primary_label != blank and section.settings.primary_url != blank %}
+            {% render 'custom-button',
+              label: section.settings.primary_label,
+              url: section.settings.primary_url,
+              variant: section.settings.primary_variant
+            %}
+          {% endif %}
+
+          {% if section.settings.secondary_label != blank and section.settings.secondary_url != blank %}
+            {% render 'custom-button',
+              label: section.settings.secondary_label,
+              url: section.settings.secondary_url,
+              variant: section.settings.secondary_variant
+            %}
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom The Standard",
+  "settings": [
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Background video"
+    },
+    {
+      "type": "image_picker",
+      "id": "poster",
+      "label": "Poster image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Standard"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Share the product story and key benefits here.</p>"
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Primary button label",
+      "default": "See more details"
+    },
+    {
+      "type": "url",
+      "id": "primary_url",
+      "label": "Primary button link"
+    },
+    {
+      "type": "select",
+      "id": "primary_variant",
+      "label": "Primary button style",
+      "default": "standout-black",
+      "options": [
+        { "value": "primary", "label": "Primary" },
+        { "value": "secondary", "label": "Secondary" },
+        { "value": "standout-black", "label": "Standout black" },
+        { "value": "standout-white", "label": "Standout white" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Secondary button label",
+      "default": "Download the manual"
+    },
+    {
+      "type": "url",
+      "id": "secondary_url",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "select",
+      "id": "secondary_variant",
+      "label": "Secondary button style",
+      "default": "standout-white",
+      "options": [
+        { "value": "primary", "label": "Primary" },
+        { "value": "secondary", "label": "Secondary" },
+        { "value": "standout-black", "label": "Standout black" },
+        { "value": "standout-white", "label": "Standout white" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom The Standard"
+    }
+  ]
+}
+{% endschema %}

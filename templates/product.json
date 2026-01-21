@@ -12,9 +12,330 @@
     "main": {
       "type": "product",
       "settings": {}
+    },
+    "custom_product_hotspot_c7gqwC": {
+      "type": "custom-product-hotspot",
+      "blocks": {
+        "hotspot_3iUttq": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_x": 15,
+            "hotspot_y": 90,
+            "image": "shopify://shop_images/MAGNETIC_BUCKLE_01_BLACK.jpg",
+            "title": "Magnetic buckle",
+            "description": "<p>Magnetic strap closure offering optimal comfort and safety.</p>"
+          }
+        },
+        "hotspot_aUbNzH": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_x": 79,
+            "hotspot_y": 83,
+            "image": "shopify://shop_images/GUTS_MOLETTE_01_SQUARE_B.jpg",
+            "title": "Fit adjustment dial",
+            "description": "<p>A high-quality dial that lets you adjust your helmet with great precision.</p>"
+          }
+        },
+        "hotspot_3Phmap": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_x": 35,
+            "hotspot_y": 70,
+            "title": "Ear openings",
+            "description": "<p>These openings allow the surfer to easily perceive their surrounding sounds.</p>"
+          }
+        },
+        "hotspot_BjhDFc": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_x": 29,
+            "hotspot_y": 50,
+            "title": "Rubber Outline",
+            "description": "<p>Elegant trim running all around the helmet, the signature high-quality mark of Guts.</p>"
+          }
+        },
+        "hotspot_e4hzbq": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_x": 80,
+            "hotspot_y": 38,
+            "title": "ABS Plastic",
+            "description": "<p>A thermoplastic polymer shell, a rigid, lightweight, and highly impact-resistant material.</p>"
+          }
+        },
+        "hotspot_yNiiLw": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_x": 10,
+            "hotspot_y": 28,
+            "title": "Water Drainage",
+            "description": "<p>These vents on the top of the helmet ensure quick water evacuation.</p>"
+          }
+        },
+        "hotspot_8niCLk": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_x": 50,
+            "hotspot_y": 14,
+            "title": "EVA",
+            "description": "<p>A flexible and impact-resistant material with a soft touch, this visor helps prevent water droplets from running into the eyes.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_3iUttq",
+        "hotspot_aUbNzH",
+        "hotspot_3Phmap",
+        "hotspot_BjhDFc",
+        "hotspot_e4hzbq",
+        "hotspot_yNiiLw",
+        "hotspot_8niCLk"
+      ],
+      "name": "Custom Product Hotspot",
+      "settings": {
+        "heading": "THE TECHNOLOGY",
+        "description": "<p>Jane helmet stands out for its exceptional lightness (350gr) and precise fit (perfect fit regulator). Made with next-generation materials, it combines innovation and performance to deliver maximum comfort.<br/><br/>It’s certified to meet the NF EN 1385*standard and features an approved magnetic buckle for added safety and ease of use.</p>",
+        "image": "shopify://shop_images/product-image-hotspot.jpg",
+        "show_cta": false,
+        "cta_label": "Label",
+        "cta_url": ""
+      }
+    },
+    "custom_gallery_ibbwwe": {
+      "type": "custom-gallery",
+      "blocks": {
+        "image_GqQLEJ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Dady_Dimanche_01_copie.jpg",
+            "alt_text": ""
+          }
+        },
+        "image_B7e74W": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/SERGDADY.4L6A4215_16-9_Website_0000.jpg",
+            "alt_text": ""
+          }
+        },
+        "image_rRDt6U": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/SERGDADY.4L6A4027_00000.jpg",
+            "alt_text": ""
+          }
+        },
+        "image_RXjiEn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/SERGDADY.4L6A3095_00000.jpg",
+            "alt_text": ""
+          }
+        },
+        "image_V4BcNb": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Dady_Dimanche_02_copie.jpg",
+            "alt_text": ""
+          }
+        },
+        "image_K4Uh6V": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/SERGDADY.4L6A0182_16-9_00000.jpg",
+            "alt_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_GqQLEJ",
+        "image_B7e74W",
+        "image_rRDt6U",
+        "image_RXjiEn",
+        "image_V4BcNb",
+        "image_K4Uh6V"
+      ],
+      "name": "Custom Gallery",
+      "settings": {}
+    },
+    "custom_the_standard_7bTHj4": {
+      "type": "custom-the-standard",
+      "name": "Custom The Standard",
+      "settings": {
+        "video": "shopify://files/videos/MONTAGE_GUTS_B&W_CASQUE_01_1080_1.webm",
+        "poster": "shopify://shop_images/MONTAGE_GUTS_B_W_CASQUE_01_1080_1.jpg",
+        "heading": "The Standard",
+        "description": "<p>The Guts Jane helmet stands out for its exceptional lightness and precise fit.<br/><br/>Made with next-generation materials, it combines innovation and performance to deliver maximum comfort.<br/><br/>It’s certified to meet the NF EN 1385 standard and features an approved magnetic buckle for added safety and ease of use.</p>",
+        "primary_label": "See more details",
+        "primary_url": "shopify://products/jane-helmet-copy",
+        "primary_variant": "standout-black",
+        "secondary_label": "Download the manual",
+        "secondary_url": "shopify://products/guts-tote-bag",
+        "secondary_variant": "secondary"
+      }
+    },
+    "custom_testimonials_BW8xzp": {
+      "type": "custom-testimonials",
+      "blocks": {
+        "testimonial_FAUnhP": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "name": "Alex Doe",
+            "place": "United Kingdom"
+          }
+        },
+        "testimonial_4QAP49": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "name": "Alex Doe",
+            "place": "United Kingdom"
+          }
+        },
+        "testimonial_TyJ3U6": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Test",
+            "name": "Test",
+            "place": "Test"
+          }
+        },
+        "testimonial_EWFGAC": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Praesent aliquam magna vel magna sodales, in viverra augue egestas. Donec in justo feugiat, laoreet diam nec, faucibus",
+            "name": "Jean-Marc Guts",
+            "place": "France"
+          }
+        },
+        "testimonial_CWLd6F": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Etiam augue lectus, tincidunt vel auctor id, dapibus nec risus.",
+            "name": "Michael Cotes-James",
+            "place": "United Kingdom"
+          }
+        },
+        "testimonial_BcVwBq": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Nullam consequat ultricies maximus.",
+            "name": "Duke Kahanamoku",
+            "place": "Hawaii"
+          }
+        },
+        "testimonial_L4WtRV": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Aenean eget est sed metus fermentum tempor. Maecenas hendrerit convallis mauris, id sagittis urna imperdiet non.",
+            "name": "Kelly Slater",
+            "place": "United Kingdom"
+          }
+        },
+        "testimonial_Ft7zFq": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Mauris magna nisi, faucibus sed placerat eget, sagittis in velit. Quisque mauris erat”",
+            "name": "Xavier reye",
+            "place": "France"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_FAUnhP",
+        "testimonial_4QAP49",
+        "testimonial_TyJ3U6",
+        "testimonial_EWFGAC",
+        "testimonial_CWLd6F",
+        "testimonial_BcVwBq",
+        "testimonial_L4WtRV",
+        "testimonial_Ft7zFq"
+      ],
+      "name": "Custom Testimonials",
+      "settings": {
+        "heading": "What the people say",
+        "animation_duration": 30
+      }
+    },
+    "custom_faq_VTBitq": {
+      "type": "custom-faq",
+      "blocks": {
+        "item_DLiVKc": {
+          "type": "item",
+          "settings": {
+            "question": "Pellentesque venenatis mi et erat consequat, in tincidunt dui varius?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus posuere enim at eleifend. Etiam in diam vitae sem porta vehicula nec eget neque. Nulla at consectetur dui, sed gravida erat. In vestibulum eros vel ligula porta, sit amet mollis.</p>"
+          }
+        },
+        "item_FiKLGf": {
+          "type": "item",
+          "settings": {
+            "question": "What makes this product special?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus posuere enim at eleifend. Etiam in diam vitae sem porta vehicula nec eget neque. Nulla at consectetur dui, sed gravida erat. In vestibulum eros vel ligula porta, sit amet mollis.</p>"
+          }
+        },
+        "item_jgCnNp": {
+          "type": "item",
+          "settings": {
+            "question": "Praesent ultricies est in massa bibendum, quis porttitor nisl suscipit?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus posuere enim at eleifend. Etiam in diam vitae sem porta vehicula nec eget neque. Nulla at consectetur dui, sed gravida erat. In vestibulum eros vel ligula porta, sit amet mollis.</p>"
+          }
+        },
+        "item_e3MNF7": {
+          "type": "item",
+          "settings": {
+            "question": "How do I ensure the perfect fit?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus posuere enim at eleifend. Etiam in diam vitae sem porta vehicula nec eget neque. Nulla at consectetur dui, sed gravida erat. In vestibulum eros vel ligula porta, sit amet mollis.</p>"
+          }
+        },
+        "item_NgbeMq": {
+          "type": "item",
+          "settings": {
+            "question": "Quisque nec imperdiet tellus. Morbi at bibendum ex?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus posuere enim at eleifend. Etiam in diam vitae sem porta vehicula nec eget neque. Nulla at consectetur dui, sed gravida erat. In vestibulum eros vel ligula porta, sit amet mollis.</p>"
+          }
+        },
+        "item_8atAEc": {
+          "type": "item",
+          "settings": {
+            "question": "Praesent ultricies est in massa bibendum, quis porttitor nisl suscipit?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus posuere enim at eleifend. Etiam in diam vitae sem porta vehicula nec eget neque. Nulla at consectetur dui, sed gravida erat. In vestibulum eros vel ligula porta, sit amet mollis.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_DLiVKc",
+        "item_FiKLGf",
+        "item_jgCnNp",
+        "item_e3MNF7",
+        "item_NgbeMq",
+        "item_8atAEc"
+      ],
+      "name": "Custom FAQ",
+      "settings": {
+        "heading": "FAQs"
+      }
+    },
+    "custom_upsell_carousel_yTfHzC": {
+      "type": "custom-upsell-carousel",
+      "name": "Custom Upsell Carousel",
+      "settings": {
+        "heading": "You might also like",
+        "products": [
+          "guts-tote-bag",
+          "jane-helmet-copy"
+        ]
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "custom_product_hotspot_c7gqwC",
+    "custom_gallery_ibbwwe",
+    "custom_the_standard_7bTHj4",
+    "custom_testimonials_BW8xzp",
+    "custom_faq_VTBitq",
+    "custom_upsell_carousel_yTfHzC"
   ]
 }

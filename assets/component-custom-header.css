@@ -53,7 +53,6 @@
   padding: 0;
   font-family: var(--font-heading);
   font-size: 15px;
-  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -136,7 +135,6 @@
 .custom-header__logo-text {
   font-family: var(--font-heading);
   font-size: 20px;
-  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
@@ -150,7 +148,6 @@
 .custom-header__locale {
   font-family: var(--font-heading);
   font-size: 15px;
-  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -183,7 +180,6 @@
   text-decoration: none;
   font-family: var(--font-heading);
   font-size: 13px;
-  letter-spacing: 0.08em;
   text-transform: uppercase;
   display: inline-flex;
   align-items: center;
@@ -252,7 +248,6 @@
   text-transform: uppercase;
   font-family: var(--font-heading);
   font-size: 12px;
-  letter-spacing: 0.08em;
   cursor: pointer;
   border-radius: 0;
 }

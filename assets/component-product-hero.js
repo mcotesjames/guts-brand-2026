@@ -90,7 +90,7 @@
         {
           breakpoint: 900,
           settings: {
-            variableWidth: false,
+            variableWidth: true,
             slidesToShow: 3,
           },
         },

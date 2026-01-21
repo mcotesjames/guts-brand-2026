@@ -1,0 +1,138 @@
+{{ 'component-custom-testimonials.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'component-custom-testimonials.js' | asset_url }}" defer></script>
+
+<section
+  class="custom-testimonials section-padding--md full-width"
+  data-custom-testimonials
+  style="--custom-testimonials-duration: {{ section.settings.animation_duration }}s;"
+>
+  <div class="custom-testimonials__inner">
+    {% if section.settings.heading != blank %}
+      <div class="container-xl text-center">
+        <h2 class="custom-testimonials__heading heading-style-h2">
+          {{ section.settings.heading }}
+        </h2>
+      </div>
+    {% endif %}
+
+    <div class="custom-testimonials__rows">
+      <div class="custom-testimonials__row custom-testimonials__row--top" data-custom-testimonials-row>
+        <div class="custom-testimonials__track">
+          {% for block in section.blocks %}
+            {% assign is_odd = forloop.index | modulo: 2 %}
+            {% if is_odd == 1 %}
+              <article class="custom-testimonials__card" {{ block.shopify_attributes }}>
+                <p class="custom-testimonials__quote heading-style-h5">
+                  &ldquo;{{ block.settings.quote }}&rdquo;
+                </p>
+                <p class="custom-testimonials__meta">
+                  - {{ block.settings.name }}{% if block.settings.place != blank %}, {{ block.settings.place }}{% endif %}
+                </p>
+              </article>
+            {% endif %}
+          {% endfor %}
+          {% for block in section.blocks %}
+            {% assign is_odd = forloop.index | modulo: 2 %}
+            {% if is_odd == 1 %}
+              <article class="custom-testimonials__card custom-testimonials__card--duplicate" aria-hidden="true">
+                <p class="custom-testimonials__quote heading-style-h5">
+                  &ldquo;{{ block.settings.quote }}&rdquo;
+                </p>
+                <p class="custom-testimonials__meta">
+                  - {{ block.settings.name }}{% if block.settings.place != blank %}, {{ block.settings.place }}{% endif %}
+                </p>
+              </article>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="custom-testimonials__row custom-testimonials__row--bottom" data-custom-testimonials-row>
+        <div class="custom-testimonials__track">
+          {% for block in section.blocks %}
+            {% assign is_even = forloop.index | modulo: 2 %}
+            {% if is_even == 0 %}
+              <article class="custom-testimonials__card" {{ block.shopify_attributes }}>
+                <p class="custom-testimonials__quote heading-style-h5">
+                  &ldquo;{{ block.settings.quote }}&rdquo;
+                </p>
+                <p class="custom-testimonials__meta">
+                  - {{ block.settings.name }}{% if block.settings.place != blank %}, {{ block.settings.place }}{% endif %}
+                </p>
+              </article>
+            {% endif %}
+          {% endfor %}
+          {% for block in section.blocks %}
+            {% assign is_even = forloop.index | modulo: 2 %}
+            {% if is_even == 0 %}
+              <article class="custom-testimonials__card custom-testimonials__card--duplicate" aria-hidden="true">
+                <p class="custom-testimonials__quote heading-style-h5">
+                  &ldquo;{{ block.settings.quote }}&rdquo;
+                </p>
+                <p class="custom-testimonials__meta">
+                  - {{ block.settings.name }}{% if block.settings.place != blank %}, {{ block.settings.place }}{% endif %}
+                </p>
+              </article>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What the people say"
+    },
+    {
+      "type": "range",
+      "id": "animation_duration",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "s",
+      "label": "Animation duration",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Alex Doe"
+        },
+        {
+          "type": "text",
+          "id": "place",
+          "label": "Place",
+          "default": "United Kingdom"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Custom Testimonials"
+    }
+  ]
+}
+{% endschema %}

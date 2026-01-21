@@ -1,0 +1,102 @@
+.custom-testimonials {
+  color: var(--color-primary);
+  overflow: hidden;
+  --custom-testimonials-card-width: calc((100vw - (2 * var(--space-md))) / 3);
+}
+
+.custom-testimonials__inner {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.custom-testimonials__rows {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.custom-testimonials__row {
+  overflow: hidden;
+  width: 100%;
+  padding-bottom: 1px;
+}
+
+.custom-testimonials__track {
+  display: flex;
+  gap: var(--space-md);
+  width: max-content;
+  animation: testimonials-scroll-left var(--custom-testimonials-duration, 30s) linear infinite;
+  will-change: transform;
+}
+
+.custom-testimonials__row--top .custom-testimonials__track {
+  animation-name: testimonials-scroll-right;
+}
+
+.custom-testimonials__row:hover .custom-testimonials__track,
+.custom-testimonials__row.is-paused .custom-testimonials__track {
+  animation-play-state: paused;
+}
+
+.custom-testimonials__card {
+  border: 1px solid var(--color-primary);
+  padding: var(--space-lg);
+  width: var(--custom-testimonials-card-width);
+  flex: 0 0 var(--custom-testimonials-card-width);
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.custom-testimonials__quote,
+.custom-testimonials__meta {
+  margin: 0;
+}
+
+.custom-testimonials__meta {
+  font-size: var(--font-size-body);
+}
+
+@keyframes testimonials-scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes testimonials-scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-testimonials {
+    --custom-testimonials-card-width: calc((100vw - var(--space-md)) / 2);
+  }
+}
+
+@media (min-width: 1350px) {
+  .custom-testimonials {
+    --custom-testimonials-card-width: calc((100vw - (3 * var(--space-md))) / 4);
+  }
+}
+
+@media (max-width: 540px) {
+  .custom-testimonials {
+    --custom-testimonials-card-width: clamp(220px, 80vw, 340px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .custom-testimonials__track {
+    animation: none;
+    transform: none;
+  }
+}
