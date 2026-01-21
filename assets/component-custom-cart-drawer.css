@@ -58,7 +58,6 @@
   text-transform: uppercase;
   font-family: var(--font-heading);
   font-size: 12px;
-  letter-spacing: 0.08em;
   cursor: pointer;
 }
 
@@ -135,7 +134,6 @@
   margin-bottom: 16px;
   font-size: 14px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 .custom-cart-drawer__checkout {

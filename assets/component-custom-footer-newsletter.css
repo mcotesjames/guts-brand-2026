@@ -46,7 +46,6 @@
 .custom-footer-newsletter__title {
   margin: 0 0 8px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 .custom-footer-newsletter__subtitle {
@@ -66,7 +65,6 @@
   color: var(--color-primary);
   padding: 16px 18px;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
   font-size: 14px;
   height: 100%;
 }

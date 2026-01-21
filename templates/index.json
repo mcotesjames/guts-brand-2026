@@ -108,6 +108,13 @@
         "description": "<p>Lipsum dolor sit amet, consectetur adipiscing elit. Vivamus velit metus, maximus vel congue in, lobortis at lacus.</p>"
       }
     },
+    "custom_spacer_fHJTwC": {
+      "type": "custom-spacer",
+      "name": "Custom Spacer",
+      "settings": {
+        "size": "large"
+      }
+    },
     "custom_product_hotspot_xkyPGh": {
       "type": "custom-product-hotspot",
       "blocks": {
@@ -370,6 +377,7 @@
     "custom_fullscreen_video_hrTAzP",
     "custom_variant_carousel_74hb38",
     "custom_statistic_slider_pdHi8a",
+    "custom_spacer_fHJTwC",
     "custom_product_hotspot_xkyPGh",
     "custom_fullscreen_video_AKKtPD",
     "custom_collection_carousel_JDFNPD",
