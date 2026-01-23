@@ -1,0 +1,86 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "custom_stockist_locator_findus": {
+      "type": "custom-stockist-locator",
+      "blocks": {
+        "store_g6Jj7n": {
+          "type": "store",
+          "settings": {
+            "name": "Shek O",
+            "address": "2nd Floor, 411-413 Sheko Village, Hong Kong island, Hong Kong  5496 7462",
+            "phone": "",
+            "url": "shopify://products/guts-tote-bag",
+            "latitude": "22.285042",
+            "longitude": "114.2142524",
+            "store_type": "school"
+          }
+        },
+        "store_GNWkKz": {
+          "type": "store",
+          "settings": {
+            "name": "Michael's Shop",
+            "address": "19, French Wier Avenue",
+            "phone": "",
+            "url": "",
+            "latitude": "51.018977",
+            "longitude": "-3.1145075",
+            "store_type": "shop"
+          }
+        },
+        "store_qzMqQ7": {
+          "type": "store",
+          "settings": {
+            "name": "Store name",
+            "address": "190, Boulevard Malesherbes, Église de la Madeleine, Île-de-France, Paris",
+            "phone": "07805445919",
+            "url": "shopify://collections/all",
+            "latitude": "48.8701102",
+            "longitude": "2.3219377",
+            "store_type": "shop"
+          }
+        },
+        "store_ytVqez": {
+          "type": "store",
+          "settings": {
+            "name": "Store name",
+            "address": "53 Belvedere Road, Taunton, Somerset, TA11BU",
+            "phone": "07805445919",
+            "url": "shopify://collections/all",
+            "latitude": "51.0217064",
+            "longitude": "-3.1069846",
+            "store_type": "shop"
+          }
+        }
+      },
+      "block_order": [
+        "store_g6Jj7n",
+        "store_GNWkKz",
+        "store_qzMqQ7",
+        "store_ytVqez"
+      ],
+      "name": "Custom Stockist Locator",
+      "settings": {
+        "heading": "Find GUTS <mark>near you</mark>",
+        "subheading": "<p>Find GUTS products in your area. We are based in France but can be found internationally too.</p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_stockist_locator_findus"
+  ]
+}
