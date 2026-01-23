@@ -1,0 +1,65 @@
+{{ 'component-custom-gallery.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'component-custom-gallery.js' | asset_url }}" defer></script>
+
+<section class="custom-gallery full-width" data-custom-gallery>
+  <div class="custom-gallery__viewport" data-custom-gallery-viewport>
+    <div class="custom-gallery__track" data-custom-gallery-track>
+      {% for block in section.blocks %}
+        <div class="custom-gallery__item" {{ block.shopify_attributes }}>
+          {% if block.type == 'image' and block.settings.image != blank %}
+            {{ block.settings.image | image_url: width: 2400 | image_tag: class: 'custom-gallery__media', loading: 'lazy', alt: block.settings.alt_text }}
+          {% elsif block.type == 'video' and block.settings.video != blank %}
+            {{ block.settings.video | video_tag:
+              class: 'custom-gallery__media',
+              autoplay: true,
+              loop: true,
+              muted: true,
+              playsinline: true
+            }}
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom Gallery",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt text"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Gallery"
+    }
+  ]
+}
+{% endschema %}

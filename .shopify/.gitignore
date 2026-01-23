@@ -1,0 +1,4 @@
+# Ignore the entire .shopify directory
+AGENT_Assets/
+AGENT_SHOPIFY.md
+AGENTS.md

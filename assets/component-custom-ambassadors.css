@@ -1,0 +1,207 @@
+.custom-ambassadors {
+  color: var(--color-secondary);
+  width: 100%;
+}
+
+.custom-ambassadors .ambassadors-accordion {
+  display: flex;
+  height: 100svh;
+  width: 100%;
+}
+
+.custom-ambassadors .ambassadors-accordion__item {
+  position: relative;
+  flex: 1 1 110px;
+  max-width: 110px;
+  overflow: hidden;
+  transition: flex 600ms ease;
+}
+
+.custom-ambassadors .ambassadors-accordion__item.is-active {
+  flex: 6 1 0;
+  max-width: none;
+}
+
+.custom-ambassadors .ambassadors-accordion__media {
+  position: absolute;
+  inset: 0;
+}
+
+.custom-ambassadors .ambassadors-accordion__item::before,
+.custom-ambassadors .ambassadors-accordion__item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  z-index: 1;
+}
+
+.custom-ambassadors .ambassadors-accordion__item::before {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 50%);
+}
+
+.custom-ambassadors .ambassadors-accordion__item::after {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.custom-ambassadors .ambassadors-accordion__item.is-active::before {
+  opacity: 1;
+}
+
+.custom-ambassadors .ambassadors-accordion__item:not(.is-active)::after {
+  opacity: 1;
+}
+
+.custom-ambassadors .ambassadors-accordion__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.custom-ambassadors .ambassadors-accordion__toggle {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.custom-ambassadors .ambassadors-accordion__content {
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+  z-index: 2;
+  max-width: 520px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 400ms ease, transform 400ms ease;
+  margin-top: auto;
+}
+
+.custom-ambassadors .ambassadors-accordion__item.is-active .ambassadors-accordion__content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.custom-ambassadors .ambassadors-accordion__eyebrow {
+  position: absolute;
+  top: 32px;
+  left: 40px;
+  z-index: 2;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.custom-ambassadors .ambassadors-accordion__item.is-active .ambassadors-accordion__eyebrow {
+  opacity: 1;
+}
+
+.custom-ambassadors .ambassadors-accordion__index {
+  color: var(--color-tertiary);
+}
+
+.custom-ambassadors .ambassadors-accordion__name {
+  font-size: clamp(26px, 3vw, 36px);
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+
+.custom-ambassadors .ambassadors-accordion__description {
+  font-size: 16px;
+  max-width: 520px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-secondary);
+}
+
+.custom-ambassadors .ambassadors-accordion__socials {
+  display: flex;
+  gap: 12px;
+}
+
+.custom-ambassadors .ambassadors-accordion__social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: inherit;
+  text-decoration: none;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.custom-ambassadors .ambassadors-accordion__label {
+  position: absolute;
+  right: 16px;
+  bottom: 20px;
+  z-index: 2;
+  transform: rotate(-90deg);
+  transform-origin: right bottom;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 1;
+  transition: opacity 300ms ease;
+}
+
+.custom-ambassadors .ambassadors-accordion__item.is-active .ambassadors-accordion__label {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .custom-ambassadors .ambassadors-accordion {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .custom-ambassadors .ambassadors-accordion__item {
+    flex: none;
+    width: 100%;
+    max-width: none;
+    max-height: 80px;
+    transition: max-height 600ms ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .custom-ambassadors .ambassadors-accordion__item.is-active {
+    max-height: 1000px;
+    min-height: 70vh;
+  }
+
+  .custom-ambassadors .ambassadors-accordion__content {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    padding: 24px;
+    transform: none;
+  }
+
+  .custom-ambassadors .ambassadors-accordion__item.is-active .ambassadors-accordion__content {
+    opacity: 1;
+  }
+
+  .custom-ambassadors .ambassadors-accordion__label {
+    position: absolute;
+    left: 24px;
+    bottom: 16px;
+    transform: none;
+  }
+
+  .custom-ambassadors .ambassadors-accordion__eyebrow {
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 24px 24px 0;
+  }
+}

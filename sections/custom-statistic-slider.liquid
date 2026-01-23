@@ -1,0 +1,193 @@
+{{ 'component-statistic-slider.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'component-statistic-slider.js' | asset_url }}" defer></script>
+
+<section class="statistic-slider full-width" id="statistic-slider">
+    {% if section.settings.video != blank %}
+        {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true }}
+    {% elsif section.settings.poster != blank %}
+        {{ section.settings.poster | image_url: width: 2400 | image_tag: alt: section.settings.heading, loading: 'lazy' }}
+    {% endif %}
+
+    <div class="statistic-slider__track" data-statistic-slider-carousel>
+        {% if section.blocks.size > 0 %}
+            {% for block in section.blocks %}
+                <div {{ block.shopify_attributes }}>
+                    <div class="statistic-slider__stat-container g-5">
+                        <h2 class="statistic-slider__stat">
+                            {{ block.settings.stat }}{% if block.settings.metric != blank %}<span class="statistic-slider__stat-metric heading-style-h1">{{ block.settings.metric }}</span>
+                            {% endif %}
+                        </h2>
+                        <h3 class="statistic-slider__description heading-style-h5">
+                            {{ block.settings.description }}
+                        </h3>
+                        {% if block.settings.source != blank %}
+                            <p class="statistic-slider__source">{{ block.settings.source }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div>
+                <div class="statistic-slider__stat-container">
+                    <h2 class="statistic-slider__stat">{{ section.settings.stat }}</h2>
+                    <h3 class="statistic-slider__description heading-style-h5">
+                        {{ section.settings.description }}
+                    </h3>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    <div class="statistic-slider__progress" aria-hidden="true">
+      <span class="statistic-slider__progress-bar" data-statistic-slider-progress></span>
+    </div>
+    {% comment %} <button
+      class="statistic-slider__arrow statistic-slider__arrow--prev"
+      type="button"
+      aria-label="Previous"
+      data-statistic-slider-prev
+    >
+      {{ 'icon-arrow-left.svg' | inline_asset_content }}
+    </button>
+    <button
+      class="statistic-slider__arrow statistic-slider__arrow--next"
+      type="button"
+      aria-label="Next"
+      data-statistic-slider-next
+    >
+      {{ 'icon-arrow-right.svg' | inline_asset_content }}
+    </button> {% endcomment %}
+
+    {% comment %} <div class="custom-variant-carousel__header">
+      {% if section.settings.heading != blank %}
+        <h2 class="custom-variant-carousel__title">{{ section.settings.heading }}</h2>
+      {% endif %}
+
+      {% if section.settings.product != blank and section.settings.link_text != blank %}
+        <a class="custom-variant-carousel__link" href="{{ section.settings.product.url }}">
+          {{ section.settings.link_text }}
+        </a>
+      {% endif %}
+    </div>
+
+    {% if section.settings.product != blank %}
+      {%- assign color_index = nil -%}
+      {%- assign size_index = nil -%}
+      {%- for option in section.settings.product.options_with_values -%}
+        {%- if option.name == 'Color' -%}
+          {%- assign color_index = forloop.index0 -%}
+        {%- endif -%}
+        {%- if option.name == 'Size' -%}
+          {%- assign size_index = forloop.index0 -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      <div class="custom-variant-carousel__track" data-variant-carousel>
+        {%- if color_index != nil -%}
+          {%- assign color_option = nil -%}
+          {%- for option in section.settings.product.options_with_values -%}
+            {%- if option.name == 'Color' -%}
+              {%- assign color_option = option -%}
+            {%- endif -%}
+          {%- endfor -%}
+          {%- for color_value in color_option.values -%}
+            {%- case color_index -%}
+              {%- when 0 -%}
+                {%- assign color_variants = section.settings.product.variants | where: 'option1', color_value -%}
+              {%- when 1 -%}
+                {%- assign color_variants = section.settings.product.variants | where: 'option2', color_value -%}
+              {%- when 2 -%}
+                {%- assign color_variants = section.settings.product.variants | where: 'option3', color_value -%}
+            {%- endcase -%}
+            <div class="custom-variant-carousel__slide">
+              {% render 'custom-variant-color-card',
+                product: section.settings.product,
+                variants: color_variants,
+                color_value: color_value,
+                color_index: color_index,
+                size_index: size_index
+              %}
+            </div>
+          {%- endfor -%}
+        {%- else -%}
+          <div class="custom-variant-carousel__slide">
+            {% render 'custom-variant-color-card',
+              product: section.settings.product,
+              variants: section.settings.product.variants,
+              color_value: '',
+              color_index: -1,
+              size_index: size_index
+            %}
+          </div>
+        {%- endif -%}
+      </div>
+    {% else %}
+      <p class="custom-variant-carousel__empty">Select a product to display variants.</p>
+    {% endif %} {% endcomment %}
+</section>
+
+{% schema %}
+{
+  "name": "Statistic Slider",
+  "settings": [
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+      "type": "image_picker",
+      "id": "poster",
+      "label": "Poster image"
+    },
+    {
+      "type": "text",
+      "id": "stat",
+      "label": "Statistic",
+      "default": "Statistic"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Lipsum dolor sit amet, consectetur adipiscing elit. Vivamus velit metus, maximus vel congue in, lobortis at lacus.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "statistic",
+      "name": "Statistic",
+      "settings": [
+        {
+          "type": "text",
+          "id": "stat",
+          "label": "Statistic",
+          "default": "43"
+        },
+        {
+          "type": "text",
+          "id": "metric",
+          "label": "Metric",
+          "default": "%"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Short supporting statement."
+        },
+        {
+          "type": "text",
+          "id": "source",
+          "label": "Source"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Statistic Slider"
+    }
+  ]
+}
+{% endschema %}

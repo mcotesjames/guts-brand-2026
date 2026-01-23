@@ -1,0 +1,77 @@
+{{ 'component-custom-collection-carousel.css' | asset_url | stylesheet_tag }}
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+  defer
+></script>
+<script src="{{ 'component-custom-collection-carousel.js' | asset_url }}" defer></script>
+<script src="{{ 'component-custom-quick-add.js' | asset_url }}" defer></script>
+
+<section class="custom-collection-carousel section-padding full-width">
+  <div class="container-xl g-5">
+    <div class="custom-collection-carousel__header">
+      {% if section.settings.heading != blank %}
+        <h2 class="custom-collection-carousel__title heading-style-h3">{{ section.settings.heading }}</h2>
+      {% endif %}
+
+      {% if section.settings.collection != blank and section.settings.link_text != blank %}
+        <a class="custom-collection-carousel__link" href="{{ section.settings.collection.url }}">
+          {{ section.settings.link_text }}
+        </a>
+      {% endif %}
+    </div>
+
+    {% if section.settings.collection != blank %}
+      <div
+        class="custom-collection-carousel__track"
+        data-collection-carousel
+      >
+        {% for product in section.settings.collection.products limit: 12 %}
+          <div class="custom-collection-carousel__slide">
+            {% render 'custom-product-card', product: product %}
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="custom-collection-carousel__empty">Select a collection to display products.</p>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Carousel",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Title",
+      "default": "All Products"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Collection link text",
+      "default": "View all products"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Collection Carousel"
+    }
+  ]
+}
+{% endschema %}

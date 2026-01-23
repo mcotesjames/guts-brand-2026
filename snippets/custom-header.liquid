@@ -1,0 +1,117 @@
+{{ 'component-custom-header.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'component-custom-header.js' | asset_url }}" defer></script>
+
+<header class="custom-header" data-custom-header>
+  <div class="custom-header__inner">
+    <nav class="custom-header__nav" aria-label="Main">
+      <ul class="custom-header__menu">
+        {% for link in section.settings.menu.links %}
+          {% if link.links != blank %}
+            <li class="custom-header__item dropdown">
+              <button
+                class="custom-header__link dropdown-toggle"
+                type="button"
+                id="HeaderDropdown-{{ section.id }}-{{ forloop.index }}"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span class="custom-header__link-text">{{ link.title }}</span>
+                <span class="custom-header__dropdown-icon" aria-hidden="true">
+                  {{ 'icon-dropdown.svg' | inline_asset_content }}
+                </span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="HeaderDropdown-{{ section.id }}-{{ forloop.index }}">
+                {% for child_link in link.links %}
+                  <li>
+                    <a class="dropdown-item" href="{{ child_link.url }}">{{ child_link.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </li>
+          {% else %}
+            <li class="custom-header__item">
+              <a class="custom-header__link" href="{{ link.url }}">
+                <span class="custom-header__link-text">{{ link.title }}</span>
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <div class="custom-header__logo">
+      <a href="{{ routes.root_url }}" class="custom-header__logo-link" aria-label="{{ shop.name }}">
+        {% if section.settings.logo_image != blank %}
+          {%- assign logo_width = section.settings.logo_width | default: 160 -%}
+          {{ section.settings.logo_image | image_url: width: logo_width | image_tag: alt: shop.name, loading: 'lazy' }}
+        {% else %}
+          <span class="custom-header__logo-text">{{ shop.name }}</span>
+        {% endif %}
+      </a>
+    </div>
+
+    <div class="custom-header__actions">
+      {% if section.settings.b2b_label != blank %}
+        <a class="custom-header__b2b" href="{{ section.settings.b2b_url | default: '#' }}">
+          {% if section.settings.b2b_icon != blank %}
+            {{ section.settings.b2b_icon | image_url: width: 32 | image_tag: alt: '', loading: 'lazy', class: 'custom-header__b2b-icon' }}
+          {% endif %}
+          {{ section.settings.b2b_label }}
+        </a>
+      {% endif %}
+
+      {% if section.settings.show_search %}
+        <button
+          class="custom-header__icon-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#HeaderSearch-{{ section.id }}"
+          aria-expanded="false"
+          aria-controls="HeaderSearch-{{ section.id }}"
+        >
+          <span class="visually-hidden">Search</span>
+          {{ 'icon-search.svg' | inline_asset_content }}
+        </button>
+      {% endif %}
+      {% if section.settings.show_cart %}
+        <button
+          class="custom-header__icon-button"
+          type="button"
+          aria-label="Cart"
+          data-cart-drawer-trigger
+        >
+          {{ 'icon-cart.svg' | inline_asset_content }}
+          <span
+            class="custom-header__cart-count{% if cart.item_count == 0 %} is-hidden{% endif %}"
+            data-cart-count
+          >
+            {{ cart.item_count }}
+          </span>
+        </button>
+      {% endif %}
+      <span class="custom-header__locale"><mark>EN</mark> | FR</span>
+      
+    </div>
+    <button class="custom-header__burger" type="button" aria-label="Open menu">
+      <span class="custom-header__burger-line"></span>
+      <span class="custom-header__burger-line"></span>
+      <span class="custom-header__burger-line"></span>
+    </button>
+  </div>
+
+  {% if section.settings.show_search %}
+    <div class="custom-header__search collapse" id="HeaderSearch-{{ section.id }}">
+      <form class="custom-header__search-form" action="{{ routes.search_url }}" method="get" role="search">
+        <label class="visually-hidden" for="HeaderSearchInput-{{ section.id }}">Search</label>
+        <input
+          class="custom-header__search-input"
+          id="HeaderSearchInput-{{ section.id }}"
+          type="search"
+          name="q"
+          placeholder="{{ section.settings.search_placeholder }}"
+        >
+        <button class="custom-header__search-submit" type="submit">Search</button>
+      </form>
+    </div>
+  {% endif %}
+</header>

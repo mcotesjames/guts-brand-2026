@@ -1,0 +1,39 @@
+<section
+  class="{% case section.settings.size %}{% when 'small' %}section-padding--bottom{% when 'medium' %}section-padding--md-bottom{% when 'large' %}section-padding--lg-bottom{% endcase %}"
+  aria-hidden="true"
+>
+  <span class="visually-hidden">Spacer</span>
+</section>
+
+{% schema %}
+{
+  "name": "Spacer",
+  "settings": [
+    {
+      "type": "select",
+      "id": "size",
+      "label": "Spacing size",
+      "default": "medium",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Spacer"
+    }
+  ]
+}
+{% endschema %}

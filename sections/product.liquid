@@ -1,0 +1,230 @@
+{% comment %}
+  This section is used in the product template to render product page with
+  media, content, and add-to-cart form.
+
+  https://shopify.dev/docs/storefronts/themes/architecture/templates/product
+{% endcomment %}
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
+{{ 'component-product-hero.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'component-product-hero.js' | asset_url }}" defer></script>
+
+<section class="product-hero full-width section-padding--md" data-product-hero>
+  <div class="product-hero__carousel">
+    <div class="product-hero__carousel-main">
+      <div class="product-hero__track" data-product-hero-track>
+      {% assign has_variant_images = false %}
+      {% assign color_option = nil %}
+      {% for option in product.options_with_values %}
+        {% assign option_name = option.name | downcase %}
+        {% if option_name contains 'color' or option_name contains 'colour' %}
+          {% assign color_option = option %}
+        {% endif %}
+      {% endfor %}
+
+      {% for variant in product.variants %}
+        {% assign variant_images = variant.metafields.custom.variant_images.value %}
+        {% if variant_images != blank %}
+          {% assign has_variant_images = true %}
+        {% endif %}
+      {% endfor %}
+
+      {% if has_variant_images and color_option != nil %}
+        {% assign color_index = nil %}
+        {% for option in product.options_with_values %}
+          {% assign option_name = option.name | downcase %}
+          {% if option_name contains 'color' or option_name contains 'colour' %}
+            {% assign color_index = forloop.index0 %}
+          {% endif %}
+        {% endfor %}
+        {% for color_value in color_option.values %}
+          {% assign color_variant = nil %}
+          {% for variant in product.variants %}
+            {% if variant.options[color_index] == color_value %}
+              {% assign color_variant = variant %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          {% if color_variant != nil %}
+            {% assign variant_images = color_variant.metafields.custom.variant_images.value %}
+            {% if variant_images != blank %}
+              {% for image in variant_images %}
+                <div class="product-hero__slide" data-color="{{ color_value | downcase }}">
+                  {{ image | image_url: width: 1600 | image_tag: alt: image.alt, loading: 'lazy' }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      {% elsif has_variant_images %}
+        {% for variant in product.variants %}
+          {% assign variant_images = variant.metafields.custom.variant_images.value %}
+          {% if variant_images != blank %}
+            {% for image in variant_images %}
+              <div class="product-hero__slide">
+                {{ image | image_url: width: 1600 | image_tag: alt: image.alt, loading: 'lazy' }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        {% for image in product.images %}
+          <div class="product-hero__slide">
+            {{ image | image_url: width: 1600 | image_tag: alt: image.alt, loading: 'lazy' }}
+          </div>
+        {% endfor %}
+      {% endif %}
+      </div>
+
+      <button class="product-hero__arrow product-hero__arrow--prev" type="button" data-product-hero-prev aria-label="Previous">
+        {{ 'icon-arrow-left.svg' | inline_asset_content }}
+      </button>
+      <button class="product-hero__arrow product-hero__arrow--next" type="button" data-product-hero-next aria-label="Next">
+        {{ 'icon-arrow-right.svg' | inline_asset_content }}
+      </button>
+    </div>
+
+    <div class="product-hero__thumbs" data-product-hero-thumbs>
+      {% if has_variant_images and color_option != nil %}
+        {% for color_value in color_option.values %}
+          {% assign color_variant = nil %}
+          {% for variant in product.variants %}
+            {% if variant.options[color_index] == color_value %}
+              {% assign color_variant = variant %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          {% if color_variant != nil %}
+            {% assign variant_images = color_variant.metafields.custom.variant_images.value %}
+            {% if variant_images != blank %}
+              {% for image in variant_images %}
+                <div class="product-hero__thumb" data-color="{{ color_value | downcase }}">
+                  {{ image | image_url: width: 200 | image_tag: alt: image.alt, loading: 'lazy' }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      {% elsif has_variant_images %}
+        {% for variant in product.variants %}
+          {% assign variant_images = variant.metafields.custom.variant_images.value %}
+          {% if variant_images != blank %}
+            {% for image in variant_images %}
+              <div class="product-hero__thumb">
+                {{ image | image_url: width: 200 | image_tag: alt: image.alt, loading: 'lazy' }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        {% for image in product.images %}
+          <div class="product-hero__thumb">
+            {{ image | image_url: width: 200 | image_tag: alt: image.alt, loading: 'lazy' }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="product-hero__details g-5" aria-label="Product details">
+    <div class="product-hero__details-placeholder">
+      {% form 'product', product, class: 'product-hero__form', data-product-hero-form: '' %}
+        {% assign current_variant = product.selected_or_first_available_variant %}
+        <div class="product-hero__card-header">
+          <h1 class="product-hero__title heading-style-h2">{{ product.title }}</h1>
+          <div class="product-hero__price">{{ product.price | money }}</div>
+        </div>
+
+        <div class="product-hero__divider" aria-hidden="true"></div>
+
+        <div class="product-hero__options">
+          {% for option in product.options_with_values %}
+            {% assign option_name = option.name | downcase %}
+            {% if option_name contains 'color' or option_name contains 'colour' or option_name contains 'size' %}
+              <div class="product-hero__option" data-option-name="{{ option.name }}" data-option-index="{{ forloop.index0 }}">
+                <div class="product-hero__option-label">
+                  {{ option.name }}:
+                  <span class="product-hero__option-value" data-option-value-display="{{ option.name }}">
+                    {{ current_variant.options[forloop.index0] }}
+                  </span>
+                </div>
+                <div class="product-hero__option-values">
+                  {% for value in option.values %}
+                    {% assign is_active = false %}
+                    {% if current_variant.options[forloop.parentloop.index0] == value %}
+                      {% assign is_active = true %}
+                    {% endif %}
+                    <button
+                      class="product-hero__option-button{% if is_active %} is-active{% endif %}"
+                      type="button"
+                      data-option-value="{{ value }}"
+                      aria-pressed="{% if is_active %}true{% else %}false{% endif %}"
+                      {% if option_name contains 'color' or option_name contains 'colour' %}
+                        style="--swatch-color: {{ value | downcase }};"
+                      {% endif %}
+                    >
+                      {% if option_name contains 'color' or option_name contains 'colour' %}
+                        <span class="product-hero__swatch" aria-hidden="true"></span>
+                      {% else %}
+                        {{ value }}
+                      {% endif %}
+                    </button>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <div class="product-hero__description">
+          {{ product.description }}
+        </div>
+
+        <div class="product-hero__actions">
+          <div class="product-hero__qty" data-product-hero-qty>
+            <button class="product-hero__qty-btn" type="button" data-qty-change="-1">-</button>
+            <input class="product-hero__qty-input" type="number" name="quantity" min="1" value="1" inputmode="numeric">
+            <button class="product-hero__qty-btn" type="button" data-qty-change="1">+</button>
+          </div>
+          <button class="product-hero__add-to-cart" type="submit">Add to cart</button>
+        </div>
+
+        <div class="product-hero__links">
+          <a class="product-hero__link" href="#">Product Specs</a>
+          <a class="product-hero__link" href="#">Size guide</a>
+          <a class="product-hero__link" href="#">Shipping &amp; Returns</a>
+        </div>
+
+        <input
+          type="hidden"
+          name="id"
+          value="{{ current_variant.id }}"
+          data-product-hero-variant
+        >
+      {% endform %}
+    </div>
+  </div>
+
+  <script type="application/json" data-product-hero-variants>
+    {{ product.variants | json }}
+  </script>
+</section>
+
+{% schema %}
+{
+  "name": "t:general.product",
+  "settings": [],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}
