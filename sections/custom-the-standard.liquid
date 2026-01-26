@@ -1,6 +1,6 @@
 {{ 'component-custom-the-standard.css' | asset_url | stylesheet_tag }}
 
-<section class="custom-the-standard section-padding--md-bottom full-width" id="custom-the-standard-{{ section.id }}">
+<section class="custom-the-standard section-margin--md-bottom full-width" id="custom-the-standard-{{ section.id }}">
   <div class="custom-the-standard__media" aria-hidden="true">
     {% if section.settings.video != blank %}
       {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true }}
@@ -9,7 +9,7 @@
     {% endif %}
   </div>
 
-  <div class="container-xl g-5 d-flex justify-content-end custom-the-standard__content-wrap">
+  <div class="g-4 d-flex justify-content-end custom-the-standard__content-wrap">
     <div class="custom-the-standard__content">
       {% if section.settings.heading != blank %}
         <h2 class="custom-the-standard__heading heading-style-h3">{{ section.settings.heading }}</h2>

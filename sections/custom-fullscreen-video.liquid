@@ -2,8 +2,9 @@
 <script src="{{ 'component-custom-fullscreen-video.js' | asset_url }}" defer></script>
 
 <section
-  class="custom-fullscreen-video full-width{% if section.settings.is_hero %} custom-fullscreen-video--hero{% endif %}"
+  class="custom-fullscreen-video full-width{% if section.settings.is_hero %} custom-fullscreen-video--hero is-light{% endif %}"
   {% if section.settings.is_hero %}data-custom-fullscreen-hero{% endif %}
+  style="--custom-fullscreen-video-mobile-height: {{ section.settings.mobile_height_svh }}svh;"
 >
   <div class="custom-fullscreen-video__media">
     {% if section.settings.video != blank %}
@@ -51,6 +52,15 @@
       "id": "show_cta",
       "label": "Show CTA",
       "default": true
+    },
+    {
+      "type": "range",
+      "id": "mobile_height_svh",
+      "label": "Mobile height (svh)",
+      "min": 60,
+      "max": 140,
+      "step": 5,
+      "default": 100
     },
     {
       "type": "text",

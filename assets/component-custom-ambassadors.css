@@ -5,7 +5,7 @@
 
 .custom-ambassadors .ambassadors-accordion {
   display: flex;
-  height: 100svh;
+  height: 90svh;
   width: 100%;
 }
 
@@ -124,20 +124,23 @@
 
 .custom-ambassadors .ambassadors-accordion__socials {
   display: flex;
-  gap: 12px;
+  gap: 18px;
 }
 
 .custom-ambassadors .ambassadors-accordion__social {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  color: inherit;
+  width: 18px;
+  height: 18px;
+  color: var(--color-secondary);
   text-decoration: none;
   border-radius: 999px;
   font-size: 12px;
+}
+
+.custom-ambassadors .ambassadors-accordion__social svg path {
+  fill: var(--color-secondary);
 }
 
 .custom-ambassadors .ambassadors-accordion__label {

@@ -48,7 +48,7 @@
 
           {% if block.settings.instagram_url != blank
             or block.settings.tiktok_url != blank
-            or block.settings.linkedin_url != blank
+            or block.settings.facebook_url != blank
             or block.settings.youtube_url != blank
           %}
             <div class="ambassadors-accordion__socials">
@@ -60,7 +60,7 @@
                   rel="noopener"
                   aria-label="Instagram"
                 >
-                  <span class="ambassadors-accordion__social-label">IG</span>
+                  {{ 'icon-social-instagram.svg' | inline_asset_content }}
                 </a>
               {% endif %}
               {% if block.settings.tiktok_url != blank %}
@@ -71,20 +71,10 @@
                   rel="noopener"
                   aria-label="TikTok"
                 >
-                  <span class="ambassadors-accordion__social-label">TT</span>
+                  {{ 'icon-social-tiktok.svg' | inline_asset_content }}
                 </a>
               {% endif %}
-              {% if block.settings.linkedin_url != blank %}
-                <a
-                  class="ambassadors-accordion__social"
-                  href="{{ block.settings.linkedin_url }}"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="LinkedIn"
-                >
-                  <span class="ambassadors-accordion__social-label">IN</span>
-                </a>
-              {% endif %}
+
               {% if block.settings.youtube_url != blank %}
                 <a
                   class="ambassadors-accordion__social"
@@ -93,7 +83,19 @@
                   rel="noopener"
                   aria-label="YouTube"
                 >
-                  <span class="ambassadors-accordion__social-label">YT</span>
+                  {{ 'icon-social-youtube.svg' | inline_asset_content }}
+                </a>
+              {% endif %}
+
+              {% if block.settings.facebook_url != blank %}
+                <a
+                  class="ambassadors-accordion__social"
+                  href="{{ block.settings.facebook_url }}"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Facebook"
+                >
+                  {{ 'icon-social-facebook.svg' | inline_asset_content }}
                 </a>
               {% endif %}
             </div>
@@ -162,8 +164,8 @@
         },
         {
           "type": "url",
-          "id": "linkedin_url",
-          "label": "LinkedIn URL"
+          "id": "facebook_url",
+          "label": "Facebook URL"
         },
         {
           "type": "url",

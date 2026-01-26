@@ -36,11 +36,12 @@
 
   const addToCart = async (variantId) => {
     if (!variantId) return;
-    await fetch('/cart/add.js', {
+    const response = await fetch('/cart/add.js', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id: variantId, quantity: 1 })
     });
+    return response.ok;
   };
 
   const updateCartCount = async () => {
@@ -182,13 +183,23 @@
         const variantId = getVariantId(variants, colorIndex, sizeIndex, selected);
         console.log(variants, colorIndex, sizeIndex, selected);
         // console.log(variantId);
-        await addToCart(variantId);
-        const cart = await updateCartCount();
-        if (cart) {
-          document.dispatchEvent(new CustomEvent('cart:updated', { detail: { cart } }));
+        const added = await addToCart(variantId);
+        if (added) {
+          const cart = await updateCartCount();
+          if (cart) {
+            document.dispatchEvent(new CustomEvent('cart:updated', { detail: { cart } }));
+          }
+          quickAdd.classList.add('is-ready');
+          quickAdd.classList.remove('is-awaiting-size');
+          const original = quickAdd.dataset.originalLabel || quickAdd.innerHTML;
+          quickAdd.dataset.originalLabel = original;
+          quickAdd.textContent = 'ADDED';
+          quickAdd.classList.add('is-added');
+          window.setTimeout(() => {
+            quickAdd.innerHTML = original;
+            quickAdd.classList.remove('is-added');
+          }, 3000);
         }
-        quickAdd.classList.add('is-ready');
-        quickAdd.classList.remove('is-awaiting-size');
       });
     }
 

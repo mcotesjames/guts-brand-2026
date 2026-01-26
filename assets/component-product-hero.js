@@ -45,6 +45,12 @@
       return child ? child.dataset.color : '';
     };
 
+    const relinkNav = () => {
+      $track.slick('setOption', 'asNavFor', $thumbs, true);
+      $thumbs.slick('setOption', 'asNavFor', $track, true);
+      $thumbs.slick('setOption', 'focusOnSelect', true, true);
+    };
+
     const applyFilter = (colorValue) => {
       const currentIndex = $track.hasClass('slick-initialized')
         ? $track.slick('slickCurrentSlide')
@@ -52,14 +58,20 @@
       $track.slick('slickUnfilter');
       $thumbs.slick('slickUnfilter');
 
-      if (!colorValue) return;
+      if (!colorValue) {
+        relinkNav();
+        return;
+      }
 
       const normalized = String(colorValue).trim().toLowerCase();
       const matching = $track.find('.product-hero__slide').filter((_, el) => {
         return String(getSlideColor(el)).trim() === normalized;
       });
 
-      if (!matching.length) return;
+      if (!matching.length) {
+        relinkNav();
+        return;
+      }
 
       $track.slick('slickFilter', (_, el) => {
         return String(getSlideColor(el)).trim() === normalized;
@@ -71,10 +83,13 @@
       const nextIndex = Math.max(0, Math.min(currentIndex, maxIndex));
       $track.slick('setOption', 'initialSlide', nextIndex, true);
       $thumbs.slick('setOption', 'initialSlide', nextIndex, true);
+      $track.slick('refresh');
+      $thumbs.slick('refresh');
       $track.slick('slickGoTo', nextIndex, true);
       $thumbs.slick('slickGoTo', nextIndex, true);
       $track.slick('setPosition');
       $thumbs.slick('setPosition');
+      relinkNav();
     };
 
     $thumbs.slick({
@@ -163,6 +178,7 @@
     }
 
     if (form) {
+      const submitButton = form.querySelector('.product-hero__add-to-cart');
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
         const variantId = $variantInput.val();
@@ -178,6 +194,16 @@
         if (!cartResponse.ok) return;
         const cart = await cartResponse.json();
         document.dispatchEvent(new CustomEvent('cart:updated', { detail: { cart } }));
+        if (submitButton) {
+          const original = submitButton.dataset.originalLabel || submitButton.textContent;
+          submitButton.dataset.originalLabel = original;
+          submitButton.textContent = 'ADDED';
+          submitButton.classList.add('is-added');
+          window.setTimeout(() => {
+            submitButton.textContent = original;
+            submitButton.classList.remove('is-added');
+          }, 3000);
+        }
       });
     }
 

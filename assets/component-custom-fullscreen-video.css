@@ -9,7 +9,7 @@
 .custom-fullscreen-video--hero {
   will-change: transform;
   z-index: 2;
-  margin-bottom: calc(-1 * var(--hero-overlap, 15vh));
+  /* margin-bottom: calc(-1 * var(--hero-overlap, 15vh)); */
 }
 
 .custom-fullscreen-video--hero + * {
@@ -45,4 +45,10 @@
   bottom: 15%;
   transform: translateX(-50%);
   z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .custom-fullscreen-video {
+    min-height: var(--custom-fullscreen-video-mobile-height, 100svh);
+  }
 }
