@@ -221,7 +221,7 @@
       "name": "Custom Collection Carousel",
       "settings": {
         "heading": "All products",
-        "collection": "the-jane-collection",
+        "collection": "helmets",
         "link_text": "> View all products"
       }
     },
