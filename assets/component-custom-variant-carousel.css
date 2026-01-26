@@ -1,3 +1,8 @@
+.custom-variant-carousel {
+  position: relative;
+  overflow: hidden;
+}
+
 .custom-variant-carousel__header {
   display: flex;
   flex-direction: column;
@@ -20,11 +25,11 @@
 }
 
 .custom-variant-carousel__track {
-  margin: 0 -12px;
+  /* margin: 0 -12px; */
 }
 
 .custom-variant-carousel__slide {
-  padding: 0 12px;
+  padding: 0;
 }
 
 .custom-variant-carousel__empty {
@@ -121,6 +126,18 @@
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+.custom-product-card__quick-add.is-added {
+  width: auto;
+  padding: 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+}
+
+.custom-product-card__quick-add.is-added .custom-product-card__icon {
+  display: none;
+}
+
 .custom-product-card__quick-add.is-ready,
 .custom-product-card__quick-add.is-awaiting-size {
   background: var(--color-primary);
@@ -169,6 +186,13 @@
   height: 18px;
 }
 
+.custom-product-card__icon--plus svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  flex: 0 0 18px;
+}
+
 .custom-product-card__sizes .slick-track {
   display: flex;
   gap: 8px;
@@ -181,22 +205,47 @@
 .custom-variant-carousel .slick-dots li button:before,
 .custom-variant-carousel .slick-prev:before,
 .custom-variant-carousel .slick-next:before {
-  color: var(--color-primary);
+  display: none;
 }
 
-.custom-variant-carousel .slick-prev,
-.custom-variant-carousel .slick-next {
-  width: 40px;
+.custom-variant-carousel .custom-variant-carousel__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
   height: 40px;
   z-index: 1;
 }
 
-.custom-variant-carousel .slick-prev {
-  left: 0;
+.custom-variant-carousel .custom-variant-carousel__arrow svg {
+  height: 100%;
 }
 
-.custom-variant-carousel .slick-next {
-  right: 0;
+.custom-variant-carousel .custom-variant-carousel__arrow svg path {
+  stroke: var(--color-primary);
+}
+
+.custom-variant-carousel .custom-variant-carousel__arrow--prev {
+  left: 5%;
+}
+
+.custom-variant-carousel .custom-variant-carousel__arrow--next {
+  right: 5%;
+}
+
+@media (max-width: 768px) {
+  .custom-variant-carousel .custom-variant-carousel__arrow {
+    height: 30px;
+  }
+
+  .custom-variant-carousel .custom-variant-carousel__arrow--prev {
+    left: 0%;
+  }
+
+  .custom-variant-carousel .custom-variant-carousel__arrow--next {
+    right: 0%;
+  }
 }
 
 .custom-variant-carousel .slick-dots {

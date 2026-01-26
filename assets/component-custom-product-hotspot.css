@@ -138,7 +138,7 @@
 .custom-product-hotspot__card.is-active {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  /* gap: 12px; */
 }
 
 .custom-product-hotspot__line.is-active {
@@ -167,8 +167,9 @@
 
 .custom-product-hotspot__card-image {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
+  aspect-ratio: 4/3;
 }
 
 .custom-product-hotspot__card-title {

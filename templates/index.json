@@ -22,6 +22,7 @@
         "video": "shopify://files/videos/MONTAGE_GUTS_B&W_MOVIE_2025_1.webm",
         "poster": "shopify://shop_images/MONTAGE_GUTS_B_W_MOVIE_2025_1.jpg",
         "show_cta": true,
+        "mobile_height_svh": 100,
         "cta_label": "Dive in",
         "cta_url": "#variants"
       }
@@ -212,6 +213,7 @@
         "is_hero": false,
         "poster": "shopify://shop_images/guts-lifestyle.jpg",
         "show_cta": false,
+        "mobile_height_svh": 60,
         "cta_label": "Dive in",
         "cta_url": ""
       }
@@ -307,6 +309,13 @@
       "name": "Ambassadors Accordion",
       "settings": {}
     },
+    "custom_spacer_nJhjiK": {
+      "type": "custom-spacer",
+      "name": "Custom Spacer",
+      "settings": {
+        "size": "medium"
+      }
+    },
     "custom_stockist_locator_9TALP9": {
       "type": "custom-stockist-locator",
       "blocks": {
@@ -383,6 +392,7 @@
     "custom_collection_carousel_JDFNPD",
     "custom_guts_lifestyle_LwKVhT",
     "custom_ambassadors_DMJBxn",
+    "custom_spacer_nJhjiK",
     "custom_stockist_locator_9TALP9"
   ]
 }

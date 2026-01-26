@@ -1,3 +1,8 @@
+.custom-collection-carousel {
+  position: relative;
+  overflow: hidden;
+}
+
 .custom-collection-carousel__header {
   display: flex;
   flex-direction: column;
@@ -20,11 +25,11 @@
 }
 
 .custom-collection-carousel__track {
-  margin: 0 -12px;
+  /* margin: 0 -12px; */
 }
 
 .custom-collection-carousel__slide {
-  padding: 0 12px;
+  padding: 0;
 }
 
 .custom-collection-carousel__empty {
@@ -72,6 +77,9 @@
 }
 
 .custom-product-card__title {
+  text-decoration: none;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
   margin: 0;
   font-size: 16px;
   text-transform: uppercase;
@@ -143,6 +151,18 @@
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+.custom-product-card__quick-add.is-added {
+  width: auto;
+  padding: 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+}
+
+.custom-product-card__quick-add.is-added .custom-product-card__icon {
+  display: none;
+}
+
 .custom-product-card__quick-add.is-ready,
 .custom-product-card__quick-add.is-awaiting-size {
   background: var(--color-primary);
@@ -191,25 +211,57 @@
   height: 18px;
 }
 
+.custom-product-card__icon--plus svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  flex: 0 0 18px;
+}
+
 .custom-collection-carousel .slick-dots li button:before,
 .custom-collection-carousel .slick-prev:before,
 .custom-collection-carousel .slick-next:before {
-  color: var(--color-primary);
+  display: none;
 }
 
-.custom-collection-carousel .slick-prev,
-.custom-collection-carousel .slick-next {
-  width: 40px;
+.custom-collection-carousel .custom-collection-carousel__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
   height: 40px;
   z-index: 1;
 }
 
-.custom-collection-carousel .slick-prev {
-  left: 0;
+.custom-collection-carousel .custom-collection-carousel__arrow svg {
+  height: 100%;
 }
 
-.custom-collection-carousel .slick-next {
-  right: 0;
+.custom-collection-carousel .custom-collection-carousel__arrow svg path {
+  stroke: var(--color-tertiary);
+}
+
+.custom-collection-carousel .custom-collection-carousel__arrow--prev {
+  left: 5%;
+}
+
+.custom-collection-carousel .custom-collection-carousel__arrow--next {
+  right: 5%;
+}
+
+@media (max-width: 768px) {
+  .custom-collection-carousel .custom-collection-carousel__arrow {
+    height: 30px;
+  }
+
+  .custom-collection-carousel .custom-collection-carousel__arrow--prev {
+    left: 0%;
+  }
+
+  .custom-collection-carousel .custom-collection-carousel__arrow--next {
+    right: 0%;
+  }
 }
 
 .custom-collection-carousel .slick-track {

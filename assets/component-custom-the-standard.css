@@ -6,7 +6,7 @@
 .custom-the-standard__media {
   position: absolute;
   inset: 0 auto 0 0;
-  width: 75vw;
+  width: 85vw;
   overflow: hidden;
 }
 
@@ -21,6 +21,8 @@
 .custom-the-standard__content-wrap {
   position: relative;
   z-index: 1;
+  padding-right: calc(var(--bs-gutter-x) * .5);
+  padding-left: calc(var(--bs-gutter-x) * .5);
 }
 
 .custom-the-standard__content {

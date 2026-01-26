@@ -1,3 +1,12 @@
+.custom-stockist-locator {
+  padding-right: calc(var(--bs-gutter-x) * .5);
+  padding-left: calc(var(--bs-gutter-x) * .5);
+}
+
+.custom-stockist-locator--find-us {
+  padding-top: calc(var(--header-height) + 40px);
+}
+
 .custom-stockist-locator__header {
   text-align: center;
   margin-bottom: var(--space-3xl);
@@ -153,8 +162,8 @@
 
 @media (min-width: 901px) {
   .custom-stockist-locator__map {
-    width: calc(100% + (50vw - 50%));
-    margin-right: calc(50% - 50vw);
+    width: calc(100% + calc(var(--bs-gutter-x) * .5));
+    /* margin-right: calc(50% - 50vw); */
   }
 }
 
@@ -172,13 +181,30 @@
   }
 
   .custom-stockist-locator__controls .custom-input {
+    width: 100%;
+  }
+
+  .custom-stockist-locator__controls .custom-input {
     grid-column: 1 / -1;
   }
 
   .custom-stockist-locator__selects {
     position: static;
     transform: none;
-    display: contents;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+    width: 100%;
+    grid-column: 1 / -1;
+  }
+
+  .custom-stockist-locator__select-wrap {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .custom-stockist-locator__input.custom-input__field {
+    width: 100%;
   }
 
   .custom-stockist-locator__input,
@@ -192,11 +218,13 @@
     height: auto;
     aspect-ratio: 1 / 1;
     min-width: 0;
+    z-index: 0;
   }
 
   .custom-stockist-locator__list {
     order: 2;
-    max-height: none;
+    max-height: 500px;
+    overflow-y: auto;
   }
 
   .custom-stockist-locator__select {
@@ -204,10 +232,10 @@
   }
 
   .custom-stockist-locator__select--radius {
-    border-left: 1px solid var(--color-grey);
+    border-left: 1px solid var(--color-primary);
   }
 
   .custom-stockist-locator__select--type {
-    border-left: 1px solid var(--color-grey);
+    border-left: none;
   }
 }

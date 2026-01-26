@@ -1,0 +1,181 @@
+{{ 'component-custom-contact-form.css' | asset_url | stylesheet_tag }}
+
+<section class="custom-contact full-width section-padding--md-bottom" id="custom-contact-{{ section.id }}">
+  <div class="container-xl g-4">
+    <div class="custom-contact__layout">
+      <div class="custom-contact__media">
+        {% if section.settings.image != blank %}
+          {{ section.settings.image | image_url: width: 2000 | image_tag: alt: section.settings.heading, loading: 'lazy' }}
+        {% else %}
+          <div class="custom-contact__media-placeholder" role="img" aria-label="Contact image placeholder"></div>
+        {% endif %}
+      </div>
+
+      <div class="custom-contact__panel">
+        <div class="custom-contact__content">
+          <div class="custom-contact__header">
+            {% if section.settings.heading != blank %}
+              <h2 class="custom-contact__heading heading-style-h2">{{ section.settings.heading }}</h2>
+            {% endif %}
+
+            {% if section.settings.description != blank %}
+              <div class="custom-contact__description">{{ section.settings.description }}</div>
+            {% endif %}
+          </div>
+
+          {% form 'contact' %}
+            {% if form.posted_successfully? %}
+              <div class="custom-contact__success" role="status">
+                {{ section.settings.success_message }}
+              </div>
+            {% endif %}
+
+            {% if form.errors %}
+              <div class="custom-contact__errors" role="alert">
+                {{ form.errors | default_errors }}
+              </div>
+            {% endif %}
+
+            <div class="custom-contact__fields">
+              <div class="custom-input custom-contact__field">
+                <label class="custom-input__label" for="ContactReason-{{ section.id }}">Reason for enquiry</label>
+                <select
+                  class="custom-input__field custom-contact__select"
+                  id="ContactReason-{{ section.id }}"
+                  name="contact[reason]"
+                  style="--custom-select-icon: url('{{ 'icon-dropdown.svg' | asset_url }}');"
+                  required
+                >
+                  <option value="" disabled selected>{{ section.settings.reason_placeholder }}</option>
+                  {% assign reasons = section.settings.reasons |  split: '<br/>' %}
+                  
+                  {% for reason in reasons %}
+                    {% assign trimmed_reason = reason | strip_html %}
+                    {% if trimmed_reason != blank %}
+                      <option value="{{ trimmed_reason }}">{{ trimmed_reason }}</option>
+                    {% endif %}
+                  {% endfor %}
+                </select>
+              </div>
+
+              <div class="custom-contact__row">
+                <div class="custom-input custom-contact__field">
+                  <label class="custom-input__label" for="ContactFirstName-{{ section.id }}">Firstname</label>
+                  <input
+                    class="custom-input__field"
+                    type="text"
+                    id="ContactFirstName-{{ section.id }}"
+                    name="contact[first_name]"
+                    autocomplete="given-name"
+                  >
+                </div>
+
+                <div class="custom-input custom-contact__field">
+                  <label class="custom-input__label" for="ContactLastName-{{ section.id }}">Lastname</label>
+                  <input
+                    class="custom-input__field"
+                    type="text"
+                    id="ContactLastName-{{ section.id }}"
+                    name="contact[last_name]"
+                    autocomplete="family-name"
+                  >
+                </div>
+              </div>
+
+              <div class="custom-input custom-contact__field">
+                <label class="custom-input__label" for="ContactEmail-{{ section.id }}">Email</label>
+                <input
+                  class="custom-input__field"
+                  type="email"
+                  id="ContactEmail-{{ section.id }}"
+                  name="contact[email]"
+                  autocomplete="email"
+                  required
+                >
+              </div>
+
+              <div class="custom-input custom-contact__field">
+                <label class="custom-input__label" for="ContactMessage-{{ section.id }}">Message</label>
+                <textarea
+                  class="custom-input__field custom-contact__textarea"
+                  id="ContactMessage-{{ section.id }}"
+                  name="contact[body]"
+                  rows="6"
+                  required
+                ></textarea>
+              </div>
+            </div>
+
+            <button class="custom-button custom-button--standout-black custom-button--fw" type="submit">
+              {% if form.posted_successfully? %}
+                {{ section.settings.success_button_label }}
+              {% else %}
+                {{ section.settings.submit_label }}
+              {% endif %}
+            </button>
+          {% endform %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom Contact Form",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Contact us"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>If you'd like to get in touch, please send us a message below.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "reasons",
+      "label": "Reason options (one per line)",
+      "default": "<p>General enquiry/nOrder support/nWholesale/nPress</p>"
+    },
+    {
+      "type": "text",
+      "id": "reason_placeholder",
+      "label": "Reason placeholder",
+      "default": "Select enquiry"
+    },
+    {
+      "type": "text",
+      "id": "submit_label",
+      "label": "Submit button label",
+      "default": "Submit"
+    },
+    {
+      "type": "text",
+      "id": "success_button_label",
+      "label": "Success button label",
+      "default": "Message sent"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Thanks for reaching out. We'll respond as soon as possible."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Contact Form"
+    }
+  ]
+}
+{% endschema %}

@@ -7,12 +7,12 @@
 ></script>
 
 <section
-  class="custom-stockist-locator full-width section-padding--md-top"
+  class="custom-stockist-locator full-width g-4 {% if template == 'page.find-us' %} custom-stockist-locator--find-us{% endif %}"
   data-marker-default="{{ 'icon-marker.svg' | asset_url }}"
   data-marker-active="{{ 'icon-marker-active.svg' | asset_url }}"
 >
-  <div class="container-xl g-5">
-    <div class="custom-stockist-locator__header">
+
+<div class="custom-stockist-locator__header">
       {% if section.settings.heading != blank %}
         <h2 class="custom-stockist-locator__heading heading-style-h2">{{ section.settings.heading }}</h2>
       {% endif %}
@@ -53,8 +53,8 @@
           >
             <select class="custom-stockist-locator__select custom-stockist-locator__select--type" data-stockist-type>
               <option value="all" selected>All</option>
-              <option value="shop">Shops</option>
-              <option value="school">Schools</option>
+              <option value="Shop">Shops</option>
+              <option value="School">Schools</option>
             </select>
           </div>
         </div>
@@ -63,46 +63,87 @@
 
     <div class="custom-stockist-locator__body" data-stockist-section>
       <div class="custom-stockist-locator__list" data-stockist-list>
-        {% for block in section.blocks %}
-          {% assign store_type = block.settings.store_type %}
-          {% if block.settings.is_school %}
-            {% assign store_type = 'school' %}
-          {% endif %}
-          <article
-            class="custom-stockist-locator__card"
-            data-stockist-card
-            data-store-id="{{ block.id }}"
-            data-store-name="{{ block.settings.name | escape }}"
-            data-store-address="{{ block.settings.address | strip_newlines | escape }}"
-            data-store-phone="{{ block.settings.phone | escape }}"
-            data-store-url="{{ block.settings.url }}"
-            data-store-lat="{{ block.settings.latitude }}"
-            data-store-lng="{{ block.settings.longitude }}"
-            data-store-type="{{ store_type }}"
-            {{ block.shopify_attributes }}
-          >
-            <h3 class="custom-stockist-locator__card-title heading-style-h5">{{ block.settings.name }}</h3>
-            <div class="custom-stockist-locator__card-detail">
-              {{ block.settings.address | newline_to_br }}
-            </div>
-            {% if block.settings.phone != blank %}
-              <div class="custom-stockist-locator__card-detail">{{ block.settings.phone }}</div>
+        <div class="custom-stockist-locator__empty" data-stockist-empty hidden>
+          <p>Sorry, there are no GUTS stockist in your area. Get in contact with us below</p>
+          <a class="custom-button custom-button--standout-black" href="/pages/contact">Contact us</a>
+        </div>
+        {% assign stockist_entries = shop.metaobjects.stockist.values %}
+        {% if stockist_entries != blank %}
+          {% for stockist in stockist_entries %}
+            {% assign store_type = stockist.store_type | default: 'shop' %}
+            <article
+              class="custom-stockist-locator__card"
+              data-stockist-card
+              data-store-id="{{ stockist.id }}"
+              data-store-name="{{ stockist.name | escape }}"
+              data-store-address="{{ stockist.address | strip_newlines | escape }}"
+              data-store-phone="{{ stockist.phone | escape }}"
+              data-store-url="{{ stockist.url }}"
+              data-store-lat="{{ stockist.latitude }}"
+              data-store-lng="{{ stockist.longitude }}"
+              data-store-type='{{ store_type }}'
+            >
+              <h3 class="custom-stockist-locator__card-title heading-style-h5">{{ stockist.name }}</h3>
+              <div class="custom-stockist-locator__card-detail">
+                {{ stockist.address | newline_to_br }}
+              </div>
+              {% if stockist.phone_number != blank %}
+                <div class="custom-stockist-locator__card-detail">{{ stockist.phone_number }}</div>
+              {% endif %}
+              {% if stockist.email != blank %}
+                <div class="custom-stockist-locator__card-detail">{{ stockist.email }}</div>
+              {% endif %}
+              <div class="custom-stockist-locator__card-detail">
+                <span data-stockist-distance>Distance: —</span>
+              </div>
+              {% if stockist.url != blank %}
+                <a class="custom-stockist-locator__cta custom-button custom-button--primary" href="{{ stockist.url }}">
+                  View store
+                </a>
+              {% endif %}
+            </article>
+          {% endfor %}
+        {% else %}
+          {% for block in section.blocks %}
+            {% assign store_type = block.settings.store_type %}
+            {% if block.settings.is_school %}
+              {% assign store_type = 'school' %}
             {% endif %}
-            <div class="custom-stockist-locator__card-detail">
-              <span data-stockist-distance>Distance: —</span>
-            </div>
-            {% if block.settings.url != blank %}
-              <a class="custom-stockist-locator__cta custom-button custom-button--primary" href="{{ block.settings.url }}">
-                View store
-              </a>
-            {% endif %}
-          </article>
-        {% endfor %}
+            <article
+              class="custom-stockist-locator__card"
+              data-stockist-card
+              data-store-id="{{ block.id }}"
+              data-store-name="{{ block.settings.name | escape }}"
+              data-store-address="{{ block.settings.address | strip_newlines | escape }}"
+              data-store-phone="{{ block.settings.phone | escape }}"
+              data-store-url="{{ block.settings.url }}"
+              data-store-lat="{{ block.settings.latitude }}"
+              data-store-lng="{{ block.settings.longitude }}"
+              data-store-type="{{ store_type }}"
+              {{ block.shopify_attributes }}
+            >
+              <h3 class="custom-stockist-locator__card-title heading-style-h5">{{ block.settings.name }}</h3>
+              <div class="custom-stockist-locator__card-detail">
+                {{ block.settings.address | newline_to_br }}
+              </div>
+              {% if block.settings.phone != blank %}
+                <div class="custom-stockist-locator__card-detail">{{ block.settings.phone }}</div>
+              {% endif %}
+              <div class="custom-stockist-locator__card-detail">
+                <span data-stockist-distance>Distance: —</span>
+              </div>
+              {% if block.settings.url != blank %}
+                <a class="custom-stockist-locator__cta custom-button custom-button--primary" href="{{ block.settings.url }}">
+                  View store
+                </a>
+              {% endif %}
+            </article>
+          {% endfor %}
+        {% endif %}
       </div>
 
       <div class="custom-stockist-locator__map" data-stockist-map></div>
     </div>
-  </div>
 </section>
 
 {% schema %}

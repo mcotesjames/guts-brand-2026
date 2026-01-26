@@ -16,8 +16,8 @@
 <script src="{{ 'component-custom-quick-add.js' | asset_url }}" defer></script>
 
 <section class="custom-variant-carousel section-padding full-width" id="variants">
-  <div class="container-xl g-5">
-    <div class="custom-variant-carousel__header">
+  <div class="">
+    <div class="custom-variant-carousel__header container-xl g-4">
       {% if section.settings.heading != blank %}
         <h2 class="custom-variant-carousel__title heading-style-h3">{{ section.settings.heading }}</h2>
       {% endif %}
@@ -41,7 +41,7 @@
         {%- endif -%}
       {%- endfor -%}
 
-      <div class="custom-variant-carousel__track" data-variant-carousel>
+      <div class="container-xl g-0 custom-variant-carousel__track" data-variant-carousel>
         {%- if color_index != nil -%}
           {%- assign color_option = nil -%}
           {%- for option in section.settings.product.options_with_values -%}
@@ -80,6 +80,22 @@
           </div>
         {%- endif -%}
       </div>
+      <button
+        class="custom-variant-carousel__arrow custom-variant-carousel__arrow--prev"
+        type="button"
+        aria-label="Previous"
+        data-variant-carousel-prev
+      >
+        {{ 'icon-arrow-left.svg' | inline_asset_content }}
+      </button>
+      <button
+        class="custom-variant-carousel__arrow custom-variant-carousel__arrow--next"
+        type="button"
+        aria-label="Next"
+        data-variant-carousel-next
+      >
+        {{ 'icon-arrow-right.svg' | inline_asset_content }}
+      </button>
     {% else %}
       <p class="custom-variant-carousel__empty">Select a product to display variants.</p>
     {% endif %}

@@ -18,6 +18,26 @@
         "name": "file_reference",
         "category": "REFERENCE"
       }
+    },
+    {
+      "key": "product_testimonials",
+      "namespace": "custom",
+      "name": "Product Testimonials",
+      "description": "",
+      "type": {
+        "name": "metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "testimonials",
+      "namespace": "custom",
+      "name": "Testimonials",
+      "description": "",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
     }
   ],
   "variant": [

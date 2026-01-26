@@ -1,43 +1,40 @@
-{% comment %}
-  This section is used in the collection template to render collection page
-  listing all products within a collection.
+{{ 'component-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-custom-collection-carousel.css' | asset_url | stylesheet_tag }}
 
-  https://shopify.dev/docs/storefronts/themes/architecture/templates/collection
-{% endcomment %}
+<section class="collection-grid section-padding--lg-bottom">
+  <div class="container-xl g-4">
+    <h1 class="collection-grid__title heading-style-h2">{{ collection.title }}</h1>
 
-<h1>{{ collection.title }}</h1>
+    <div class="collection-grid__products">
+      {% paginate collection.products by 20 %}
+        {% for product in collection.products %}
+          <article class="collection-grid__card custom-product-card">
+            {% if product.featured_image %}
+              {% render 'image',
+                class: 'custom-product-card__image',
+                image: product.featured_image,
+                url: product.url,
+                width: 600,
+                height: 600,
+                crop: 'center'
+              %}
+            {% endif %}
+            <div class="custom-product-card__details">
+              <div class="custom-product-card__info">
+                <a class="custom-product-card__title" href="{{ product.url }}">
+                {{ product.title | escape }}
+                </a>
+                <div class="custom-product-card__price">{{ product.price | money }}</div>
+              </div>
+            </div>
+          </article>
+        {% endfor %}
 
-<div class="collection-products">
-  {% paginate collection.products by 20 %}
-    {% for product in collection.products %}
-      <div class="collection-product">
-        {% if product.featured_image %}
-          {% render 'image',
-            class: 'collection-product__image',
-            image: product.featured_image,
-            url: product.url,
-            width: 400,
-            height: 400,
-            crop: 'center'
-          %}
-        {% endif %}
-        <div class="collection-product__content">
-          <p>{{ product.title | escape | link_to: product.url }}</p>
-          <p>{{ product.price | money }}</p>
-        </div>
-      </div>
-    {% endfor %}
-
-    {{ paginate | default_pagination }}
-  {% endpaginate %}
-</div>
-
-{% stylesheet %}
-  .collection-products {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-  }
-{% endstylesheet %}
+        {{ paginate | default_pagination }}
+      {% endpaginate %}
+    </div>
+  </div>
+</section>
 
 {% schema %}
 {

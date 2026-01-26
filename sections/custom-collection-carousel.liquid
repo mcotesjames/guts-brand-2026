@@ -16,8 +16,8 @@
 <script src="{{ 'component-custom-quick-add.js' | asset_url }}" defer></script>
 
 <section class="custom-collection-carousel section-padding full-width">
-  <div class="container-xl g-5">
-    <div class="custom-collection-carousel__header">
+  <div class="">
+    <div class="custom-collection-carousel__header container-xl g-4">
       {% if section.settings.heading != blank %}
         <h2 class="custom-collection-carousel__title heading-style-h3">{{ section.settings.heading }}</h2>
       {% endif %}
@@ -31,7 +31,7 @@
 
     {% if section.settings.collection != blank %}
       <div
-        class="custom-collection-carousel__track"
+        class="container-xl g-0 custom-collection-carousel__track"
         data-collection-carousel
       >
         {% for product in section.settings.collection.products limit: 12 %}
@@ -40,6 +40,22 @@
           </div>
         {% endfor %}
       </div>
+      <button
+        class="custom-collection-carousel__arrow custom-collection-carousel__arrow--prev"
+        type="button"
+        aria-label="Previous"
+        data-collection-carousel-prev
+      >
+        {{ 'icon-arrow-left.svg' | inline_asset_content }}
+      </button>
+      <button
+        class="custom-collection-carousel__arrow custom-collection-carousel__arrow--next"
+        type="button"
+        aria-label="Next"
+        data-collection-carousel-next
+      >
+        {{ 'icon-arrow-right.svg' | inline_asset_content }}
+      </button>
     {% else %}
       <p class="custom-collection-carousel__empty">Select a collection to display products.</p>
     {% endif %}

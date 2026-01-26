@@ -58,13 +58,45 @@
       {% if color_option != nil %}
         <div class="custom-product-card__swatches" role="radiogroup" aria-label="Color">
           {% for value in color_option.values %}
+            {%- assign swatch_hex = '' -%}
+            {%- assign swatch_hex_secondary = '' -%}
+            {%- for variant in product.variants -%}
+              {%- if swatch_hex == blank and swatch_hex_secondary == blank -%}
+                {%- case color_index -%}
+                  {%- when 0 -%}
+                    {%- if variant.option1 == value -%}
+                      {%- assign swatch_list = variant.metafields.custom.color_swatches.value | default: variant.metafields.custom.color_swatches -%}
+                      {%- if swatch_list != blank -%}
+                        {%- assign swatch_hex = swatch_list[0] | strip -%}
+                        {%- assign swatch_hex_secondary = swatch_list[1] | strip -%}
+                      {%- endif -%}
+                    {%- endif -%}
+                  {%- when 1 -%}
+                    {%- if variant.option2 == value -%}
+                      {%- assign swatch_list = variant.metafields.custom.color_swatches.value | default: variant.metafields.custom.color_swatches -%}
+                      {%- if swatch_list != blank -%}
+                        {%- assign swatch_hex = swatch_list[0] | strip -%}
+                        {%- assign swatch_hex_secondary = swatch_list[1] | strip -%}
+                      {%- endif -%}
+                    {%- endif -%}
+                  {%- when 2 -%}
+                    {%- if variant.option3 == value -%}
+                      {%- assign swatch_list = variant.metafields.custom.color_swatches.value | default: variant.metafields.custom.color_swatches -%}
+                      {%- if swatch_list != blank -%}
+                        {%- assign swatch_hex = swatch_list[0] | strip -%}
+                        {%- assign swatch_hex_secondary = swatch_list[1] | strip -%}
+                      {%- endif -%}
+                    {%- endif -%}
+                {%- endcase -%}
+              {%- endif -%}
+            {%- endfor -%}
             <button
               class="custom-product-card__swatch"
               type="button"
               data-color-value="{{ value }}"
               aria-label="{{ value }}"
               aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
-              style="background-color: {{ value | downcase }};"
+              style="{% if swatch_hex != blank and swatch_hex_secondary != blank %}background-image: linear-gradient(135deg, {{ swatch_hex }} 0 50%, {{ swatch_hex_secondary }} 50% 100%);{% else %}background-color: {% if swatch_hex != blank %}{{ swatch_hex }}{% else %}{{ value | downcase }}{% endif %};{% endif %}"
             ></button>
           {% endfor %}
         </div>

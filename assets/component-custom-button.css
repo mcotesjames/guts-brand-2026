@@ -11,6 +11,10 @@
   border: 1px solid transparent;
 }
 
+.custom-button--fw {
+  width: 100%;
+}
+
 .custom-button--primary {
   background-color: var(--color-primary);
   color: var(--color-secondary);
