@@ -9,20 +9,27 @@
  */
 {
   "current": {
-    "color_scheme": "scheme-1",
     "newsletter_bg_video": "shopify://files/videos/286278_medium.webm",
     "footer_menu_upsell": "upsell-menu",
     "footer_menu_support": "support_menu",
     "footer_menu_contact": "contact",
     "footer_menu_legal": "legal",
     "footer_background_image": "shopify://shop_images/guts-white-vector.svg",
-    "content_for_index": [],
+    "color_scheme": "scheme-1",
     "color_schemes": {
       "scheme-1": {
         "settings": {
           "background": "#FFFFFF",
           "text": "#000000"
         }
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "9513407616245537438": {
+        "type": "shopify://apps/sami-wholesale/blocks/app-embed-block/799b9db0-2c2b-4b20-8675-98acd123fbb2",
+        "disabled": false,
+        "settings": {}
       }
     }
   }
