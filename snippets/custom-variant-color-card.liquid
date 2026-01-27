@@ -64,8 +64,18 @@
   <div class="custom-product-card__details">
     <div class="custom-product-card__info">
       <h3 class="custom-product-card__title">{{ product.title }}</h3>
-      <div class="price custom-product-card__price">
+      <div class="custom-product-card__price">
         {{ primary_variant.price | money }}
+      </div>
+
+      <div class="price price--large price--on-sale price--show-badge">
+      <div class="price__container">
+        <div class="price__regular">
+          <span class="price-item">
+            {{ primary_variant.price | money }}
+          </span>
+        </div>
+      </div>
       </div>
 
       {% if size_values.size > 0 %}
