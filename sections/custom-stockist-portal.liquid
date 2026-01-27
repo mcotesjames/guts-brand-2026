@@ -1,0 +1,229 @@
+{{ 'component-custom-stockist-portal.css' | asset_url | stylesheet_tag }}
+
+<section class="custom-stockist-portal full-width">
+  <div class="custom-stockist-portal__media">
+    {% if section.settings.background_video != blank %}
+      {{ section.settings.background_video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true }}
+    {% elsif section.settings.background_image != blank %}
+      {{ section.settings.background_image | image_url: width: 2400 | image_tag: alt: section.settings.heading, loading: 'lazy' }}
+    {% else %}
+      <div class="custom-stockist-portal__placeholder" role="img" aria-label="Stockist portal background"></div>
+    {% endif %}
+  </div>
+
+  <div class="custom-stockist-portal__panel-wrapper">
+    <div class="custom-stockist-portal__panel">
+      <div class="custom-stockist-portal__tabs" role="tablist">
+        <button
+          class="custom-stockist-portal__tab is-active"
+          type="button"
+          role="tab"
+          id="StockistLoginTab-{{ section.id }}"
+          aria-controls="StockistLogin-{{ section.id }}"
+          aria-selected="true"
+          data-bs-toggle="tab"
+          data-bs-target="#StockistLogin-{{ section.id }}"
+        >
+          {{ section.settings.login_tab_label }}
+        </button>
+        <button
+          class="custom-stockist-portal__tab"
+          type="button"
+          role="tab"
+          id="StockistSignupTab-{{ section.id }}"
+          aria-controls="StockistSignup-{{ section.id }}"
+          aria-selected="false"
+          data-bs-toggle="tab"
+          data-bs-target="#StockistSignup-{{ section.id }}"
+        >
+          {{ section.settings.signup_tab_label }}
+        </button>
+      </div>
+
+      <div class="tab-content">
+        <div
+          class="tab-pane fade show active"
+          id="StockistLogin-{{ section.id }}"
+          role="tabpanel"
+          aria-labelledby="StockistLoginTab-{{ section.id }}"
+        >
+          <h1 class="custom-stockist-portal__title">{{ section.settings.heading }}</h1>
+          <p class="custom-stockist-portal__subtitle">{{ section.settings.login_subtitle }}</p>
+
+          <form class="custom-stockist-portal__form" action="#" method="post">
+            <div class="custom-input">
+              <label class="custom-input__label" for="StockistLoginEmail-{{ section.id }}">Username</label>
+              <input
+                class="custom-input__field"
+                id="StockistLoginEmail-{{ section.id }}"
+                type="email"
+                name="email"
+                placeholder="Username"
+              >
+            </div>
+            <div class="custom-input">
+              <label class="custom-input__label" for="StockistLoginPassword-{{ section.id }}">Password</label>
+              <input
+                class="custom-input__field"
+                id="StockistLoginPassword-{{ section.id }}"
+                type="password"
+                name="password"
+                placeholder="Password"
+              >
+            </div>
+            <button class="custom-stockist-portal__button" type="submit">
+              {{ section.settings.login_button_label }}
+            </button>
+            <a class="custom-stockist-portal__link" href="{{ section.settings.forgot_password_url }}">
+              {{ section.settings.forgot_password_label }}
+            </a>
+          </form>
+        </div>
+
+        <div
+          class="tab-pane fade"
+          id="StockistSignup-{{ section.id }}"
+          role="tabpanel"
+          aria-labelledby="StockistSignupTab-{{ section.id }}"
+        >
+          <h1 class="custom-stockist-portal__title">{{ section.settings.heading }}</h1>
+          <p class="custom-stockist-portal__subtitle">{{ section.settings.signup_subtitle }}</p>
+
+          <form class="custom-stockist-portal__form" action="#" method="post">
+            <div class="custom-stockist-portal__row">
+              <div class="custom-input">
+                <label class="custom-input__label" for="StockistSignupFirstName-{{ section.id }}">Firstname</label>
+                <input
+                  class="custom-input__field"
+                  id="StockistSignupFirstName-{{ section.id }}"
+                  type="text"
+                  name="first_name"
+                  placeholder="Firstname"
+                >
+              </div>
+              <div class="custom-input">
+                <label class="custom-input__label" for="StockistSignupLastName-{{ section.id }}">Lastname</label>
+                <input
+                  class="custom-input__field"
+                  id="StockistSignupLastName-{{ section.id }}"
+                  type="text"
+                  name="last_name"
+                  placeholder="Lastname"
+                >
+              </div>
+            </div>
+            <div class="custom-input">
+              <label class="custom-input__label" for="StockistSignupEmail-{{ section.id }}">Email Address</label>
+              <input
+                class="custom-input__field"
+                id="StockistSignupEmail-{{ section.id }}"
+                type="email"
+                name="email"
+                placeholder="Email Address"
+              >
+            </div>
+            <div class="custom-input">
+              <label class="custom-input__label" for="StockistSignupCompany-{{ section.id }}">Company Name</label>
+              <input
+                class="custom-input__field"
+                id="StockistSignupCompany-{{ section.id }}"
+                type="text"
+                name="company"
+                placeholder="Company Name"
+              >
+            </div>
+            <div class="custom-input">
+              <label class="custom-input__label" for="StockistSignupMessage-{{ section.id }}">Message</label>
+              <textarea
+                class="custom-input__field custom-stockist-portal__textarea"
+                id="StockistSignupMessage-{{ section.id }}"
+                name="message"
+                placeholder="Message"
+                rows="4"
+              ></textarea>
+            </div>
+            <button class="custom-stockist-portal__button" type="submit">
+              {{ section.settings.signup_button_label }}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom Stockist Portal",
+  "settings": [
+    {
+      "type": "video",
+      "id": "background_video",
+      "label": "Background video"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Stockist Portal"
+    },
+    {
+      "type": "text",
+      "id": "login_tab_label",
+      "label": "Login tab label",
+      "default": "Login"
+    },
+    {
+      "type": "text",
+      "id": "signup_tab_label",
+      "label": "Sign up tab label",
+      "default": "Sign up"
+    },
+    {
+      "type": "textarea",
+      "id": "login_subtitle",
+      "label": "Login subtitle",
+      "default": "Sign in to receive exclusive stockist prices."
+    },
+    {
+      "type": "textarea",
+      "id": "signup_subtitle",
+      "label": "Sign up subtitle",
+      "default": "Please fill out the form below to request access for stockist discounts."
+    },
+    {
+      "type": "text",
+      "id": "login_button_label",
+      "label": "Login button label",
+      "default": "Log in"
+    },
+    {
+      "type": "text",
+      "id": "signup_button_label",
+      "label": "Sign up button label",
+      "default": "Sign up"
+    },
+    {
+      "type": "text",
+      "id": "forgot_password_label",
+      "label": "Forgot password label",
+      "default": "Forgot password?"
+    },
+    {
+      "type": "url",
+      "id": "forgot_password_url",
+      "label": "Forgot password URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Stockist Portal"
+    }
+  ]
+}
+{% endschema %}

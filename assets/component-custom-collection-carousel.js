@@ -46,7 +46,7 @@
       arrows: true,
       prevArrow: $prevArrow.length ? $prevArrow : undefined,
       nextArrow: $nextArrow.length ? $nextArrow : undefined,
-      dots: true,
+      dots: false,
       infinite: false,
       centerMode: false,
       responsive: [

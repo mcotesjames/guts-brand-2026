@@ -368,12 +368,12 @@ mark {
   padding: 0;
   font-size: 0;
   line-height: 0;
-  background: var(--color-tertiary)!important;
+  background: var(--color-primary)!important;
   border-radius: 999px;
   width: 16px;
   height: 16px;
   opacity: 1;
-  transition: opacity 200ms ease, width 200ms ease, height 200ms ease;
+  /* transition: opacity 200ms ease, width 200ms ease, height 200ms ease; */
 }
 
 .slick-dots li button:before {
