@@ -13,12 +13,8 @@
       "scheme-1": {
         "settings": {
           "background": "#FFFFFF",
-          "text": "#000000",
-          "primary": "#000000",
-          "secondary": "#FFFFFF",
-          "tertiary": "#EFC400"
-        },
-        "name": "Default"
+          "text": "#000000"
+        }
       }
     },
     "color_scheme": "scheme-1",
