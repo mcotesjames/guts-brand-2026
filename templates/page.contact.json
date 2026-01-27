@@ -19,9 +19,23 @@
         "padding-block-start": 40,
         "padding-block-end": 0
       }
+    },
+    "custom_contact_form_bEcFQB": {
+      "type": "custom-contact-form",
+      "name": "Custom Contact Form",
+      "settings": {
+        "heading": "Contact us",
+        "description": "<p>If you'd like to get in touch, please send us a message below.</p>",
+        "reasons": "<p>General enquiry/nOrder support/nWholesale/nPress</p>",
+        "reason_placeholder": "Select enquiry",
+        "submit_label": "Submit",
+        "success_button_label": "Message sent",
+        "success_message": "Thanks for reaching out. We'll respond as soon as possible."
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "custom_contact_form_bEcFQB"
   ]
 }
