@@ -223,7 +223,7 @@
       "name": "Custom Collection Carousel",
       "settings": {
         "heading": "All products",
-        "collection": "the-jane-collection",
+        "collection": "all-products",
         "link_text": "> View all products"
       }
     },
@@ -256,7 +256,7 @@
             "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis dapibus enim vitae blandit. Nunc at elit finibus, tempor justo vel, tristique sem.</p>",
             "instagram_url": "shopify://collections/all",
             "tiktok_url": "shopify://collections/all",
-            "linkedin_url": "shopify://collections/all",
+            "facebook_url": "",
             "youtube_url": "shopify://collections/all"
           }
         },
@@ -269,7 +269,7 @@
             "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis dapibus enim vitae blandit.</p>",
             "instagram_url": "",
             "tiktok_url": "",
-            "linkedin_url": "",
+            "facebook_url": "",
             "youtube_url": ""
           }
         },
@@ -282,7 +282,7 @@
             "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis dapibus enim vitae blandit.</p>",
             "instagram_url": "",
             "tiktok_url": "",
-            "linkedin_url": "",
+            "facebook_url": "",
             "youtube_url": ""
           }
         },
@@ -295,7 +295,7 @@
             "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis dapibus enim vitae blandit.</p>",
             "instagram_url": "",
             "tiktok_url": "",
-            "linkedin_url": "",
+            "facebook_url": "",
             "youtube_url": ""
           }
         }

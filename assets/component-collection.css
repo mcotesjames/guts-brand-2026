@@ -1,5 +1,5 @@
 .collection-grid {
-  padding-top: calc(var(--header-height) + 60px);
+  padding-top: calc(var(--header-height) + 40px);
 }
 
 .collection-grid__products {
