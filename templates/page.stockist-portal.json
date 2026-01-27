@@ -10,13 +10,7 @@
 {
   "sections": {
     "main": {
-      "type": "page",
-      "disabled": true,
-      "settings": {}
-    },
-    "custom_contact_form_PVAKgL": {
-      "type": "custom-contact-form",
-      "name": "Custom Contact Form",
+      "type": "custom-stockist-portal",
       "settings": {
         "background_video": "shopify://files/videos/PRODUCT_BLACK_BACKGROUND_EDIT.webm",
         "background_image": "shopify://shop_images/PRODUCT_BLACK_BACKGROUND_EDIT.jpg",
@@ -34,8 +28,6 @@
     }
   },
   "order": [
-    "main",
-    "custom_contact_form_PVAKgL",
-    "contact_faq_FKzX9D"
+    "main"
   ]
 }
