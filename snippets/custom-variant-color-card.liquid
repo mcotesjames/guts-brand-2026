@@ -70,12 +70,15 @@
 
       <div class="price price--large price--on-sale price--show-badge">
       <div class="price__container">
-        <div class="price__regular">
-          <span class="price-item">
+        <div class="price__regular"><span class="visually-hidden visually-hidden--inline">Regular price</span>
+          <span class="price-item price-item--regular">
             {{ primary_variant.price | money }}
           </span>
         </div>
-      </div>
+        <div class="price__sale">
+
+        </div>
+        </div>
       </div>
 
       {% if size_values.size > 0 %}
