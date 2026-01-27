@@ -71,6 +71,24 @@
             "id": "text",
             "label": "Text",
             "default": "#000000"
+          },
+          {
+            "type": "color",
+            "id": "primary",
+            "label": "Primary",
+            "default": "#000000"
+          },
+          {
+            "type": "color",
+            "id": "secondary",
+            "label": "Secondary",
+            "default": "#FFFFFF"
+          },
+          {
+            "type": "color",
+            "id": "tertiary",
+            "label": "Tertiary",
+            "default": "#EFC400"
           }
         ],
         "role": {
