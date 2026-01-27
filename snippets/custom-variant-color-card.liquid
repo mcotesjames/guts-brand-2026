@@ -1,6 +1,13 @@
 {%- assign primary_variant = variants | first -%}
 {%- assign variant_image = primary_variant.image | default: product.featured_image -%}
 {%- assign product_focus_image = primary_variant.metafields.custom.product_focus_image -%}
+{%- assign swatch_list = primary_variant.metafields.custom.color_swatches.value | default: primary_variant.metafields.custom.color_swatches -%}
+{%- assign swatch_hex = '' -%}
+{%- assign swatch_hex_secondary = '' -%}
+{%- if swatch_list != blank -%}
+  {%- assign swatch_hex = swatch_list[0] | strip -%}
+  {%- assign swatch_hex_secondary = swatch_list[1] | strip -%}
+{%- endif -%}
 {%- capture variant_images_json -%}
   [
   {%- for variant in variants -%}
@@ -42,6 +49,8 @@
   data-color-index="{{ color_index | default: -1 }}"
   data-size-index="{{ size_index | default: -1 }}"
   data-fixed-color="{{ color_value }}"
+  {% if swatch_hex != blank %}data-swatch-primary="{{ swatch_hex }}"{% endif %}
+  {% if swatch_hex_secondary != blank %}data-swatch-secondary="{{ swatch_hex_secondary }}"{% endif %}
 >
   <a class="custom-product-card__image" href="{{ product.url }}">
     {% if variant_image != blank %}

@@ -55,6 +55,7 @@
 }
 
 .custom-testimonials__meta {
+  margin-top: auto;
   font-size: var(--font-size-body);
 }
 

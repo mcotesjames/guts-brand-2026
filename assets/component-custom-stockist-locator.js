@@ -44,6 +44,7 @@
     if (!list || !mapEl || !form || !radiusSelect) return;
 
     const cards = Array.from(section.querySelectorAll('[data-stockist-card]'));
+    const emptyState = section.querySelector('[data-stockist-empty]');
     if (!cards.length) return;
 
     const stores = cards.map((card) => {
@@ -208,22 +209,33 @@
         strokeWeight: 1,
       };
 
-    const setActiveStore = (store) => {
+    const scrollCardIntoView = (card) => {
+      if (!list || !card) return;
+      const listRect = list.getBoundingClientRect();
+      const cardRect = card.getBoundingClientRect();
+      const offsetTop = cardRect.top - listRect.top + list.scrollTop;
+      list.scrollTo({ top: offsetTop, behavior: 'smooth' });
+    };
+
+    const setActiveStore = (store, { scrollToCard = false } = {}) => {
       stores.forEach((item) => {
-        item.card.classList.toggle('is-active', item.id === store.id);
+        const isActive = item === store;
+        item.card.classList.toggle('is-active', isActive);
         const cta = item.card.querySelector('.custom-stockist-locator__cta');
         if (cta) {
-          const isActive = item.id === store.id;
           cta.classList.toggle('custom-button--secondary', isActive);
           cta.classList.toggle('custom-button--primary', !isActive);
         }
         if (item.marker) {
-          item.marker.setIcon(item.id === store.id ? activeIcon : defaultIcon);
+          item.marker.setIcon(isActive ? activeIcon : defaultIcon);
         }
       });
       if (store.marker) {
         map.panTo(store.marker.getPosition());
         map.setZoom(13);
+      }
+      if (scrollToCard) {
+        scrollCardIntoView(store.card);
       }
     };
 
@@ -235,7 +247,7 @@
         title: store.name,
         icon: defaultIcon,
       });
-      store.marker.addListener('click', () => setActiveStore(store));
+      store.marker.addListener('click', () => setActiveStore(store, { scrollToCard: true }));
     };
 
     const geocodeStore = (store) =>
@@ -260,8 +272,37 @@
         });
       });
 
-    const matchesType = (store, selectedType) =>
-      selectedType === 'all' || store.type === selectedType;
+    const parseTypes = (value) => {
+      const raw = String(value || '').trim();
+      if (!raw) return [];
+      if (raw.startsWith('[')) {
+        try {
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed)) {
+            return parsed.map((entry) => String(entry).trim().toLowerCase()).filter(Boolean);
+          }
+        } catch (error) {
+          return [];
+        }
+      }
+      return raw
+        .split(',')
+        .map((entry) => entry.trim().toLowerCase())
+        .filter(Boolean);
+    };
+
+    const matchesType = (store, selectedType) => {
+      const normalizedType = String(selectedType || 'all').trim().toLowerCase();
+      if (normalizedType === 'all') return true;
+      const types = parseTypes(store.type);
+      return types.includes(normalizedType);
+    };
+
+    const updateEmptyState = () => {
+      if (!emptyState) return;
+      const hasVisible = cards.some((card) => card.style.display !== 'none');
+      emptyState.hidden = hasVisible;
+    };
 
     const updateListVisibility = (radiusData, filterOrigin, distanceOrigin, selectedType) => {
       const { radius, unit } = radiusData;
@@ -291,6 +332,7 @@
         if (store.marker) store.marker.setVisible(withinRadius);
         if (distanceEl) distanceEl.textContent = formatDistance(distanceMiles, unit);
       });
+      updateEmptyState();
     };
 
     const applyTypeOnly = (selectedType) => {
@@ -299,6 +341,7 @@
         store.card.style.display = isVisible ? 'flex' : 'none';
         if (store.marker) store.marker.setVisible(isVisible);
       });
+      updateEmptyState();
     };
 
     const updateDistancesEmpty = () => {
@@ -347,7 +390,7 @@
 
     cards.forEach((card) => {
       card.addEventListener('click', () => {
-        const store = stores.find((item) => item.id === card.dataset.storeId);
+        const store = stores.find((item) => item.card === card);
         if (store) setActiveStore(store);
       });
     });
@@ -405,6 +448,18 @@
         }
         map.fitBounds(searchCircle.getBounds());
         updateListVisibility(radiusData, origin, userOrigin, getSelectedType());
+
+        if (!userOrigin && navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              const userLocation = { lat: position.coords.latitude, lng: position.coords.longitude };
+              setUserOrigin(userLocation);
+              updateListVisibility(radiusData, origin, userLocation, getSelectedType());
+            },
+            () => {},
+            { timeout: 8000 }
+          );
+        }
       });
     });
 
@@ -444,24 +499,8 @@
       }
     });
 
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const origin = { lat: position.coords.latitude, lng: position.coords.longitude };
-          setUserOrigin(origin);
-          pendingOrigin = null;
-          markersReady.then(() => {
-            stores.forEach((store) => {
-              store.card.style.display = 'flex';
-              if (store.marker) store.marker.setVisible(true);
-            });
-            updateDistancesOnly(origin, parseRadius(radiusSelect.value).unit);
-          });
-        },
-        () => {},
-        { timeout: 8000 }
-      );
-    }
+    pendingOrigin = null;
+    updateEmptyState();
   };
 
   const initAll = (root = document) => {

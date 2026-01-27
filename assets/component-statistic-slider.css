@@ -64,6 +64,7 @@
 .statistic-slider .statistic-slider__stat-metric {
   font-size: clamp(55px, 18vw, 80px);
   text-transform: uppercase;
+  font-weight: 700;
 }
 
 .statistic-slider .statistic-slider__description {

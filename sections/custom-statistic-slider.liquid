@@ -12,7 +12,7 @@
         {% if section.blocks.size > 0 %}
             {% for block in section.blocks %}
                 <div {{ block.shopify_attributes }}>
-                    <div class="statistic-slider__stat-container g-5">
+                    <div class="statistic-slider__stat-container g-4">
                         <h2 class="statistic-slider__stat">
                             {{ block.settings.stat }}{% if block.settings.metric != blank %}<span class="statistic-slider__stat-metric heading-style-h1">{{ block.settings.metric }}</span>
                             {% endif %}

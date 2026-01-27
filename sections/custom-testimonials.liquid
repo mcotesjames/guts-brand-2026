@@ -2,7 +2,7 @@
 <script src="{{ 'component-custom-testimonials.js' | asset_url }}" defer></script>
 
 <section
-  class="custom-testimonials section-padding--md full-width"
+  class="custom-testimonials section-padding--md-bottom full-width"
   data-custom-testimonials
   style="--custom-testimonials-duration: {{ section.settings.animation_duration }}s;"
 >
@@ -15,66 +15,129 @@
       </div>
     {% endif %}
 
+    {% assign testimonial_items = nil %}
+    {% if product != blank and product.metafields.custom.testimonials != blank %}
+      {% assign testimonial_items = product.metafields.custom.testimonials.value %}
+    {% endif %}
+
     <div class="custom-testimonials__rows">
       <div class="custom-testimonials__row custom-testimonials__row--top" data-custom-testimonials-row>
         <div class="custom-testimonials__track">
-          {% for block in section.blocks %}
-            {% assign is_odd = forloop.index | modulo: 2 %}
-            {% if is_odd == 1 %}
-              <article class="custom-testimonials__card" {{ block.shopify_attributes }}>
-                <p class="custom-testimonials__quote heading-style-h5">
-                  &ldquo;{{ block.settings.quote }}&rdquo;
-                </p>
-                <p class="custom-testimonials__meta">
-                  - {{ block.settings.name }}{% if block.settings.place != blank %}, {{ block.settings.place }}{% endif %}
-                </p>
-              </article>
-            {% endif %}
-          {% endfor %}
-          {% for block in section.blocks %}
-            {% assign is_odd = forloop.index | modulo: 2 %}
-            {% if is_odd == 1 %}
-              <article class="custom-testimonials__card custom-testimonials__card--duplicate" aria-hidden="true">
-                <p class="custom-testimonials__quote heading-style-h5">
-                  &ldquo;{{ block.settings.quote }}&rdquo;
-                </p>
-                <p class="custom-testimonials__meta">
-                  - {{ block.settings.name }}{% if block.settings.place != blank %}, {{ block.settings.place }}{% endif %}
-                </p>
-              </article>
-            {% endif %}
-          {% endfor %}
+          {% if testimonial_items != blank %}
+            {% for item in testimonial_items %}
+              {% assign is_odd = forloop.index | modulo: 2 %}
+              {% if is_odd == 1 %}
+                <article class="custom-testimonials__card">
+                  <p class="custom-testimonials__quote heading-style-h5">
+                    &ldquo;{{ item.quote }}&rdquo;
+                  </p>
+                  <p class="custom-testimonials__meta">
+                    - {{ item.name }}{% if item.place != blank %}, {{ item.place }}{% endif %}
+                  </p>
+                </article>
+              {% endif %}
+            {% endfor %}
+            {% for item in testimonial_items %}
+              {% assign is_odd = forloop.index | modulo: 2 %}
+              {% if is_odd == 1 %}
+                <article class="custom-testimonials__card custom-testimonials__card--duplicate" aria-hidden="true">
+                  <p class="custom-testimonials__quote heading-style-h5">
+                    &ldquo;{{ item.quote }}&rdquo;
+                  </p>
+                  <p class="custom-testimonials__meta">
+                    - {{ item.name }}{% if item.place != blank %}, {{ item.place }}{% endif %}
+                  </p>
+                </article>
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            {% for block in section.blocks %}
+              {% assign is_odd = forloop.index | modulo: 2 %}
+              {% if is_odd == 1 %}
+                <article class="custom-testimonials__card" {{ block.shopify_attributes }}>
+                  <p class="custom-testimonials__quote heading-style-h5">
+                    &ldquo;{{ block.settings.quote }}&rdquo;
+                  </p>
+                  <p class="custom-testimonials__meta">
+                    - {{ block.settings.name }}{% if block.settings.place != blank %}, {{ block.settings.place }}{% endif %}
+                  </p>
+                </article>
+              {% endif %}
+            {% endfor %}
+            {% for block in section.blocks %}
+              {% assign is_odd = forloop.index | modulo: 2 %}
+              {% if is_odd == 1 %}
+                <article class="custom-testimonials__card custom-testimonials__card--duplicate" aria-hidden="true">
+                  <p class="custom-testimonials__quote heading-style-h5">
+                    &ldquo;{{ block.settings.quote }}&rdquo;
+                  </p>
+                  <p class="custom-testimonials__meta">
+                    - {{ block.settings.name }}{% if block.settings.place != blank %}, {{ block.settings.place }}{% endif %}
+                  </p>
+                </article>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
         </div>
       </div>
 
       <div class="custom-testimonials__row custom-testimonials__row--bottom" data-custom-testimonials-row>
         <div class="custom-testimonials__track">
-          {% for block in section.blocks %}
-            {% assign is_even = forloop.index | modulo: 2 %}
-            {% if is_even == 0 %}
-              <article class="custom-testimonials__card" {{ block.shopify_attributes }}>
-                <p class="custom-testimonials__quote heading-style-h5">
-                  &ldquo;{{ block.settings.quote }}&rdquo;
-                </p>
-                <p class="custom-testimonials__meta">
-                  - {{ block.settings.name }}{% if block.settings.place != blank %}, {{ block.settings.place }}{% endif %}
-                </p>
-              </article>
-            {% endif %}
-          {% endfor %}
-          {% for block in section.blocks %}
-            {% assign is_even = forloop.index | modulo: 2 %}
-            {% if is_even == 0 %}
-              <article class="custom-testimonials__card custom-testimonials__card--duplicate" aria-hidden="true">
-                <p class="custom-testimonials__quote heading-style-h5">
-                  &ldquo;{{ block.settings.quote }}&rdquo;
-                </p>
-                <p class="custom-testimonials__meta">
-                  - {{ block.settings.name }}{% if block.settings.place != blank %}, {{ block.settings.place }}{% endif %}
-                </p>
-              </article>
-            {% endif %}
-          {% endfor %}
+          {% if testimonial_items != blank %}
+            {% for item in testimonial_items %}
+              {% assign is_even = forloop.index | modulo: 2 %}
+              {% if is_even == 0 %}
+                <article class="custom-testimonials__card">
+                  <p class="custom-testimonials__quote heading-style-h5">
+                    &ldquo;{{ item.quote }}&rdquo;
+                  </p>
+                  <p class="custom-testimonials__meta">
+                    - {{ item.name }}{% if item.place != blank %}, {{ item.place }}{% endif %}
+                  </p>
+                </article>
+              {% endif %}
+            {% endfor %}
+            {% for item in testimonial_items %}
+              {% assign is_even = forloop.index | modulo: 2 %}
+              {% if is_even == 0 %}
+                <article class="custom-testimonials__card custom-testimonials__card--duplicate" aria-hidden="true">
+                  <p class="custom-testimonials__quote heading-style-h5">
+                    &ldquo;{{ item.quote }}&rdquo;
+                  </p>
+                  <p class="custom-testimonials__meta">
+                    - {{ item.name }}{% if item.place != blank %}, {{ item.place }}{% endif %}
+                  </p>
+                </article>
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            {% for block in section.blocks %}
+              {% assign is_even = forloop.index | modulo: 2 %}
+              {% if is_even == 0 %}
+                <article class="custom-testimonials__card" {{ block.shopify_attributes }}>
+                  <p class="custom-testimonials__quote heading-style-h5">
+                    &ldquo;{{ block.settings.quote }}&rdquo;
+                  </p>
+                  <p class="custom-testimonials__meta">
+                    - {{ block.settings.name }}{% if block.settings.place != blank %}, {{ block.settings.place }}{% endif %}
+                  </p>
+                </article>
+              {% endif %}
+            {% endfor %}
+            {% for block in section.blocks %}
+              {% assign is_even = forloop.index | modulo: 2 %}
+              {% if is_even == 0 %}
+                <article class="custom-testimonials__card custom-testimonials__card--duplicate" aria-hidden="true">
+                  <p class="custom-testimonials__quote heading-style-h5">
+                    &ldquo;{{ block.settings.quote }}&rdquo;
+                  </p>
+                  <p class="custom-testimonials__meta">
+                    - {{ block.settings.name }}{% if block.settings.place != blank %}, {{ block.settings.place }}{% endif %}
+                  </p>
+                </article>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
         </div>
       </div>
     </div>
