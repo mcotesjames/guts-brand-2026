@@ -68,16 +68,9 @@
         {{ primary_variant.price | money }}
       </div>
 
-      <div class="price price--large price--on-sale price--show-badge">
+      <div class="price">
       <div class="price__container">
-        <div class="price__regular"><span class="visually-hidden visually-hidden--inline">Regular price</span>
-          <span class="price-item price-item--regular">
-            {{ primary_variant.price | money }}
-          </span>
-        </div>
-        <div class="price__sale">
-
-        </div>
+        {{ primary_variant.price | money }}
         </div>
       </div>
 
