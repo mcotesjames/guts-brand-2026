@@ -223,7 +223,7 @@
       "name": "Custom Collection Carousel",
       "settings": {
         "heading": "All products",
-        "collection": "all-products",
+        "collection": "helmets",
         "link_text": "> View all products"
       }
     },
