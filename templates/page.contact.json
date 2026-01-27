@@ -26,7 +26,7 @@
       "settings": {
         "heading": "Contact us",
         "description": "<p>If you'd like to get in touch, please send us a message below.</p>",
-        "reasons": "<p>General enquiry/nOrder support/nWholesale/nPress</p>",
+        "reasons": "<p>General enquiry<br/>Order support<br/>Wholesale<br/>Press</p>",
         "reason_placeholder": "Select enquiry",
         "submit_label": "Submit",
         "success_button_label": "Message sent",
