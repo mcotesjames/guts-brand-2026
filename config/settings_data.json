@@ -9,6 +9,19 @@
  */
 {
   "current": {
+    "color_schemes": {
+      "scheme-1": {
+        "settings": {
+          "background": "#FFFFFF",
+          "text": "#000000",
+          "primary": "#000000",
+          "secondary": "#FFFFFF",
+          "tertiary": "#EFC400"
+        },
+        "name": "Default"
+      }
+    },
+    "color_scheme": "scheme-1",
     "newsletter_bg_video": "shopify://files/videos/286278_medium.webm",
     "footer_menu_upsell": "upsell-menu",
     "footer_menu_support": "support_menu",
