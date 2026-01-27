@@ -256,6 +256,7 @@
             "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis dapibus enim vitae blandit. Nunc at elit finibus, tempor justo vel, tristique sem.</p>",
             "instagram_url": "shopify://collections/all",
             "tiktok_url": "shopify://collections/all",
+            "facebook_url": "",
             "youtube_url": "shopify://collections/all"
           }
         },
@@ -268,6 +269,7 @@
             "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis dapibus enim vitae blandit.</p>",
             "instagram_url": "",
             "tiktok_url": "",
+            "facebook_url": "",
             "youtube_url": ""
           }
         },
@@ -280,6 +282,7 @@
             "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis dapibus enim vitae blandit.</p>",
             "instagram_url": "",
             "tiktok_url": "",
+            "facebook_url": "",
             "youtube_url": ""
           }
         },
@@ -292,6 +295,7 @@
             "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis dapibus enim vitae blandit.</p>",
             "instagram_url": "",
             "tiktok_url": "",
+            "facebook_url": "",
             "youtube_url": ""
           }
         }
