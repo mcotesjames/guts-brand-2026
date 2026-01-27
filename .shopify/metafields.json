@@ -48,6 +48,16 @@
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
+    },
+    {
+      "key": "MSRP",
+      "namespace": "samitaWS",
+      "name": "B2B - MSRP",
+      "description": null,
+      "type": {
+        "name": "number_integer",
+        "category": "NUMBER"
+      }
     }
   ],
   "variant": [
@@ -80,7 +90,48 @@
         "name": "list.color",
         "category": "COLOR"
       }
+    },
+    {
+      "key": "MSRP",
+      "namespace": "samitaWS",
+      "name": "B2B - MSRP",
+      "description": null,
+      "type": {
+        "name": "number_integer",
+        "category": "NUMBER"
+      }
     }
   ],
-  "shop": []
+  "shop": [
+    {
+      "key": "shop",
+      "namespace": "samita_wholesale",
+      "name": "[Do not edit] Samita Wholesale shop metafield",
+      "description": null,
+      "type": {
+        "name": "json",
+        "category": "JSON"
+      }
+    },
+    {
+      "key": "themeInfo_190194418039",
+      "namespace": "samita_wholesale",
+      "name": "[Do not edit] Samita Wholesale themeInfo_190194418039 metafield",
+      "description": null,
+      "type": {
+        "name": "json",
+        "category": "JSON"
+      }
+    },
+    {
+      "key": "theme_190194418039",
+      "namespace": "samita_wholesale",
+      "name": "[Do not edit] Samita Wholesale theme_190194418039 metafield",
+      "description": null,
+      "type": {
+        "name": "json",
+        "category": "JSON"
+      }
+    }
+  ]
 }

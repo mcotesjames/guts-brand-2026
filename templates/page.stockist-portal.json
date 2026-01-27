@@ -19,6 +19,7 @@
         "signup_tab_label": "Sign up",
         "login_subtitle": "Sign in to receive exclusive stockist prices.",
         "signup_subtitle": "Please fill out the form below to request access for stockist discounts.",
+        "signup_shortcode": "<div class=\"samitaWS-registrationForm\" data-id=\"MTEwNzE=\"></div>",
         "login_button_label": "Log in",
         "signup_button_label": "Sign up",
         "forgot_password_label": "Forgot password?",
@@ -28,5 +29,5 @@
   },
   "order": [
     "main"
-  ] 
+  ]
 }
