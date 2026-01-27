@@ -242,7 +242,7 @@
 }
 .custom-header__b2b {
   background-color: var(--color-tertiary);
-  color: var(--color-primary);
+  color: var(--color-primary)!important;
   padding: 10px 12px;
   text-decoration: none;
   font-family: var(--font-heading);

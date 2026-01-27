@@ -45,6 +45,13 @@
   </head>
 
   <body>
+    <div class="customer-status">
+      {% if customer %}
+        Logged in as {{ customer.email }}
+      {% else %}
+        Not logged in
+      {% endif %}
+    </div>
     {% sections 'header-group' %}
 
     {{ content_for_layout }}

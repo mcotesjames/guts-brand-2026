@@ -18,82 +18,18 @@
       "type": "custom-contact-form",
       "name": "Custom Contact Form",
       "settings": {
-        "image": "shopify://shop_images/guts-contact.jpg",
-        "heading": "Contact us",
-        "description": "<p>If you'd like to get in touch, please send us a message below.</p>",
-        "reasons": "<p>Test1<br/>Test2<br/>Test3</p>",
-        "reason_placeholder": "Select enquiry",
-        "submit_label": "Submit",
-        "success_button_label": "Message sent",
-        "success_message": "Thanks for reaching out. We'll respond as soon as possible."
-      }
-    },
-    "contact_faq_FKzX9D": {
-      "type": "contact-faq",
-      "blocks": {
-        "item_jBhdYp": {
-          "type": "item",
-          "settings": {
-            "category": "Logistics",
-            "question": "What makes this product special?",
-            "answer": "<p>Add your answer here.</p>"
-          }
-        },
-        "item_tx8NLa": {
-          "type": "item",
-          "settings": {
-            "category": "Logistics",
-            "question": "What makes this product special?",
-            "answer": "<p>Add your answer here.</p>"
-          }
-        },
-        "item_wdj8kW": {
-          "type": "item",
-          "settings": {
-            "category": "Logistics",
-            "question": "What makes this product special?",
-            "answer": "<p>Add your answer here.</p>"
-          }
-        },
-        "item_CdKpXy": {
-          "type": "item",
-          "settings": {
-            "category": "Hardware",
-            "question": "What makes this product special?",
-            "answer": "<p>Add your answer here.</p>"
-          }
-        },
-        "item_CmG8bV": {
-          "type": "item",
-          "settings": {
-            "category": "Standards",
-            "question": "What makes this product special?",
-            "answer": "<p>Add your answer here.</p>"
-          }
-        },
-        "item_GLhVpP": {
-          "type": "item",
-          "settings": {
-            "category": "Standards",
-            "question": "What makes this product special?",
-            "answer": "<p>Add your answer here.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "item_jBhdYp",
-        "item_tx8NLa",
-        "item_wdj8kW",
-        "item_CdKpXy",
-        "item_CmG8bV",
-        "item_GLhVpP"
-      ],
-      "name": "Contact FAQ",
-      "settings": {
-        "heading": "FAQs",
-        "category_1": "Logistics",
-        "category_2": "Hardware",
-        "category_3": "Standards"
+        "background_video": "shopify://files/videos/PRODUCT_BLACK_BACKGROUND_EDIT.webm",
+        "background_image": "shopify://shop_images/PRODUCT_BLACK_BACKGROUND_EDIT.jpg",
+        "heading": "Stockist Portal",
+        "login_tab_label": "Login",
+        "signup_tab_label": "Sign up",
+        "login_subtitle": "Sign in to receive exclusive stockist prices.",
+        "signup_subtitle": "Please fill out the form below to request access for stockist discounts.",
+        "signup_shortcode": "<div class=\"samitaWS-registrationForm\" data-id=\"MTEwNzE=\"></div>",
+        "login_button_label": "Log in",
+        "signup_button_label": "Sign up",
+        "forgot_password_label": "Forgot password?",
+        "forgot_password_url": ""
       }
     }
   },

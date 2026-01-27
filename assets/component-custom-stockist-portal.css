@@ -3,6 +3,7 @@
   min-height: 100svh;
   color: var(--color-primary);
   overflow: hidden;
+  padding-top: var(--header-height);
 }
 
 .custom-stockist-portal__media,
@@ -28,7 +29,7 @@
 .custom-stockist-portal__panel-wrapper {
   position: relative;
   z-index: 1;
-  min-height: 100svh;
+  min-height: calc(100svh - var(--header-height));
   display: grid;
   place-items: center;
   padding-right: calc(var(--bs-gutter-x) * .5);
