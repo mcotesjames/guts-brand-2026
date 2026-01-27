@@ -1,6 +1,6 @@
 {{ 'component-custom-stockist-portal.css' | asset_url | stylesheet_tag }}
 
-<section class="custom-stockist-portal full-width">
+<section class="custom-stockist-portal full-width is-light">
   <div class="custom-stockist-portal__media">
     {% if section.settings.background_video != blank %}
       {{ section.settings.background_video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true }}
@@ -11,11 +11,11 @@
     {% endif %}
   </div>
 
-  <div class="custom-stockist-portal__panel-wrapper">
+  <div class="custom-stockist-portal__panel-wrapper g-4">
     <div class="custom-stockist-portal__panel">
       <div class="custom-stockist-portal__tabs" role="tablist">
         <button
-          class="custom-stockist-portal__tab is-active"
+          class="custom-stockist-portal__tab heading-style-h6 active"
           type="button"
           role="tab"
           id="StockistLoginTab-{{ section.id }}"
@@ -27,7 +27,7 @@
           {{ section.settings.login_tab_label }}
         </button>
         <button
-          class="custom-stockist-portal__tab"
+          class="custom-stockist-portal__tab heading-style-h6"
           type="button"
           role="tab"
           id="StockistSignupTab-{{ section.id }}"
@@ -47,7 +47,7 @@
           role="tabpanel"
           aria-labelledby="StockistLoginTab-{{ section.id }}"
         >
-          <h1 class="custom-stockist-portal__title">{{ section.settings.heading }}</h1>
+          <h1 class="custom-stockist-portal__title heading-style-h2">{{ section.settings.heading }}</h1>
           <p class="custom-stockist-portal__subtitle">{{ section.settings.login_subtitle }}</p>
 
           <form class="custom-stockist-portal__form" action="#" method="post">
@@ -58,7 +58,6 @@
                 id="StockistLoginEmail-{{ section.id }}"
                 type="email"
                 name="email"
-                placeholder="Username"
               >
             </div>
             <div class="custom-input">
@@ -68,10 +67,9 @@
                 id="StockistLoginPassword-{{ section.id }}"
                 type="password"
                 name="password"
-                placeholder="Password"
               >
             </div>
-            <button class="custom-stockist-portal__button" type="submit">
+            <button class="custom-button custom-button--primary" type="submit">
               {{ section.settings.login_button_label }}
             </button>
             <a class="custom-stockist-portal__link" href="{{ section.settings.forgot_password_url }}">
@@ -86,7 +84,7 @@
           role="tabpanel"
           aria-labelledby="StockistSignupTab-{{ section.id }}"
         >
-          <h1 class="custom-stockist-portal__title">{{ section.settings.heading }}</h1>
+          <h1 class="custom-stockist-portal__title heading-style-h2">{{ section.settings.heading }}</h1>
           <p class="custom-stockist-portal__subtitle">{{ section.settings.signup_subtitle }}</p>
 
           <form class="custom-stockist-portal__form" action="#" method="post">
@@ -98,7 +96,6 @@
                   id="StockistSignupFirstName-{{ section.id }}"
                   type="text"
                   name="first_name"
-                  placeholder="Firstname"
                 >
               </div>
               <div class="custom-input">
@@ -108,7 +105,6 @@
                   id="StockistSignupLastName-{{ section.id }}"
                   type="text"
                   name="last_name"
-                  placeholder="Lastname"
                 >
               </div>
             </div>
@@ -119,7 +115,6 @@
                 id="StockistSignupEmail-{{ section.id }}"
                 type="email"
                 name="email"
-                placeholder="Email Address"
               >
             </div>
             <div class="custom-input">
@@ -129,7 +124,6 @@
                 id="StockistSignupCompany-{{ section.id }}"
                 type="text"
                 name="company"
-                placeholder="Company Name"
               >
             </div>
             <div class="custom-input">
@@ -138,11 +132,11 @@
                 class="custom-input__field custom-stockist-portal__textarea"
                 id="StockistSignupMessage-{{ section.id }}"
                 name="message"
-                placeholder="Message"
+                placeholder=""
                 rows="4"
               ></textarea>
             </div>
-            <button class="custom-stockist-portal__button" type="submit">
+            <button class="custom-button custom-button--primary" type="submit">
               {{ section.settings.signup_button_label }}
             </button>
           </form>
