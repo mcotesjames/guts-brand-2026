@@ -1,0 +1,32 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "custom-stockist-portal",
+      "settings": {
+        "background_video": "shopify://files/videos/PRODUCT_BLACK_BACKGROUND_EDIT.webm",
+        "background_image": "shopify://shop_images/PRODUCT_BLACK_BACKGROUND_EDIT.jpg",
+        "heading": "Stockist Portal",
+        "login_tab_label": "Login",
+        "signup_tab_label": "Sign up",
+        "login_subtitle": "Sign in to receive exclusive stockist prices.",
+        "signup_subtitle": "Please fill out the form below to request access for stockist discounts.",
+        "login_button_label": "Log in",
+        "signup_button_label": "Sign up",
+        "forgot_password_label": "Forgot password?",
+        "forgot_password_url": ""
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
