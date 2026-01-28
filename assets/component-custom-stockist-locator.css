@@ -4,7 +4,7 @@
 }
 
 .custom-stockist-locator--find-us {
-  padding-top: calc(var(--header-height) + 40px);
+  padding-top: calc(var(--header-height));
 }
 
 .custom-stockist-locator__header {
