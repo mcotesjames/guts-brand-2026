@@ -43,7 +43,7 @@
       <button
         class="custom-collection-carousel__arrow custom-collection-carousel__arrow--prev"
         type="button"
-        aria-label="Previous"
+        aria-label="{{ 'general.previous' | t }}"
         data-collection-carousel-prev
       >
         {{ 'icon-arrow-left.svg' | inline_asset_content }}
@@ -51,13 +51,13 @@
       <button
         class="custom-collection-carousel__arrow custom-collection-carousel__arrow--next"
         type="button"
-        aria-label="Next"
+        aria-label="{{ 'general.next' | t }}"
         data-collection-carousel-next
       >
         {{ 'icon-arrow-right.svg' | inline_asset_content }}
       </button>
     {% else %}
-      <p class="custom-collection-carousel__empty">Select a collection to display products.</p>
+      <p class="custom-collection-carousel__empty">{{ 'sections.collection_carousel.empty' | t }}</p>
     {% endif %}
   </div>
 </section>

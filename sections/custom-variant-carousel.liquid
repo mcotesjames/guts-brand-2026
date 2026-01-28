@@ -33,10 +33,11 @@
       {%- assign color_index = nil -%}
       {%- assign size_index = nil -%}
       {%- for option in section.settings.product.options_with_values -%}
-        {%- if option.name == 'Color' -%}
+        {%- assign option_name = option.name | downcase -%}
+        {%- if option_name contains 'color' or option_name contains 'colour' or option_name contains 'couleur' -%}
           {%- assign color_index = forloop.index0 -%}
         {%- endif -%}
-        {%- if option.name == 'Size' -%}
+        {%- if option_name contains 'size' or option_name contains 'taille' -%}
           {%- assign size_index = forloop.index0 -%}
         {%- endif -%}
       {%- endfor -%}
@@ -45,7 +46,8 @@
         {%- if color_index != nil -%}
           {%- assign color_option = nil -%}
           {%- for option in section.settings.product.options_with_values -%}
-            {%- if option.name == 'Color' -%}
+            {%- assign option_name = option.name | downcase -%}
+            {%- if option_name contains 'color' or option_name contains 'colour' or option_name contains 'couleur' -%}
               {%- assign color_option = option -%}
             {%- endif -%}
           {%- endfor -%}
@@ -83,7 +85,7 @@
       <button
         class="custom-variant-carousel__arrow custom-variant-carousel__arrow--prev"
         type="button"
-        aria-label="Previous"
+        aria-label="{{ 'general.previous' | t }}"
         data-variant-carousel-prev
       >
         {{ 'icon-arrow-left.svg' | inline_asset_content }}
@@ -91,13 +93,13 @@
       <button
         class="custom-variant-carousel__arrow custom-variant-carousel__arrow--next"
         type="button"
-        aria-label="Next"
+        aria-label="{{ 'general.next' | t }}"
         data-variant-carousel-next
       >
         {{ 'icon-arrow-right.svg' | inline_asset_content }}
       </button>
     {% else %}
-      <p class="custom-variant-carousel__empty">Select a product to display variants.</p>
+      <p class="custom-variant-carousel__empty">{{ 'sections.variant_carousel.empty' | t }}</p>
     {% endif %}
   </div>
 </section>

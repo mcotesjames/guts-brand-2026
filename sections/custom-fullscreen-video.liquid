@@ -12,7 +12,7 @@
     {% elsif section.settings.poster != blank %}
       {{ section.settings.poster | image_url: width: 2400 | image_tag: alt: section.settings.heading, loading: 'lazy' }}
     {% else %}
-      <div class="custom-fullscreen-video__placeholder" role="img" aria-label="Video placeholder"></div>
+      <div class="custom-fullscreen-video__placeholder" role="img" aria-label="{{ 'general.video_placeholder' | t }}"></div>
     {% endif %}
   </div>
 

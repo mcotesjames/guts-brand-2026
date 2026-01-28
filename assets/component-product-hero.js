@@ -146,7 +146,7 @@
         $variantInput.val(variant.id);
       }
 
-      const colorValue = getSelectedValueByNames(['color', 'colour']);
+      const colorValue = getSelectedValueByNames(['color', 'colour', 'couleur']);
       if (!colorValue) {
         applyFilter(null);
         return;

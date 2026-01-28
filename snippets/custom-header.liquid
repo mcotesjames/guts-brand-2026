@@ -6,7 +6,7 @@
   data-custom-header
 >
   <div class="custom-header__inner">
-    <nav class="custom-header__nav" aria-label="Main">
+    <nav class="custom-header__nav" aria-label="{{ 'general.navigation_main' | t }}">
       <ul class="custom-header__menu">
         {% for link in section.settings.menu.links %}
           {% if link.links != blank %}
@@ -74,7 +74,7 @@
           aria-expanded="false"
           aria-controls="HeaderSearch-{{ section.id }}"
         >
-          <span class="visually-hidden">Search</span>
+          <span class="visually-hidden">{{ 'search.submit' | t }}</span>
           <span class="custom-header__icon custom-header__icon--light">
             {{ 'icon-search.svg' | inline_asset_content }}
           </span>
@@ -87,7 +87,7 @@
         <button
           class="custom-header__icon-button"
           type="button"
-          aria-label="Cart"
+          aria-label="{{ 'cart.title' | t }}"
           data-cart-drawer-trigger
         >
           <span class="custom-header__icon custom-header__icon--light">
@@ -104,13 +104,13 @@
           </span>
         </button>
       {% endif %}
-      <span class="custom-header__locale"><mark>EN</mark> | FR</span>
+      <span class="custom-header__locale">{{ 'general.locale_switcher_html' | t }}</span>
       
     </div>
     <button
       class="custom-header__burger"
       type="button"
-      aria-label="Open menu"
+      aria-label="{{ 'general.open_menu' | t }}"
       data-bs-toggle="offcanvas"
       data-bs-target="#MobileMenu-{{ section.id }}"
       aria-controls="MobileMenu-{{ section.id }}"
@@ -120,8 +120,8 @@
         <span class="custom-header__burger-line"></span>
         <span class="custom-header__burger-line"></span>
       </span>
-      <span class="custom-header__burger-label custom-header__burger-label--open">Menu</span>
-      <span class="custom-header__burger-label custom-header__burger-label--close">Close</span>
+      <span class="custom-header__burger-label custom-header__burger-label--open">{{ 'general.menu' | t }}</span>
+      <span class="custom-header__burger-label custom-header__burger-label--close">{{ 'general.close' | t }}</span>
     </button>
   </div>
 
@@ -139,7 +139,7 @@
             name="q"
           >
         </div>
-        <button class="custom-button custom-button--secondary" type="submit">Search</button>
+        <button class="custom-button custom-button--secondary" type="submit">{{ 'search.submit' | t }}</button>
       </form>
     </div>
   {% endif %}
@@ -163,22 +163,22 @@
           {{ shop.name }}
         {% endif %}
       </a>
-      <button class="custom-header__offcanvas-close" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+      <button class="custom-header__offcanvas-close" type="button" data-bs-dismiss="offcanvas" aria-label="{{ 'general.close' | t }}">
         <span aria-hidden="true">×</span>
       </button>
     </div>
 
     <div class="custom-header__offcanvas-meta">
-      <span class="custom-header__offcanvas-locale"><mark>EN</mark> | FR</span>
+      <span class="custom-header__offcanvas-locale">{{ 'general.locale_switcher_html' | t }}</span>
       {% if section.settings.show_cart %}
-        <button class="custom-header__offcanvas-cart" type="button" aria-label="Cart" data-cart-drawer-trigger>
+        <button class="custom-header__offcanvas-cart" type="button" aria-label="{{ 'cart.title' | t }}" data-cart-drawer-trigger>
           {{ 'icon-cart-black.svg' | inline_asset_content }}
         </button>
       {% endif %}
     </div>
 
     <div class="custom-header__offcanvas-body offcanvas-body">
-      <nav class="custom-header__offcanvas-nav" aria-label="Mobile menu">
+      <nav class="custom-header__offcanvas-nav" aria-label="{{ 'general.navigation_mobile' | t }}">
         <ul class="custom-header__offcanvas-menu">
           {% for link in section.settings.menu.links %}
             {% assign collapse_id = 'MobileMenuCollapse-' | append: section.id | append: '-' | append: forloop.index %}
@@ -229,7 +229,7 @@
               name="q"
               style="--custom-input-icon: url('{{ 'icon-input-search.svg' | asset_url }}');"
             >
-            <button class="custom-input__icon-button" type="submit" aria-label="Search"></button>
+            <button class="custom-input__icon-button" type="submit" aria-label="{{ 'search.submit' | t }}"></button>
           </div>
         </form>
       {% endif %}

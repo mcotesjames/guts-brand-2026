@@ -218,6 +218,8 @@
 
 .product-hero__richtext p {
   margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.4;
 }
 
 .product-hero__accordion-body p {
