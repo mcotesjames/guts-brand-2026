@@ -7,7 +7,7 @@
         {% if section.settings.image != blank %}
           {{ section.settings.image | image_url: width: 2000 | image_tag: alt: section.settings.heading, loading: 'lazy' }}
         {% else %}
-          <div class="custom-contact__media-placeholder" role="img" aria-label="Contact image placeholder"></div>
+          <div class="custom-contact__media-placeholder" role="img" aria-label="{{ 'contact.image_placeholder' | t }}"></div>
         {% endif %}
       </div>
 
@@ -38,7 +38,7 @@
 
             <div class="custom-contact__fields">
               <div class="custom-input custom-contact__field">
-                <label class="custom-input__label" for="ContactReason-{{ section.id }}">Reason for enquiry</label>
+                <label class="custom-input__label" for="ContactReason-{{ section.id }}">{{ 'contact.reason_label' | t }}</label>
                 <select
                   class="custom-input__field custom-contact__select"
                   id="ContactReason-{{ section.id }}"
@@ -60,7 +60,7 @@
 
               <div class="custom-contact__row">
                 <div class="custom-input custom-contact__field">
-                  <label class="custom-input__label" for="ContactFirstName-{{ section.id }}">Firstname</label>
+                  <label class="custom-input__label" for="ContactFirstName-{{ section.id }}">{{ 'contact.first_name' | t }}</label>
                   <input
                     class="custom-input__field"
                     type="text"
@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="custom-input custom-contact__field">
-                  <label class="custom-input__label" for="ContactLastName-{{ section.id }}">Lastname</label>
+                  <label class="custom-input__label" for="ContactLastName-{{ section.id }}">{{ 'contact.last_name' | t }}</label>
                   <input
                     class="custom-input__field"
                     type="text"
@@ -83,7 +83,7 @@
               </div>
 
               <div class="custom-input custom-contact__field">
-                <label class="custom-input__label" for="ContactEmail-{{ section.id }}">Email</label>
+                <label class="custom-input__label" for="ContactEmail-{{ section.id }}">{{ 'contact.email' | t }}</label>
                 <input
                   class="custom-input__field"
                   type="email"
@@ -95,7 +95,7 @@
               </div>
 
               <div class="custom-input custom-contact__field">
-                <label class="custom-input__label" for="ContactMessage-{{ section.id }}">Message</label>
+                <label class="custom-input__label" for="ContactMessage-{{ section.id }}">{{ 'contact.message' | t }}</label>
                 <textarea
                   class="custom-input__field custom-contact__textarea"
                   id="ContactMessage-{{ section.id }}"

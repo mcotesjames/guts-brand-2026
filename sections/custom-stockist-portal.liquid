@@ -7,7 +7,7 @@
     {% elsif section.settings.background_image != blank %}
       {{ section.settings.background_image | image_url: width: 2400 | image_tag: alt: section.settings.heading, loading: 'lazy' }}
     {% else %}
-      <div class="custom-stockist-portal__placeholder" role="img" aria-label="Stockist portal background"></div>
+      <div class="custom-stockist-portal__placeholder" role="img" aria-label="{{ 'stockist.portal.background_label' | t }}"></div>
     {% endif %}
   </div>
 
@@ -52,7 +52,7 @@
 
           {% form 'customer_login', class: 'custom-stockist-portal__form' %}
             <div class="custom-input">
-              <label class="custom-input__label" for="StockistLoginEmail-{{ section.id }}">Username</label>
+              <label class="custom-input__label" for="StockistLoginEmail-{{ section.id }}">{{ 'customers.login.username' | t }}</label>
               <input
                 class="custom-input__field"
                 id="StockistLoginEmail-{{ section.id }}"
@@ -62,7 +62,7 @@
               >
             </div>
             <div class="custom-input">
-              <label class="custom-input__label" for="StockistLoginPassword-{{ section.id }}">Password</label>
+              <label class="custom-input__label" for="StockistLoginPassword-{{ section.id }}">{{ 'customers.login.password' | t }}</label>
               <input
                 class="custom-input__field"
                 id="StockistLoginPassword-{{ section.id }}"

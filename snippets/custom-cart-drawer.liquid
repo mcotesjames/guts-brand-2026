@@ -12,23 +12,23 @@
   <div class="custom-cart-drawer__overlay" data-cart-drawer-close></div>
   <div class="custom-cart-drawer__panel">
     <div class="custom-cart-drawer__header">
-      <h2 class="custom-cart-drawer__title heading-style-h5" id="CartDrawerTitle">Your cart</h2>
-      <button class="custom-cart-drawer__close" type="button" data-cart-drawer-close aria-label="Close">
-        Close
+      <h2 class="custom-cart-drawer__title heading-style-h5" id="CartDrawerTitle">{{ 'cart.your_cart' | t }}</h2>
+      <button class="custom-cart-drawer__close" type="button" data-cart-drawer-close aria-label="{{ 'general.close' | t }}">
+        {{ 'general.close' | t }}
       </button>
     </div>
 
     <div class="custom-cart-drawer__content" data-cart-drawer-content>
-      <p class="custom-cart-drawer__empty">Your cart is empty.</p>
+      <p class="custom-cart-drawer__empty">{{ 'cart.empty' | t }}</p>
     </div>
 
     <div class="custom-cart-drawer__footer">
       <div class="custom-cart-drawer__subtotal">
-        <span>Subtotal</span>
+        <span>{{ 'cart.subtotal' | t }}</span>
         <span data-cart-drawer-subtotal>$0.00</span>
       </div>
       <a class="custom-cart-drawer__checkout custom-button custom-button--secondary" href="{{ routes.checkout_url }}">
-        Checkout
+        {{ 'cart.checkout' | t }}
       </a>
     </div>
   </div>

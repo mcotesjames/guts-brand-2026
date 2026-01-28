@@ -14,7 +14,7 @@
     {% if upsell_menu != blank or settings.footer_social_instagram != blank or settings.footer_social_linkedin != blank or settings.footer_social_tiktok != blank or settings.footer_social_facebook != blank %}
       <div class="custom-footer__column">
         {% if upsell_menu != blank and upsell_menu.links.size > 0 %}
-          <ul class="custom-footer__list">
+          <ul class="custom-footer__list custom-footer__list-main">
             {% for link in upsell_menu.links %}
               <li class="custom-footer__item">
                 <a class="custom-footer__link" href="{{ link.url }}">
@@ -26,18 +26,18 @@
         {% endif %}
 
         {% if settings.footer_social_instagram != blank or settings.footer_social_linkedin != blank or settings.footer_social_tiktok != blank or settings.footer_social_facebook != blank %}
-          <div class="custom-footer__socials" aria-label="Socials">
+          <div class="custom-footer__socials" aria-label="{{ 'footer.socials' | t }}">
             {% if settings.footer_social_instagram != blank %}
-              <a class="custom-footer__social" href="{{ settings.footer_social_instagram }}" aria-label="Instagram">IG</a>
+              <a class="custom-footer__social" href="{{ settings.footer_social_instagram }}" aria-label="{{ 'socials.instagram' | t }}">{{ 'socials.instagram_short' | t }}</a>
             {% endif %}
             {% if settings.footer_social_linkedin != blank %}
-              <a class="custom-footer__social" href="{{ settings.footer_social_linkedin }}" aria-label="LinkedIn">IN</a>
+              <a class="custom-footer__social" href="{{ settings.footer_social_linkedin }}" aria-label="{{ 'socials.linkedin' | t }}">{{ 'socials.linkedin_short' | t }}</a>
             {% endif %}
             {% if settings.footer_social_tiktok != blank %}
-              <a class="custom-footer__social" href="{{ settings.footer_social_tiktok }}" aria-label="TikTok">TT</a>
+              <a class="custom-footer__social" href="{{ settings.footer_social_tiktok }}" aria-label="{{ 'socials.tiktok' | t }}">{{ 'socials.tiktok_short' | t }}</a>
             {% endif %}
             {% if settings.footer_social_facebook != blank %}
-              <a class="custom-footer__social" href="{{ settings.footer_social_facebook }}" aria-label="Facebook">FB</a>
+              <a class="custom-footer__social" href="{{ settings.footer_social_facebook }}" aria-label="{{ 'socials.facebook' | t }}">{{ 'socials.facebook_short' | t }}</a>
             {% endif %}
           </div>
         {% endif %}
@@ -47,7 +47,7 @@
     <div class="custom-footer__secondary">
       {% if support_menu != blank and support_menu.links.size > 0 %}
         <div class="custom-footer__column">
-          <h3 class="custom-footer__heading heading-style-h5">Support</h3>
+          <h3 class="custom-footer__heading heading-style-h5">{{ 'footer.support' | t }}</h3>
           <ul class="custom-footer__list">
             {% for link in support_menu.links %}
               <li class="custom-footer__item">
@@ -59,7 +59,7 @@
       {% endif %}
 
       <div class="custom-footer__column">
-        <h3 class="custom-footer__heading heading-style-h5">Contact</h3>
+        <h3 class="custom-footer__heading heading-style-h5">{{ 'footer.contact' | t }}</h3>
         {% if contact_menu != blank and contact_menu.links.size > 0 %}
           <ul class="custom-footer__list">
             {% for link in contact_menu.links %}
@@ -79,7 +79,7 @@
 
       {% if legal_menu != blank and legal_menu.links.size > 0 %}
         <div class="custom-footer__column">
-          <h3 class="custom-footer__heading heading-style-h5">Legal</h3>
+          <h3 class="custom-footer__heading heading-style-h5">{{ 'footer.legal' | t }}</h3>
           <ul class="custom-footer__list">
             {% for link in legal_menu.links %}
               <li class="custom-footer__item">

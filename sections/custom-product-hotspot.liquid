@@ -140,7 +140,7 @@
         {% endfor %}
       </div>
     {% else %}
-      <p class="custom-product-hotspot__empty">Select an image and add hotspot blocks.</p>
+      <p class="custom-product-hotspot__empty">{{ 'sections.product_hotspot.empty' | t }}</p>
     {% endif %}
     {% if section.settings.show_cta != blank %}
       {% render 'custom-button',

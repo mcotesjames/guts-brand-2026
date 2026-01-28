@@ -50,11 +50,11 @@
             {% assign color_option = nil %}
             {% for option in product_result.options_with_values %}
               {% assign option_name = option.name | downcase %}
-              {% if option_name contains 'color' or option_name contains 'colour' %}
+              {% if option_name contains 'color' or option_name contains 'colour' or option_name contains 'couleur' %}
                 {% assign color_index = forloop.index0 %}
                 {% assign color_option = option %}
               {% endif %}
-              {% if option_name contains 'size' %}
+              {% if option_name contains 'size' or option_name contains 'taille' %}
                 {% assign size_index = forloop.index0 %}
               {% endif %}
             {% endfor %}
