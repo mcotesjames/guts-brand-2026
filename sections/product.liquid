@@ -18,7 +18,7 @@
 {{ 'component-product-hero.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'component-product-hero.js' | asset_url }}" defer></script>
 
-<section class="product-hero full-width section-padding--md-bottom" data-product-hero>
+<section class="product product-hero full-width section-padding--md-bottom" data-product-hero>
   <div class="product-hero__carousel">
     <div class="product-hero__carousel-main">
       <div class="product-hero__track" data-product-hero-track>
@@ -137,11 +137,21 @@
 
   <div class="product-hero__details g-4" aria-label="Product details">
     <div class="product-hero__details-placeholder">
+      {% assign product_type = product.type | downcase %}
+      {% assign show_size_guide = false %}
+      {% if section.settings.size_guide_content != blank %}
+        {% assign show_size_guide = true %}
+      {% endif %}
+      {% assign show_shipping_link = false %}
+      {% if section.settings.shipping_modal_content != blank %}
+        {% assign show_shipping_link = true %}
+      {% endif %}
+
       {% form 'product', product, class: 'product-hero__form', data-product-hero-form: '' %}
         {% assign current_variant = product.selected_or_first_available_variant %}
         <div class="product-hero__card-header">
           <h1 class="product-hero__title heading-style-h2">{{ product.title }}</h1>
-          <div class="product-hero__price">{{ product.price | money }}</div>
+          <div class="product-hero__price price">{{ product.price | money }}</div>
         </div>
 
         <div class="product-hero__divider" aria-hidden="true"></div>
@@ -212,11 +222,44 @@
           <button class="product-hero__add-to-cart" type="submit">Add to cart</button>
         </div>
 
-        <div class="product-hero__links">
-          <a class="product-hero__link" href="#">Product Specs</a>
-          <a class="product-hero__link" href="#">Size guide</a>
-          <a class="product-hero__link" href="#">Shipping &amp; Returns</a>
-        </div>
+        {% if show_size_guide or show_shipping_link %}
+          <div class="product-hero__links">
+            {% if show_size_guide %}
+              {% case section.settings.size_guide_type %}
+                {% when 'accordion' %}
+                  <details class="product-hero__accordion">
+                    <summary class="product-hero__link">Size guide</summary>
+                    <div class="product-hero__accordion-body">
+                      <div class="product-hero__richtext">
+                        {{ section.settings.size_guide_content }}
+                      </div>
+                    </div>
+                  </details>
+                {% when 'modal' %}
+                  <button
+                    class="product-hero__link product-hero__modal"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#SizeGuideModal-{{ section.id }}"
+                  >
+                    Size guide
+                  </button>
+              {% endcase %}
+            {% endif %}
+
+            {% if show_shipping_link %}
+              <a
+                class="product-hero__link product-hero__modal"
+                href="#ShippingModal-{{ section.id }}"
+                data-bs-toggle="modal"
+                data-bs-target="#ShippingModal-{{ section.id }}"
+                aria-controls="ShippingModal-{{ section.id }}"
+              >
+                Shipping &amp; Returns
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
 
         <input
           type="hidden"
@@ -233,10 +276,95 @@
   </script>
 </section>
 
+{% if show_size_guide and section.settings.size_guide_type == 'modal' %}
+  <div
+    class="modal fade product-hero__modal"
+    id="SizeGuideModal-{{ section.id }}"
+    tabindex="-1"
+    aria-labelledby="SizeGuideModalLabel-{{ section.id }}"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="SizeGuideModalLabel-{{ section.id }}">Size guide</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="product-hero__richtext">
+            {{ section.settings.size_guide_content }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% if show_shipping_link %}
+  <div
+    class="modal fade product-hero__modal"
+    id="ShippingModal-{{ section.id }}"
+    tabindex="-1"
+    aria-labelledby="ShippingModalLabel-{{ section.id }}"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ShippingModalLabel-{{ section.id }}">Shipping &amp; Returns</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="product-hero__richtext">
+            {{ shop.shipping_policy.body }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
 {% schema %}
 {
   "name": "t:general.product",
-  "settings": [],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Size guide"
+    },
+    {
+      "type": "select",
+      "id": "size_guide_type",
+      "label": "Size guide display",
+      "options": [
+        {
+          "value": "accordion",
+          "label": "Dropdown accordion"
+        },
+        {
+          "value": "modal",
+          "label": "Popup modal"
+        }
+      ],
+      "default": "accordion"
+    },
+    {
+      "type": "richtext",
+      "id": "size_guide_content",
+      "label": "Size guide content",
+      "default": "<p>S / M: 54cm to 56cm</p><p>M / L: 55cm to 59cm</p>"
+    },
+    {
+      "type": "header",
+      "content": "Shipping link"
+    },
+    {
+      "type": "richtext",
+      "id": "shipping_modal_content",
+      "label": "Shipping & Returns content",
+      "default": "<p>Shipping details go here.</p>"
+    }
+  ],
   "disabled_on": {
     "groups": ["header", "footer"]
   }
