@@ -260,6 +260,10 @@
   display: block;
 }
 
+.custom-header__b2b-profile-icon {
+  color: #000;
+}
+
 .custom-header__icon-button {
   color: inherit;
   background: none;
