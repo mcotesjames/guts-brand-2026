@@ -56,6 +56,11 @@
     </div>
 
     <div class="custom-header__actions">
+      <a class="custom-header__b2b" href="/account">
+          <span class="custom-header__b2b-icon custom-header__b2b-profile-icon" aria-hidden="true">
+            {{ 'icon-account.svg' | inline_asset_content }}
+          </span>
+        </a>
       {% if customer %}
         <a class="custom-header__b2b" href="/account">
           <span class="custom-header__b2b-icon custom-header__b2b-profile-icon" aria-hidden="true">
