@@ -56,14 +56,7 @@
     </div>
 
     <div class="custom-header__actions">
-      {% if customer %}
-        <a class="custom-header__b2b" href="/account/logout">Logout</a>
-          {% if section.settings.b2b_icon != blank %}
-            {{ section.settings.b2b_icon | image_url: width: 32 | image_tag: alt: '', loading: 'lazy', class: 'custom-header__b2b-icon' }}
-          {% endif %}
-          {{ section.settings.b2b_label }}
-        </a>
-      {% elsif section.settings.b2b_label != blank %}
+      {% if section.settings.b2b_label != blank %}
         <a class="custom-header__b2b" href="{{ section.settings.b2b_url | default: '#' }}">
           {% if section.settings.b2b_icon != blank %}
             {{ section.settings.b2b_icon | image_url: width: 32 | image_tag: alt: '', loading: 'lazy', class: 'custom-header__b2b-icon' }}
@@ -111,18 +104,20 @@
           </span>
         </button>
       {% endif %}
-      <a
-        class="custom-header__icon-button"
-        href="{% if customer %}/account/logout{% else %}/account/login{% endif %}"
-        aria-label="{% if customer %}Log out{% else %}Log in{% endif %}"
-      >
-        <span class="custom-header__icon custom-header__icon--light">
-          {{ 'icon-account.svg' | inline_asset_content }}
-        </span>
-        <span class="custom-header__icon custom-header__icon--dark">
-          {{ 'icon-account.svg' | inline_asset_content }}
-        </span>
-      </a>
+      {% if customer %}
+        <a
+          class="custom-header__icon-button"
+          href="/account"
+          aria-label="Profile"
+        >
+          <span class="custom-header__icon custom-header__icon--light">
+            {{ 'icon-account.svg' | inline_asset_content }}
+          </span>
+          <span class="custom-header__icon custom-header__icon--dark">
+            {{ 'icon-account.svg' | inline_asset_content }}
+          </span>
+        </a>
+      {% endif %}
       <span class="custom-header__locale">{{ 'general.locale_switcher_html' | t }}</span>
       
     </div>
@@ -253,9 +248,7 @@
         </form>
       {% endif %}
 
-      {% if customer %}
-        <a class="custom-header__offcanvas-b2b custom-button custom-button--primary" href="/account/logout">Logout</a>
-      {% elsif section.settings.b2b_label != blank %}
+      {% if section.settings.b2b_label != blank %}
         <a class="custom-header__offcanvas-b2b custom-button custom-button--primary" href="{{ section.settings.b2b_url | default: '#' }}">
           {% if section.settings.b2b_icon != blank %}
             {{ section.settings.b2b_icon | image_url: width: 24 | image_tag: alt: '', loading: 'lazy', class: 'custom-header__offcanvas-b2b-icon' }}
