@@ -56,7 +56,9 @@
     </div>
 
     <div class="custom-header__actions">
-      {% if section.settings.b2b_label != blank %}
+      {% if customer %}
+        <a class="custom-header__b2b" href="/account/logout">Logout</a>
+      {% elsif section.settings.b2b_label != blank %}
         <a class="custom-header__b2b" href="{{ section.settings.b2b_url | default: '#' }}">
           {% if section.settings.b2b_icon != blank %}
             {{ section.settings.b2b_icon | image_url: width: 32 | image_tag: alt: '', loading: 'lazy', class: 'custom-header__b2b-icon' }}
@@ -246,7 +248,9 @@
         </form>
       {% endif %}
 
-      {% if section.settings.b2b_label != blank %}
+      {% if customer %}
+        <a class="custom-header__offcanvas-b2b custom-button custom-button--primary" href="/account/logout">Logout</a>
+      {% elsif section.settings.b2b_label != blank %}
         <a class="custom-header__offcanvas-b2b custom-button custom-button--primary" href="{{ section.settings.b2b_url | default: '#' }}">
           {% if section.settings.b2b_icon != blank %}
             {{ section.settings.b2b_icon | image_url: width: 24 | image_tag: alt: '', loading: 'lazy', class: 'custom-header__offcanvas-b2b-icon' }}
