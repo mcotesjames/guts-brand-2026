@@ -77,7 +77,6 @@
 .custom-footer__social {
   width: 32px;
   height: 32px;
-  border: 1px solid currentColor;
   display: inline-flex;
   align-items: center;
   justify-content: center;

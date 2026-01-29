@@ -11,7 +11,7 @@
     {% assign contact_menu = settings.footer_menu_contact %}
     {% assign legal_menu = settings.footer_menu_legal %}
 
-    {% if upsell_menu != blank or settings.footer_social_instagram != blank or settings.footer_social_linkedin != blank or settings.footer_social_tiktok != blank or settings.footer_social_facebook != blank %}
+    {% if upsell_menu != blank or settings.footer_social_instagram != blank or settings.footer_social_tiktok != blank or settings.footer_social_facebook != blank or settings.footer_social_youtube != blank %}
       <div class="custom-footer__column">
         {% if upsell_menu != blank and upsell_menu.links.size > 0 %}
           <ul class="custom-footer__list custom-footer__list-main">
@@ -25,19 +25,27 @@
           </ul>
         {% endif %}
 
-        {% if settings.footer_social_instagram != blank or settings.footer_social_linkedin != blank or settings.footer_social_tiktok != blank or settings.footer_social_facebook != blank %}
+        {% if settings.footer_social_instagram != blank or settings.footer_social_tiktok != blank or settings.footer_social_facebook != blank or settings.footer_social_youtube != blank %}
           <div class="custom-footer__socials" aria-label="{{ 'footer.socials' | t }}">
             {% if settings.footer_social_instagram != blank %}
-              <a class="custom-footer__social" href="{{ settings.footer_social_instagram }}" aria-label="{{ 'socials.instagram' | t }}">{{ 'socials.instagram_short' | t }}</a>
-            {% endif %}
-            {% if settings.footer_social_linkedin != blank %}
-              <a class="custom-footer__social" href="{{ settings.footer_social_linkedin }}" aria-label="{{ 'socials.linkedin' | t }}">{{ 'socials.linkedin_short' | t }}</a>
+              <a class="custom-footer__social" href="{{ settings.footer_social_instagram }}" aria-label="{{ 'socials.instagram' | t }}">
+                {{ 'icon-social-instagram.svg' | inline_asset_content }}
+              </a>
             {% endif %}
             {% if settings.footer_social_tiktok != blank %}
-              <a class="custom-footer__social" href="{{ settings.footer_social_tiktok }}" aria-label="{{ 'socials.tiktok' | t }}">{{ 'socials.tiktok_short' | t }}</a>
+              <a class="custom-footer__social" href="{{ settings.footer_social_tiktok }}" aria-label="{{ 'socials.tiktok' | t }}">
+                {{ 'icon-social-tiktok.svg' | inline_asset_content }}
+              </a>
             {% endif %}
             {% if settings.footer_social_facebook != blank %}
-              <a class="custom-footer__social" href="{{ settings.footer_social_facebook }}" aria-label="{{ 'socials.facebook' | t }}">{{ 'socials.facebook_short' | t }}</a>
+              <a class="custom-footer__social" href="{{ settings.footer_social_facebook }}" aria-label="{{ 'socials.facebook' | t }}">
+                {{ 'icon-social-facebook.svg' | inline_asset_content }}
+              </a>
+            {% endif %}
+            {% if settings.footer_social_youtube != blank %}
+              <a class="custom-footer__social" href="{{ settings.footer_social_youtube }}" aria-label="{{ 'socials.youtube' | t }}">
+                {{ 'icon-social-youtube.svg' | inline_asset_content }}
+              </a>
             {% endif %}
           </div>
         {% endif %}

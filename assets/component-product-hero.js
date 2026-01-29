@@ -1,4 +1,12 @@
 (() => {
+  const formatMoney = (cents) => {
+    if (window.Shopify && typeof window.Shopify.formatMoney === 'function') {
+      return window.Shopify.formatMoney(cents);
+    }
+    const amount = Number(cents || 0) / 100;
+    return `$${amount.toFixed(2)}`;
+  };
+
   const initSection = (section) => {
     const $root = window.jQuery;
     if (!$root || !section) return;
@@ -13,6 +21,7 @@
     const $variantInput = $section.find('[data-product-hero-variant]');
     const optionGroups = Array.from(section.querySelectorAll('[data-option-name]'));
     const form = section.querySelector('[data-product-hero-form]');
+    const priceEl = section.querySelector('[data-product-hero-price]');
     const qtyInput = section.querySelector('.product-hero__qty-input');
     const variantsScript = section.querySelector('[data-product-hero-variants]');
     const variants = variantsScript ? JSON.parse(variantsScript.textContent || '[]') : [];
@@ -145,7 +154,9 @@
       if (variant && $variantInput.length) {
         $variantInput.val(variant.id);
       }
-
+      if (variant && priceEl) {
+        priceEl.textContent = formatMoney(variant.price);
+      }
       const colorValue = getSelectedValueByNames(['color', 'colour', 'couleur']);
       if (!colorValue) {
         applyFilter(null);
