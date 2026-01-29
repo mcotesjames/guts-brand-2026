@@ -54,6 +54,16 @@
     ]
   },
   {
+    "name": "Branding",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      }
+    ]
+  },
+  {
     "name": "t:general.colors",
     "settings": [
       {
@@ -205,24 +215,29 @@
         "label": "Background image"
       },
       {
-        "type": "text",
+        "type": "url",
         "id": "footer_social_instagram",
         "label": "Instagram URL"
       },
       {
-        "type": "text",
+        "type": "url",
         "id": "footer_social_linkedin",
         "label": "LinkedIn URL"
       },
       {
-        "type": "text",
+        "type": "url",
         "id": "footer_social_tiktok",
         "label": "TikTok URL"
       },
       {
-        "type": "text",
+        "type": "url",
         "id": "footer_social_facebook",
         "label": "Facebook URL"
+      },
+      {
+        "type": "url",
+        "id": "footer_social_youtube",
+        "label": "YouTube URL"
       }
     ]
   }

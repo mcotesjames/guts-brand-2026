@@ -139,9 +139,36 @@
     <div class="product-hero__details-placeholder">
       {% form 'product', product, class: 'product-hero__form', data-product-hero-form: '' %}
         {% assign current_variant = product.selected_or_first_available_variant %}
+        {% assign price = current_variant.price %}
+        {% assign compare_at_price = current_variant.compare_at_price %}
+        {% assign available = current_variant.available %}
+        {% assign money_price = price | money %}
+        {% assign money_price_min = product.price_min | money %}
+        {% assign money_price_max = product.price_max | money %}
+        {% assign price_class = '' %}
+        {% assign show_badges = false %}
+        <div
+    class="
+      price
+      {%- if price_class %} {{ price_class }}{% endif -%}
+      {%- if available == false %} price--sold-out{% endif -%}
+      {%- if compare_at_price > price and product.quantity_price_breaks_configured? != true %} price--on-sale{% endif -%}
+      {%- if compare_at_price > price and product.quantity_price_breaks_configured? %} volume-pricing--sale-badge{% endif -%}
+      {%- if product.price_varies == false and product.compare_at_price_varies %} price--no-compare{% endif -%}
+      {%- if show_badges %} price--show-badge{% endif -%}
+    "
+  >
         <div class="product-hero__card-header">
           <h1 class="product-hero__title heading-style-h2">{{ product.title }}</h1>
-          <div class="product-hero__price price">{{ product.price | money }}</div>
+            <div class="price__container">
+              <div class="price__regular">                  
+                  <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+                  <span class="price-item price-item--regular" data-product-hero-price>
+                    {{ money_price }}
+                  </span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="product-hero__divider" aria-hidden="true"></div>

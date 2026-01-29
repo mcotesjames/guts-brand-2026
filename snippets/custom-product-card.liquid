@@ -1,6 +1,9 @@
 {%- assign product_image = product.featured_image -%}
 {%- assign primary_variant = product.selected_or_first_available_variant -%}
 {%- assign product_focus_image = primary_variant.metafields.custom.product_focus_image | default: product.metafields.custom.product_focus_image -%}
+{%- assign price = primary_variant.price -%}
+{%- assign compare_at_price = primary_variant.compare_at_price -%}
+{%- assign money_price = price | money -%}
 
 {%- capture variant_images_json -%}
   [
@@ -49,12 +52,24 @@
     {% endif %}
   </a>
 
+  {% assign price = primary_variant.price %}
+  {% assign compare_at_price = primary_variant.compare_at_price %}
+  {% assign money_price = price | money %}
+
   <div class="custom-product-card__details">
     <div class="custom-product-card__info">
       <h3 class="custom-product-card__title">{{ product.title }}</h3>
-      <div class="custom-product-card__price">
-        {{ product.price | money }}
+      <div class="price">
+        <div class="price__container">
+          <div class="price__regular">                  
+              <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+              <span class="price-item price-item--regular">
+                {{ money_price }}
+              </span>
+          </div>
+        </div>
       </div>
+
 
       {% if color_option != nil %}
         <div class="custom-product-card__swatches" role="radiogroup" aria-label="{{ 'products.product.color' | t }}">

@@ -51,6 +51,7 @@
           <p class="custom-stockist-portal__subtitle">{{ section.settings.login_subtitle }}</p>
 
           {% form 'customer_login', class: 'custom-stockist-portal__form' %}
+            <input type="hidden" name="return_to" value="/pages/stockist-portal">
             <div class="custom-input">
               <label class="custom-input__label" for="StockistLoginEmail-{{ section.id }}">{{ 'customers.login.username' | t }}</label>
               <input
