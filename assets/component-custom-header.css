@@ -204,6 +204,24 @@
   text-transform: uppercase;
 }
 
+.custom-header__locale-link {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.custom-header__locale-link.is-active {
+  color: var(--color-tertiary);
+}
+
+.custom-header__locale-separator {
+  margin: 0 6px;
+}
+
 
 .custom-header__burger {
   display: none;
