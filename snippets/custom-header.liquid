@@ -62,6 +62,9 @@
             {{ section.settings.b2b_icon | image_url: width: 32 | image_tag: alt: '', loading: 'lazy', class: 'custom-header__b2b-icon' }}
           {% endif %}
           {{ section.settings.b2b_label }}
+          <span class="custom-header__b2b-icon custom-header__b2b-profile-icon" aria-hidden="true">
+            {{ 'icon-account.svg' | inline_asset_content }}
+          </span>
         </a>
       {% endif %}
 
@@ -254,6 +257,9 @@
             {{ section.settings.b2b_icon | image_url: width: 24 | image_tag: alt: '', loading: 'lazy', class: 'custom-header__offcanvas-b2b-icon' }}
           {% endif %}
           {{ section.settings.b2b_label }}
+          <span class="custom-header__b2b-icon custom-header__b2b-profile-icon" aria-hidden="true">
+            {{ 'icon-account.svg' | inline_asset_content }}
+          </span>
         </a>
       {% endif %}
     </div>
