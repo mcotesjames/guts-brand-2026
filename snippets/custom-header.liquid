@@ -104,6 +104,18 @@
           </span>
         </button>
       {% endif %}
+      <a
+        class="custom-header__icon-button"
+        href="{% if customer %}/account/logout{% else %}/account/login{% endif %}"
+        aria-label="{% if customer %}Log out{% else %}Log in{% endif %}"
+      >
+        <span class="custom-header__icon custom-header__icon--light">
+          {{ 'icon-account.svg' | inline_asset_content }}
+        </span>
+        <span class="custom-header__icon custom-header__icon--dark">
+          {{ 'icon-account.svg' | inline_asset_content }}
+        </span>
+      </a>
       <span class="custom-header__locale">{{ 'general.locale_switcher_html' | t }}</span>
       
     </div>
