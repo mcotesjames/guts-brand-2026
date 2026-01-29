@@ -58,6 +58,11 @@
     <div class="custom-header__actions">
       {% if customer %}
         <a class="custom-header__b2b" href="/account/logout">Logout</a>
+          {% if section.settings.b2b_icon != blank %}
+            {{ section.settings.b2b_icon | image_url: width: 32 | image_tag: alt: '', loading: 'lazy', class: 'custom-header__b2b-icon' }}
+          {% endif %}
+          {{ section.settings.b2b_label }}
+        </a>
       {% elsif section.settings.b2b_label != blank %}
         <a class="custom-header__b2b" href="{{ section.settings.b2b_url | default: '#' }}">
           {% if section.settings.b2b_icon != blank %}
