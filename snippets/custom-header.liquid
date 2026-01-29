@@ -62,8 +62,20 @@
             {{ section.settings.b2b_icon | image_url: width: 32 | image_tag: alt: '', loading: 'lazy', class: 'custom-header__b2b-icon' }}
           {% endif %}
           {{ section.settings.b2b_label }}
-          <span class="custom-header__b2b-icon custom-header__b2b-profile-icon" aria-hidden="true">
+        </a>
+      {% endif %}
+
+      {% if customer %}
+        <a
+          class="custom-header__icon-button"
+          href="/account"
+          aria-label="Profile"
+        >
+          <span class="custom-header__icon custom-header__icon--light">
             {{ 'icon-account.svg' | inline_asset_content }}
+          </span>
+          <span class="custom-header__icon custom-header__icon--dark">
+            {{ 'icon-account-black.svg' | inline_asset_content }}
           </span>
         </a>
       {% endif %}
@@ -106,20 +118,6 @@
             {{ cart.item_count }}
           </span>
         </button>
-      {% endif %}
-      {% if customer %}
-        <a
-          class="custom-header__icon-button"
-          href="/account"
-          aria-label="Profile"
-        >
-          <span class="custom-header__icon custom-header__icon--light">
-            {{ 'icon-account.svg' | inline_asset_content }}
-          </span>
-          <span class="custom-header__icon custom-header__icon--dark">
-            {{ 'icon-account.svg' | inline_asset_content }}
-          </span>
-        </a>
       {% endif %}
       <span class="custom-header__locale">{{ 'general.locale_switcher_html' | t }}</span>
       
@@ -257,9 +255,6 @@
             {{ section.settings.b2b_icon | image_url: width: 24 | image_tag: alt: '', loading: 'lazy', class: 'custom-header__offcanvas-b2b-icon' }}
           {% endif %}
           {{ section.settings.b2b_label }}
-          <span class="custom-header__b2b-icon custom-header__b2b-profile-icon" aria-hidden="true">
-            {{ 'icon-account.svg' | inline_asset_content }}
-          </span>
         </a>
       {% endif %}
     </div>
