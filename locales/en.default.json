@@ -13,22 +13,60 @@
     "comment_form_submit": "Post",
     "comment_form_title": "Add a comment"
   },
+  "ambassadors": {
+    "open_ambassador": "Open ambassador {{ position }}",
+    "label": "GUTS AMBASSADOR"
+  },
   "cart": {
     "checkout": "Checkout",
+    "empty": "Your cart is empty.",
+    "subtotal": "Subtotal",
     "title": "Cart",
     "update": "Update",
-    "remove": "Remove"
+    "remove": "Remove",
+    "your_cart": "Your cart"
+  },
+  "contact": {
+    "contact_us": "Contact us",
+    "email": "Email",
+    "first_name": "Firstname",
+    "image_placeholder": "Contact image placeholder",
+    "last_name": "Lastname",
+    "message": "Message",
+    "reason_label": "Reason for enquiry"
   },
   "customers": {
     "login": {
       "email": "Email",
       "password": "Password",
       "submit": "Sign in",
-      "title": "Login"
+      "title": "Login",
+      "username": "Username"
     }
   },
   "collections": {
     "title": "Collections"
+  },
+  "faq": {
+    "categories_label": "FAQ categories"
+  },
+  "footer": {
+    "contact": "Contact",
+    "legal": "Legal",
+    "socials": "Socials",
+    "support": "Support"
+  },
+  "general": {
+    "close": "Close",
+    "locale_switcher_html": "<mark>EN</mark> | FR",
+    "menu": "Menu",
+    "navigation_main": "Main",
+    "navigation_mobile": "Mobile menu",
+    "next": "Next",
+    "open_menu": "Open menu",
+    "previous": "Previous",
+    "spacer": "Spacer",
+    "video_placeholder": "Video placeholder"
   },
   "gift_card": {
     "add_to_apple_wallet": "Add to Apple Wallet",
@@ -36,6 +74,10 @@
     "expired": "This gift card has expired",
     "expires_on": "Expires on {{ expires_on }}",
     "use_at_checkout": "Use this gift card at checkout"
+  },
+  "newsletter": {
+    "email_placeholder": "Enter email address",
+    "join": "Join"
   },
   "password": {
     "title": "This shop is private",
@@ -48,5 +90,60 @@
     "submit": "Search",
     "no_results_html": "No results found for {{ terms }}",
     "results_for_html": "{{ count }} results found for {{ terms }}"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "color": "Color",
+      "details_label": "Product details",
+      "price": {
+        "from_price_html": "From {{ price }}",
+        "regular_price": "Regular price",
+        "sale_price": "Sale price",
+        "unit_price": "Unit price"
+      },
+      "shipping_returns": "Shipping & Returns",
+      "size_guide": "Size guide"
+    }
+  },
+  "sections": {
+    "collection_carousel": {
+      "empty": "Select a collection to display products."
+    },
+    "product_hotspot": {
+      "empty": "Select an image and add hotspot blocks."
+    },
+    "upsell_carousel": {
+      "empty": "Select products to display."
+    },
+    "variant_carousel": {
+      "empty": "Select a product to display variants."
+    }
+  },
+  "socials": {
+    "facebook": "Facebook",
+    "facebook_short": "FB",
+    "instagram": "Instagram",
+    "instagram_short": "IG",
+    "linkedin": "LinkedIn",
+    "linkedin_short": "IN",
+    "tiktok": "TikTok",
+    "tiktok_short": "TT",
+    "youtube": "YouTube"
+  },
+  "stockist": {
+    "distance_placeholder": "Distance: &mdash;",
+    "empty_message": "Sorry, there are no GUTS stockist in your area. Get in contact with us below",
+    "enter_address": "Enter address",
+    "portal": {
+      "background_label": "Stockist portal background"
+    },
+    "radius_10": "10 km",
+    "radius_20": "20 km",
+    "radius_50": "50 km",
+    "type_all": "All",
+    "type_school": "Schools",
+    "type_shop": "Shops",
+    "view_store": "View store"
   }
 }

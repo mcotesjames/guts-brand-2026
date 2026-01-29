@@ -1,6 +1,9 @@
 {%- assign product_image = product.featured_image -%}
 {%- assign primary_variant = product.selected_or_first_available_variant -%}
 {%- assign product_focus_image = primary_variant.metafields.custom.product_focus_image | default: product.metafields.custom.product_focus_image -%}
+{%- assign price = primary_variant.price -%}
+{%- assign compare_at_price = primary_variant.compare_at_price -%}
+{%- assign money_price = price | money -%}
 
 {%- capture variant_images_json -%}
   [
@@ -20,11 +23,12 @@
 {%- assign size_index = nil -%}
 
 {%- for option in product.options_with_values -%}
-  {%- if option.name == 'Color' -%}
+  {%- assign option_name = option.name | downcase -%}
+  {%- if option_name contains 'color' or option_name contains 'colour' or option_name contains 'couleur' -%}
     {%- assign color_option = option -%}
     {%- assign color_index = forloop.index0 -%}
   {%- endif -%}
-  {%- if option.name == 'Size' -%}
+  {%- if option_name contains 'size' or option_name contains 'taille' -%}
     {%- assign size_option = option -%}
     {%- assign size_index = forloop.index0 -%}
   {%- endif -%}
@@ -51,12 +55,20 @@
   <div class="custom-product-card__details">
     <div class="custom-product-card__info">
       <h3 class="custom-product-card__title">{{ product.title }}</h3>
-      <div class="custom-product-card__price">
-        {{ product.price | money }}
+      <div class="price">
+        <div class="price__container">
+          <div class="price__regular">                  
+              <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+              <span class="price-item price-item--regular">
+                {{ money_price }}
+              </span>
+          </div>
+        </div>
       </div>
 
+
       {% if color_option != nil %}
-        <div class="custom-product-card__swatches" role="radiogroup" aria-label="Color">
+        <div class="custom-product-card__swatches" role="radiogroup" aria-label="{{ 'products.product.color' | t }}">
           {% for value in color_option.values %}
             {%- assign swatch_hex = '' -%}
             {%- assign swatch_hex_secondary = '' -%}
@@ -125,7 +137,7 @@
     <button
       class="custom-product-card__quick-add"
       type="button"
-      aria-label="Add to cart"
+      aria-label="{{ 'products.product.add_to_cart' | t }}"
       data-quick-add
       data-quick-add-mode="product"
       data-has-size="{% if size_option != nil %}true{% else %}false{% endif %}"

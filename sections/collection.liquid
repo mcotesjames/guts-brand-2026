@@ -8,6 +8,11 @@
     <div class="collection-grid__products">
       {% paginate collection.products by 20 %}
         {% for product in collection.products %}
+
+          {% assign price = product.price %}
+          {% assign compare_at_price = product.compare_at_price %}
+          {% assign money_price = price | money %}
+
           <article class="collection-grid__card custom-product-card">
             {% if product.featured_image %}
               {% render 'image',
@@ -24,7 +29,16 @@
                 <a class="custom-product-card__title" href="{{ product.url }}">
                 {{ product.title | escape }}
                 </a>
-                <div class="custom-product-card__price">{{ product.price | money }}</div>
+                <div class="price">
+                  <div class="price__container">
+                    <div class="price__regular">                  
+                        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+                        <span class="price-item price-item--regular">
+                          {{ money_price }}
+                        </span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </article>

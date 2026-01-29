@@ -18,7 +18,7 @@
 {{ 'component-product-hero.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'component-product-hero.js' | asset_url }}" defer></script>
 
-<section class="product-hero full-width section-padding--md-bottom" data-product-hero>
+<section class="product product-hero full-width section-padding--md-bottom" data-product-hero>
   <div class="product-hero__carousel">
     <div class="product-hero__carousel-main">
       <div class="product-hero__track" data-product-hero-track>
@@ -26,7 +26,7 @@
       {% assign color_option = nil %}
       {% for option in product.options_with_values %}
         {% assign option_name = option.name | downcase %}
-        {% if option_name contains 'color' or option_name contains 'colour' %}
+        {% if option_name contains 'color' or option_name contains 'colour' or option_name contains 'couleur' %}
           {% assign color_option = option %}
         {% endif %}
       {% endfor %}
@@ -42,7 +42,7 @@
         {% assign color_index = nil %}
         {% for option in product.options_with_values %}
           {% assign option_name = option.name | downcase %}
-          {% if option_name contains 'color' or option_name contains 'colour' %}
+          {% if option_name contains 'color' or option_name contains 'colour' or option_name contains 'couleur' %}
             {% assign color_index = forloop.index0 %}
           {% endif %}
         {% endfor %}
@@ -85,10 +85,10 @@
       {% endif %}
       </div>
 
-      <button class="product-hero__arrow product-hero__arrow--prev" type="button" data-product-hero-prev aria-label="Previous">
+      <button class="product-hero__arrow product-hero__arrow--prev" type="button" data-product-hero-prev aria-label="{{ 'general.previous' | t }}">
         {{ 'icon-arrow-left.svg' | inline_asset_content }}
       </button>
-      <button class="product-hero__arrow product-hero__arrow--next" type="button" data-product-hero-next aria-label="Next">
+      <button class="product-hero__arrow product-hero__arrow--next" type="button" data-product-hero-next aria-label="{{ 'general.next' | t }}">
         {{ 'icon-arrow-right.svg' | inline_asset_content }}
       </button>
     </div>
@@ -135,13 +135,40 @@
     </div>
   </div>
 
-  <div class="product-hero__details g-4" aria-label="Product details">
+  <div class="product-hero__details g-4" aria-label="{{ 'products.product.details_label' | t }}">
     <div class="product-hero__details-placeholder">
       {% form 'product', product, class: 'product-hero__form', data-product-hero-form: '' %}
         {% assign current_variant = product.selected_or_first_available_variant %}
+        {% assign price = current_variant.price %}
+        {% assign compare_at_price = current_variant.compare_at_price %}
+        {% assign available = current_variant.available %}
+        {% assign money_price = price | money %}
+        {% assign money_price_min = product.price_min | money %}
+        {% assign money_price_max = product.price_max | money %}
+        {% assign price_class = '' %}
+        {% assign show_badges = false %}
+        <div
+    class="
+      price
+      {%- if price_class %} {{ price_class }}{% endif -%}
+      {%- if available == false %} price--sold-out{% endif -%}
+      {%- if compare_at_price > price and product.quantity_price_breaks_configured? != true %} price--on-sale{% endif -%}
+      {%- if compare_at_price > price and product.quantity_price_breaks_configured? %} volume-pricing--sale-badge{% endif -%}
+      {%- if product.price_varies == false and product.compare_at_price_varies %} price--no-compare{% endif -%}
+      {%- if show_badges %} price--show-badge{% endif -%}
+    "
+  >
         <div class="product-hero__card-header">
           <h1 class="product-hero__title heading-style-h2">{{ product.title }}</h1>
-          <div class="product-hero__price">{{ product.price | money }}</div>
+            <div class="price__container">
+              <div class="price__regular">                  
+                  <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+                  <span class="price-item price-item--regular" data-product-hero-price>
+                    {{ money_price }}
+                  </span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="product-hero__divider" aria-hidden="true"></div>
@@ -150,7 +177,7 @@
           {% for option in product.options_with_values %}
             {% assign option_name = option.name | downcase %}
             {% assign option_index = forloop.index0 %}
-            {% if option_name contains 'color' or option_name contains 'colour' or option_name contains 'size' %}
+            {% if option_name contains 'color' or option_name contains 'colour' or option_name contains 'couleur' or option_name contains 'size' or option_name contains 'taille' %}
               <div class="product-hero__option" data-option-name="{{ option.name }}" data-option-index="{{ forloop.index0 }}">
                 <div class="product-hero__option-label">
                   {{ option.name }}:
@@ -166,7 +193,7 @@
                     {% endif %}
                     {% assign swatch_hex = '' %}
                     {% assign swatch_hex_secondary = '' %}
-                    {% if option_name contains 'color' or option_name contains 'colour' %}
+                    {% if option_name contains 'color' or option_name contains 'colour' or option_name contains 'couleur' %}
                       {% for variant in product.variants %}
                         {% if swatch_hex == blank and swatch_hex_secondary == blank and variant.options[option_index] == value %}
                           {% assign swatch_list = variant.metafields.custom.color_swatches.value | default: variant.metafields.custom.color_swatches %}
@@ -182,11 +209,11 @@
                       type="button"
                       data-option-value="{{ value }}"
                       aria-pressed="{% if is_active %}true{% else %}false{% endif %}"
-                      {% if option_name contains 'color' or option_name contains 'colour' %}
+                      {% if option_name contains 'color' or option_name contains 'colour' or option_name contains 'couleur' %}
                         style="--swatch-color: {% if swatch_hex != blank and swatch_hex_secondary != blank %}linear-gradient(135deg, {{ swatch_hex }} 0 50%, {{ swatch_hex_secondary }} 50% 100%){% else %}{% if swatch_hex != blank %}{{ swatch_hex }}{% else %}{{ value | downcase }}{% endif %}{% endif %};"
                       {% endif %}
                     >
-                      {% if option_name contains 'color' or option_name contains 'colour' %}
+                      {% if option_name contains 'color' or option_name contains 'colour' or option_name contains 'couleur' %}
                         <span class="product-hero__swatch" aria-hidden="true"></span>
                       {% else %}
                         {{ value }}
@@ -209,14 +236,35 @@
             <input class="product-hero__qty-input" type="number" name="quantity" min="1" value="1" inputmode="numeric">
             <button class="product-hero__qty-btn" type="button" data-qty-change="1">+</button>
           </div>
-          <button class="product-hero__add-to-cart" type="submit">Add to cart</button>
+          <button class="product-hero__add-to-cart" type="submit">{{ 'products.product.add_to_cart' | t }}</button>
         </div>
 
-        <div class="product-hero__links">
-          <a class="product-hero__link" href="#">Product Specs</a>
-          <a class="product-hero__link" href="#">Size guide</a>
-          <a class="product-hero__link" href="#">Shipping &amp; Returns</a>
-        </div>
+        {% if product.metafields.custom.size_guide != blank or shop.shipping_policy.body != blank %}
+          <div class="product-hero__links">
+            {% if product.metafields.custom.size_guide != blank %}
+                <details class="product-hero__accordion">
+                  <summary class="product-hero__link">{{ 'products.product.size_guide' | t }}</summary>
+                  <div class="product-hero__accordion-body">
+                    <div class="product-hero__richtext">
+                      {{ product.metafields.custom.size_guide | metafield_tag }}
+                    </div>
+                  </div>
+                </details>
+            {% endif %}
+
+            {% if shop.shipping_policy.body != blank %}
+              <a
+                class="product-hero__link product-hero__modal"
+                href="#ShippingModal-{{ section.id }}"
+                data-bs-toggle="modal"
+                data-bs-target="#ShippingModal-{{ section.id }}"
+                aria-controls="ShippingModal-{{ section.id }}"
+              >
+                {{ 'products.product.shipping_returns' | t }}
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
 
         <input
           type="hidden"
@@ -233,10 +281,49 @@
   </script>
 </section>
 
+{% if shop.shipping_policy.body != blank %}
+  <div
+    class="modal fade product-hero__modal"
+    id="ShippingModal-{{ section.id }}"
+    tabindex="-1"
+    aria-labelledby="ShippingModalLabel-{{ section.id }}"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ShippingModalLabel-{{ section.id }}">{{ 'products.product.shipping_returns' | t }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ 'general.close' | t }}"></button>
+        </div>
+        <div class="modal-body">
+          <div class="product-hero__richtext">
+            {{ shop.shipping_policy.body }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
 {% schema %}
 {
   "name": "t:general.product",
-  "settings": [],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Size guide"
+    },
+    {
+      "type": "richtext",
+      "id": "size_guide_content",
+      "label": "Size guide content",
+      "default": "<p>S / M: 54cm to 56cm</p><p>M / L: 55cm to 59cm</p>"
+    },
+    {
+      "type": "header",
+      "content": "Shipping link"
+    }
+  ],
   "disabled_on": {
     "groups": ["header", "footer"]
   }

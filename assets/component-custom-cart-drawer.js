@@ -44,18 +44,59 @@
           ? item.variant_title
           : '';
         return `
-          <div class="custom-cart-drawer__item" data-cart-line="${item.key}">
+          <div
+            class="custom-cart-drawer__item cart-item"
+            data-cart-line="${item.key}"
+            samitaWS-drawer-line-item-key="${item.key}"
+          >
             <div>
               ${image ? `<img class="custom-cart-drawer__item-image" src="${image}" alt="${item.product_title}">` : ''}
             </div>
-            <div>
+            <div class="cart-item__details">
+              <button
+                class="custom-cart-drawer__remove"
+                type="button"
+                aria-label="Remove ${item.product_title} from cart"
+                samitaWS-drawer-line-item-remove-button
+              >
+                Remove
+              </button>
               <p class="custom-cart-drawer__item-title">${item.product_title}</p>
               ${variantTitle ? `<div class="custom-cart-drawer__item-variant">${variantTitle}</div>` : ''}
-              <div class="custom-cart-drawer__item-price">${formatMoney(item.final_line_price, cart.currency)}</div>
-              <div class="custom-cart-drawer__qty" data-cart-qty>
-                <button class="custom-cart-drawer__qty-btn" type="button" data-qty-change="-1">-</button>
-                <div class="custom-cart-drawer__qty-value">${item.quantity}</div>
-                <button class="custom-cart-drawer__qty-btn" type="button" data-qty-change="1">+</button>
+              <div
+                class="product-option custom-cart-drawer__item-price"
+                samitaWS-drawer-product-main-price
+              >
+                ${formatMoney(item.final_line_price, cart.currency)}
+              </div>
+              <div
+                class="custom-cart-drawer__qty cart-item__quantity"
+                data-cart-qty
+                samitaWS-drawer-line-item-qty-wrapper
+              >
+                <button
+                  class="custom-cart-drawer__qty-btn"
+                  type="button"
+                  data-qty-change="-1"
+                  name="minus"
+                  samitaWS-drawer-line-item-qty-decrease
+                >-</button>
+                <input
+                  class="custom-cart-drawer__qty-value quantity__input"
+                  type="number"
+                  inputmode="numeric"
+                  name="updates[]"
+                  value="${item.quantity}"
+                  readonly
+                  samitaWS-drawer-line-item-qty
+                >
+                <button
+                  class="custom-cart-drawer__qty-btn"
+                  type="button"
+                  data-qty-change="1"
+                  name="plus"
+                  samitaWS-drawer-line-item-qty-increase
+                >+</button>
               </div>
             </div>
           </div>
@@ -101,6 +142,17 @@
   });
 
   content.addEventListener('click', async (event) => {
+    const removeButton = event.target.closest('.samitaWS-drawer-line-item-remove-button');
+    if (removeButton) {
+      const line = event.target.closest('[data-cart-line]');
+      if (!line) return;
+      const cart = await updateCartLine(line.dataset.cartLine, 0);
+      if (!cart) return;
+      renderCart(cart);
+      document.dispatchEvent(new CustomEvent('cart:updated', { detail: { cart } }));
+      return;
+    }
+
     const button = event.target.closest('[data-qty-change]');
     if (!button) return;
 
@@ -108,8 +160,8 @@
     if (!line) return;
 
     const delta = Number(button.dataset.qtyChange || 0);
-    const qtyEl = line.querySelector('.custom-cart-drawer__qty-value');
-    const currentQty = Number(qtyEl?.textContent || 0);
+    const qtyInput = line.querySelector('.custom-cart-drawer__qty-value');
+    const currentQty = Number(qtyInput?.value || 0);
     const nextQty = Math.max(currentQty + delta, 0);
 
     const cart = await updateCartLine(line.dataset.cartLine, nextQty);

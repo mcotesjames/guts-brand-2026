@@ -12,24 +12,38 @@
   <div class="custom-cart-drawer__overlay" data-cart-drawer-close></div>
   <div class="custom-cart-drawer__panel">
     <div class="custom-cart-drawer__header">
-      <h2 class="custom-cart-drawer__title heading-style-h5" id="CartDrawerTitle">Your cart</h2>
-      <button class="custom-cart-drawer__close" type="button" data-cart-drawer-close aria-label="Close">
-        Close
+      <h2 class="custom-cart-drawer__title heading-style-h5" id="CartDrawerTitle">{{ 'cart.your_cart' | t }}</h2>
+      <button class="custom-cart-drawer__close" type="button" data-cart-drawer-close aria-label="{{ 'general.close' | t }}">
+        {{ 'general.close' | t }}
       </button>
     </div>
 
-    <div class="custom-cart-drawer__content" data-cart-drawer-content>
-      <p class="custom-cart-drawer__empty">Your cart is empty.</p>
-    </div>
-
-    <div class="custom-cart-drawer__footer">
-      <div class="custom-cart-drawer__subtotal">
-        <span>Subtotal</span>
-        <span data-cart-drawer-subtotal>$0.00</span>
+    <form
+      class="custom-cart-drawer__form"
+      id="CartDrawer"
+      action="{{ routes.cart_url }}"
+      method="post"
+      samitaWS-drawer-form
+    >
+      <div class="custom-cart-drawer__content" data-cart-drawer-content>
+        <p class="custom-cart-drawer__empty">{{ 'cart.empty' | t }}</p>
       </div>
-      <a class="custom-cart-drawer__checkout custom-button custom-button--secondary" href="{{ routes.checkout_url }}">
-        Checkout
-      </a>
-    </div>
+
+      <div class="custom-cart-drawer__footer">
+        <div class="custom-cart-drawer__subtotal">
+          <span>{{ 'cart.subtotal' | t }}</span>
+          <span class="totals__subtotal-value" data-cart-drawer-subtotal samitaWS-drawer-line-item-subtotal-price>$0.00</span>
+        </div>
+        <button
+          class="custom-cart-drawer__checkout custom-button custom-button--secondary"
+          type="submit"
+          id="CartDrawer-Checkout"
+          name="checkout"
+          samitaWS-drawer-checkout-btn
+        >
+          {{ 'cart.checkout' | t }}
+        </button>
+      </div>
+    </form>
   </div>
 </aside>

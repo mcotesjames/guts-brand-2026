@@ -15,12 +15,24 @@
     "footer_menu_contact": "contact",
     "footer_menu_legal": "legal",
     "footer_background_image": "shopify://shop_images/guts-white-vector.svg",
-    "color_scheme": "scheme-1",
+    "content_for_index": [],
+    "blocks": {
+      "9513407616245537438": {
+        "type": "shopify://apps/sami-wholesale/blocks/app-embed-block/799b9db0-2c2b-4b20-8675-98acd123fbb2",
+        "disabled": false,
+        "settings": {}
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
-          "background": "#FFFFFF",
-          "text": "#000000"
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#000000",
+          "button": "#000000",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#000000",
+          "shadow": "#000000"
         }
       }
     },

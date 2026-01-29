@@ -198,6 +198,34 @@
   width: 100%;
 }
 
+.product-hero__modal.modal {
+  position: fixed;
+}
+
+.product-hero__modal .modal-content {
+  border-radius: 0;
+  border: 0;
+}
+
+.product-hero__richtext h1,
+.product-hero__richtext h2,
+.product-hero__richtext h3,
+.product-hero__richtext h4,
+.product-hero__richtext h5,
+.product-hero__richtext h6 {
+  margin-bottom: 5px;
+}
+
+.product-hero__richtext p {
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.product-hero__accordion-body p {
+  margin: 0;
+}
+
 .product-hero__options {
   display: flex;
   flex-direction: column;

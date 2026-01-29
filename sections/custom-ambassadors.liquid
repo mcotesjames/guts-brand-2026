@@ -31,11 +31,11 @@
           aria-controls="{{ panel_id }}"
           data-ambassadors-toggle
         >
-          <span class="visually-hidden">Open ambassador {{ ambassador_position }}</span>
+          <span class="visually-hidden">{{ 'ambassadors.open_ambassador' | t: position: ambassador_position }}</span>
         </button>
 
         <h2 class="ambassadors-accordion__eyebrow heading-style-h5">
-          GUTS AMBASSADOR <span class="ambassadors-accordion__index">{{ ambassador_index }}</span>
+          {{ 'ambassadors.label' | t }} <span class="ambassadors-accordion__index">{{ ambassador_index }}</span>
         </h2>
 
         <div class="ambassadors-accordion__content" id="{{ panel_id }}">
@@ -58,7 +58,7 @@
                   href="{{ block.settings.instagram_url }}"
                   target="_blank"
                   rel="noopener"
-                  aria-label="Instagram"
+                  aria-label="{{ 'socials.instagram' | t }}"
                 >
                   {{ 'icon-social-instagram.svg' | inline_asset_content }}
                 </a>
@@ -69,7 +69,7 @@
                   href="{{ block.settings.tiktok_url }}"
                   target="_blank"
                   rel="noopener"
-                  aria-label="TikTok"
+                  aria-label="{{ 'socials.tiktok' | t }}"
                 >
                   {{ 'icon-social-tiktok.svg' | inline_asset_content }}
                 </a>
@@ -81,7 +81,7 @@
                   href="{{ block.settings.youtube_url }}"
                   target="_blank"
                   rel="noopener"
-                  aria-label="YouTube"
+                  aria-label="{{ 'socials.youtube' | t }}"
                 >
                   {{ 'icon-social-youtube.svg' | inline_asset_content }}
                 </a>
@@ -93,7 +93,7 @@
                   href="{{ block.settings.facebook_url }}"
                   target="_blank"
                   rel="noopener"
-                  aria-label="Facebook"
+                  aria-label="{{ 'socials.facebook' | t }}"
                 >
                   {{ 'icon-social-facebook.svg' | inline_asset_content }}
                 </a>

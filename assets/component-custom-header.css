@@ -204,6 +204,24 @@
   text-transform: uppercase;
 }
 
+.custom-header__locale-link {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.custom-header__locale-link.is-active {
+  color: var(--color-tertiary);
+}
+
+.custom-header__locale-separator {
+  margin: 0 6px;
+}
+
 
 .custom-header__burger {
   display: none;
@@ -242,8 +260,8 @@
 }
 .custom-header__b2b {
   background-color: var(--color-tertiary);
-  color: var(--color-primary);
-  padding: 10px 12px;
+  color: var(--color-primary)!important;
+  padding: 8px 10px;
   text-decoration: none;
   font-family: var(--font-heading);
   font-size: 13px;
@@ -258,6 +276,10 @@
   width: var(--icon-size-sm);
   height: var(--icon-size-sm);
   display: block;
+}
+
+.custom-header__b2b-profile-icon {
+  color: #000;
 }
 
 .custom-header__icon-button {

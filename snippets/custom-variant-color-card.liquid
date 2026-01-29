@@ -4,6 +4,11 @@
 {%- assign swatch_list = primary_variant.metafields.custom.color_swatches.value | default: primary_variant.metafields.custom.color_swatches -%}
 {%- assign swatch_hex = '' -%}
 {%- assign swatch_hex_secondary = '' -%}
+
+{% assign price = primary_variant.price %}
+{% assign compare_at_price = primary_variant.compare_at_price %}
+{% assign money_price = price | money %}
+
 {%- if swatch_list != blank -%}
   {%- assign swatch_hex = swatch_list[0] | strip -%}
   {%- assign swatch_hex_secondary = swatch_list[1] | strip -%}
@@ -64,8 +69,15 @@
   <div class="custom-product-card__details">
     <div class="custom-product-card__info">
       <h3 class="custom-product-card__title">{{ product.title }}</h3>
-      <div class="custom-product-card__price">
-        {{ primary_variant.price | money }}
+      <div class="price">
+        <div class="price__container">
+          <div class="price__regular">                  
+              <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+              <span class="price-item price-item--regular">
+                {{ money_price }}
+              </span>
+          </div>
+        </div>
       </div>
 
       {% if size_values.size > 0 %}
@@ -91,7 +103,7 @@
     <button
       class="custom-product-card__quick-add"
       type="button"
-      aria-label="Add to cart"
+      aria-label="{{ 'products.product.add_to_cart' | t }}"
       data-quick-add
       data-quick-add-mode="variant"
       data-has-size="{% if size_values.size > 0 %}true{% else %}false{% endif %}"

@@ -1,13 +1,13 @@
 {{ 'component-custom-stockist-portal.css' | asset_url | stylesheet_tag }}
 
-<section class="custom-stockist-portal full-width is-light">
+<section class="custom-stockist-portal section-padding--md-bottom full-width is-light">
   <div class="custom-stockist-portal__media">
     {% if section.settings.background_video != blank %}
       {{ section.settings.background_video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true }}
     {% elsif section.settings.background_image != blank %}
       {{ section.settings.background_image | image_url: width: 2400 | image_tag: alt: section.settings.heading, loading: 'lazy' }}
     {% else %}
-      <div class="custom-stockist-portal__placeholder" role="img" aria-label="Stockist portal background"></div>
+      <div class="custom-stockist-portal__placeholder" role="img" aria-label="{{ 'stockist.portal.background_label' | t }}"></div>
     {% endif %}
   </div>
 
@@ -50,23 +50,26 @@
           <h1 class="custom-stockist-portal__title heading-style-h2">{{ section.settings.heading }}</h1>
           <p class="custom-stockist-portal__subtitle">{{ section.settings.login_subtitle }}</p>
 
-          <form class="custom-stockist-portal__form" action="#" method="post">
+          {% form 'customer_login', class: 'custom-stockist-portal__form' %}
+            <input type="hidden" name="return_to" value="/pages/stockist-portal">
             <div class="custom-input">
-              <label class="custom-input__label" for="StockistLoginEmail-{{ section.id }}">Username</label>
+              <label class="custom-input__label" for="StockistLoginEmail-{{ section.id }}">{{ 'customers.login.username' | t }}</label>
               <input
                 class="custom-input__field"
                 id="StockistLoginEmail-{{ section.id }}"
                 type="email"
-                name="email"
+                name="customer[email]"
+                autocomplete="email"
               >
             </div>
             <div class="custom-input">
-              <label class="custom-input__label" for="StockistLoginPassword-{{ section.id }}">Password</label>
+              <label class="custom-input__label" for="StockistLoginPassword-{{ section.id }}">{{ 'customers.login.password' | t }}</label>
               <input
                 class="custom-input__field"
                 id="StockistLoginPassword-{{ section.id }}"
                 type="password"
-                name="password"
+                name="customer[password]"
+                autocomplete="current-password"
               >
             </div>
             <button class="custom-button custom-button--primary" type="submit">
@@ -75,7 +78,7 @@
             <a class="custom-stockist-portal__link" href="{{ section.settings.forgot_password_url }}">
               {{ section.settings.forgot_password_label }}
             </a>
-          </form>
+          {% endform %}
         </div>
 
         <div
@@ -84,62 +87,12 @@
           role="tabpanel"
           aria-labelledby="StockistSignupTab-{{ section.id }}"
         >
-          <h1 class="custom-stockist-portal__title heading-style-h2">{{ section.settings.heading }}</h1>
+          <h1 class="custom-stockist-portal__title heading-style-h3">{{ section.settings.heading }}</h1>
           <p class="custom-stockist-portal__subtitle">{{ section.settings.signup_subtitle }}</p>
 
-          <form class="custom-stockist-portal__form" action="#" method="post">
-            <div class="custom-stockist-portal__row">
-              <div class="custom-input">
-                <label class="custom-input__label" for="StockistSignupFirstName-{{ section.id }}">Firstname</label>
-                <input
-                  class="custom-input__field"
-                  id="StockistSignupFirstName-{{ section.id }}"
-                  type="text"
-                  name="first_name"
-                >
-              </div>
-              <div class="custom-input">
-                <label class="custom-input__label" for="StockistSignupLastName-{{ section.id }}">Lastname</label>
-                <input
-                  class="custom-input__field"
-                  id="StockistSignupLastName-{{ section.id }}"
-                  type="text"
-                  name="last_name"
-                >
-              </div>
-            </div>
-            <div class="custom-input">
-              <label class="custom-input__label" for="StockistSignupEmail-{{ section.id }}">Email Address</label>
-              <input
-                class="custom-input__field"
-                id="StockistSignupEmail-{{ section.id }}"
-                type="email"
-                name="email"
-              >
-            </div>
-            <div class="custom-input">
-              <label class="custom-input__label" for="StockistSignupCompany-{{ section.id }}">Company Name</label>
-              <input
-                class="custom-input__field"
-                id="StockistSignupCompany-{{ section.id }}"
-                type="text"
-                name="company"
-              >
-            </div>
-            <div class="custom-input">
-              <label class="custom-input__label" for="StockistSignupMessage-{{ section.id }}">Message</label>
-              <textarea
-                class="custom-input__field custom-stockist-portal__textarea"
-                id="StockistSignupMessage-{{ section.id }}"
-                name="message"
-                placeholder=""
-                rows="4"
-              ></textarea>
-            </div>
-            <button class="custom-button custom-button--primary" type="submit">
-              {{ section.settings.signup_button_label }}
-            </button>
-          </form>
+          <div class="custom-stockist-portal__form">
+            {{ section.settings.signup_shortcode }}
+          </div>
         </div>
       </div>
     </div>
@@ -189,6 +142,12 @@
       "id": "signup_subtitle",
       "label": "Sign up subtitle",
       "default": "Please fill out the form below to request access for stockist discounts."
+    },
+    {
+      "type": "textarea",
+      "id": "signup_shortcode",
+      "label": "Signup shortcode",
+      "default": "Sami shortcode here"
     },
     {
       "type": "text",

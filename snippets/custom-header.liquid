@@ -6,7 +6,7 @@
   data-custom-header
 >
   <div class="custom-header__inner">
-    <nav class="custom-header__nav" aria-label="Main">
+    <nav class="custom-header__nav" aria-label="{{ 'general.navigation_main' | t }}">
       <ul class="custom-header__menu">
         {% for link in section.settings.menu.links %}
           {% if link.links != blank %}
@@ -56,7 +56,13 @@
     </div>
 
     <div class="custom-header__actions">
-      {% if section.settings.b2b_label != blank %}
+      {% if customer %}
+        <a class="custom-header__b2b" href="/account">
+          <span class="custom-header__b2b-icon custom-header__b2b-profile-icon" aria-hidden="true">
+            {{ 'icon-account.svg' | inline_asset_content }}
+          </span>
+        </a>
+      {% elsif section.settings.b2b_label != blank %}
         <a class="custom-header__b2b" href="{{ section.settings.b2b_url | default: '#' }}">
           {% if section.settings.b2b_icon != blank %}
             {{ section.settings.b2b_icon | image_url: width: 32 | image_tag: alt: '', loading: 'lazy', class: 'custom-header__b2b-icon' }}
@@ -74,7 +80,7 @@
           aria-expanded="false"
           aria-controls="HeaderSearch-{{ section.id }}"
         >
-          <span class="visually-hidden">Search</span>
+          <span class="visually-hidden">{{ 'search.submit' | t }}</span>
           <span class="custom-header__icon custom-header__icon--light">
             {{ 'icon-search.svg' | inline_asset_content }}
           </span>
@@ -87,7 +93,7 @@
         <button
           class="custom-header__icon-button"
           type="button"
-          aria-label="Cart"
+          aria-label="{{ 'cart.title' | t }}"
           data-cart-drawer-trigger
         >
           <span class="custom-header__icon custom-header__icon--light">
@@ -104,13 +110,31 @@
           </span>
         </button>
       {% endif %}
-      <span class="custom-header__locale"><mark>EN</mark> | FR</span>
+      {% if localization.available_languages.size > 1 %}
+        {% assign header_locale_form_id = 'HeaderLocaleForm-' | append: section.id %}
+        {% form 'localization', class: 'custom-header__locale', id: header_locale_form_id %}
+          {% for language in localization.available_languages %}
+            <button
+              class="custom-header__locale-link{% if language.iso_code == localization.language.iso_code %} is-active{% endif %}"
+              type="submit"
+              name="language_code"
+              value="{{ language.iso_code }}"
+              {% if language.iso_code == localization.language.iso_code %}aria-current="true"{% endif %}
+            >
+              {{ language.iso_code | upcase }}
+            </button>
+            {% unless forloop.last %}
+              <span class="custom-header__locale-separator" aria-hidden="true">|</span>
+            {% endunless %}
+          {% endfor %}
+        {% endform %}
+      {% endif %}
       
     </div>
     <button
       class="custom-header__burger"
       type="button"
-      aria-label="Open menu"
+      aria-label="{{ 'general.open_menu' | t }}"
       data-bs-toggle="offcanvas"
       data-bs-target="#MobileMenu-{{ section.id }}"
       aria-controls="MobileMenu-{{ section.id }}"
@@ -120,8 +144,8 @@
         <span class="custom-header__burger-line"></span>
         <span class="custom-header__burger-line"></span>
       </span>
-      <span class="custom-header__burger-label custom-header__burger-label--open">Menu</span>
-      <span class="custom-header__burger-label custom-header__burger-label--close">Close</span>
+      <span class="custom-header__burger-label custom-header__burger-label--open">{{ 'general.menu' | t }}</span>
+      <span class="custom-header__burger-label custom-header__burger-label--close">{{ 'general.close' | t }}</span>
     </button>
   </div>
 
@@ -139,7 +163,7 @@
             name="q"
           >
         </div>
-        <button class="custom-button custom-button--secondary" type="submit">Search</button>
+        <button class="custom-button custom-button--secondary" type="submit">{{ 'search.submit' | t }}</button>
       </form>
     </div>
   {% endif %}
@@ -163,22 +187,40 @@
           {{ shop.name }}
         {% endif %}
       </a>
-      <button class="custom-header__offcanvas-close" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+      <button class="custom-header__offcanvas-close" type="button" data-bs-dismiss="offcanvas" aria-label="{{ 'general.close' | t }}">
         <span aria-hidden="true">×</span>
       </button>
     </div>
 
     <div class="custom-header__offcanvas-meta">
-      <span class="custom-header__offcanvas-locale"><mark>EN</mark> | FR</span>
+      {% if localization.available_languages.size > 1 %}
+        {% assign mobile_locale_form_id = 'MobileLocaleForm-' | append: section.id %}
+        {% form 'localization', class: 'custom-header__offcanvas-locale', id: mobile_locale_form_id %}
+          {% for language in localization.available_languages %}
+            <button
+              class="custom-header__locale-link{% if language.iso_code == localization.language.iso_code %} is-active{% endif %}"
+              type="submit"
+              name="language_code"
+              value="{{ language.iso_code }}"
+              {% if language.iso_code == localization.language.iso_code %}aria-current="true"{% endif %}
+            >
+              {{ language.iso_code | upcase }}
+            </button>
+            {% unless forloop.last %}
+              <span class="custom-header__locale-separator" aria-hidden="true">|</span>
+            {% endunless %}
+          {% endfor %}
+        {% endform %}
+      {% endif %}
       {% if section.settings.show_cart %}
-        <button class="custom-header__offcanvas-cart" type="button" aria-label="Cart" data-cart-drawer-trigger>
+        <button class="custom-header__offcanvas-cart" type="button" aria-label="{{ 'cart.title' | t }}" data-cart-drawer-trigger>
           {{ 'icon-cart-black.svg' | inline_asset_content }}
         </button>
       {% endif %}
     </div>
 
     <div class="custom-header__offcanvas-body offcanvas-body">
-      <nav class="custom-header__offcanvas-nav" aria-label="Mobile menu">
+      <nav class="custom-header__offcanvas-nav" aria-label="{{ 'general.navigation_mobile' | t }}">
         <ul class="custom-header__offcanvas-menu">
           {% for link in section.settings.menu.links %}
             {% assign collapse_id = 'MobileMenuCollapse-' | append: section.id | append: '-' | append: forloop.index %}
@@ -229,12 +271,19 @@
               name="q"
               style="--custom-input-icon: url('{{ 'icon-input-search.svg' | asset_url }}');"
             >
-            <button class="custom-input__icon-button" type="submit" aria-label="Search"></button>
+            <button class="custom-input__icon-button" type="submit" aria-label="{{ 'search.submit' | t }}"></button>
           </div>
         </form>
       {% endif %}
 
-      {% if section.settings.b2b_label != blank %}
+      {% if customer %}
+        <a class="custom-header__offcanvas-b2b custom-button custom-button--primary" href="/account">
+          <span class="custom-header__b2b-icon custom-header__b2b-profile-icon" aria-hidden="true">
+            {{ 'icon-account-black.svg' | inline_asset_content }}
+          </span>
+          Profile
+        </a>
+      {% elsif section.settings.b2b_label != blank %}
         <a class="custom-header__offcanvas-b2b custom-button custom-button--primary" href="{{ section.settings.b2b_url | default: '#' }}">
           {% if section.settings.b2b_icon != blank %}
             {{ section.settings.b2b_icon | image_url: width: 24 | image_tag: alt: '', loading: 'lazy', class: 'custom-header__offcanvas-b2b-icon' }}

@@ -144,13 +144,13 @@
 }
 
 .custom-ambassadors .ambassadors-accordion__label {
+  font-family: var(--font-heading);
   position: absolute;
   right: 16px;
   bottom: 20px;
   z-index: 2;
   transform: rotate(-90deg);
   transform-origin: right bottom;
-  font-size: 12px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   opacity: 1;
