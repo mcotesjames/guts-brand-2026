@@ -56,27 +56,19 @@
     </div>
 
     <div class="custom-header__actions">
-      {% if section.settings.b2b_label != blank %}
+      {% if customer %}
+        <a class="custom-header__b2b" href="/account">
+          <span class="custom-header__b2b-icon custom-header__b2b-profile-icon" aria-hidden="true">
+            {{ 'icon-account-black.svg' | inline_asset_content }}
+          </span>
+          Profile
+        </a>
+      {% elsif section.settings.b2b_label != blank %}
         <a class="custom-header__b2b" href="{{ section.settings.b2b_url | default: '#' }}">
           {% if section.settings.b2b_icon != blank %}
             {{ section.settings.b2b_icon | image_url: width: 32 | image_tag: alt: '', loading: 'lazy', class: 'custom-header__b2b-icon' }}
           {% endif %}
           {{ section.settings.b2b_label }}
-        </a>
-      {% endif %}
-
-      {% if customer %}
-        <a
-          class="custom-header__icon-button"
-          href="/account"
-          aria-label="Profile"
-        >
-          <span class="custom-header__icon custom-header__icon--light">
-            {{ 'icon-account.svg' | inline_asset_content }}
-          </span>
-          <span class="custom-header__icon custom-header__icon--dark">
-            {{ 'icon-account-black.svg' | inline_asset_content }}
-          </span>
         </a>
       {% endif %}
 
@@ -119,7 +111,25 @@
           </span>
         </button>
       {% endif %}
-      <span class="custom-header__locale">{{ 'general.locale_switcher_html' | t }}</span>
+      {% if localization.available_languages.size > 1 %}
+        {% assign header_locale_form_id = 'HeaderLocaleForm-' | append: section.id %}
+        {% form 'localization', class: 'custom-header__locale', id: header_locale_form_id %}
+          {% for language in localization.available_languages %}
+            <button
+              class="custom-header__locale-link{% if language.iso_code == localization.language.iso_code %} is-active{% endif %}"
+              type="submit"
+              name="language_code"
+              value="{{ language.iso_code }}"
+              {% if language.iso_code == localization.language.iso_code %}aria-current="true"{% endif %}
+            >
+              {{ language.iso_code | upcase }}
+            </button>
+            {% unless forloop.last %}
+              <span class="custom-header__locale-separator" aria-hidden="true">|</span>
+            {% endunless %}
+          {% endfor %}
+        {% endform %}
+      {% endif %}
       
     </div>
     <button
@@ -184,7 +194,25 @@
     </div>
 
     <div class="custom-header__offcanvas-meta">
-      <span class="custom-header__offcanvas-locale">{{ 'general.locale_switcher_html' | t }}</span>
+      {% if localization.available_languages.size > 1 %}
+        {% assign mobile_locale_form_id = 'MobileLocaleForm-' | append: section.id %}
+        {% form 'localization', class: 'custom-header__offcanvas-locale', id: mobile_locale_form_id %}
+          {% for language in localization.available_languages %}
+            <button
+              class="custom-header__locale-link{% if language.iso_code == localization.language.iso_code %} is-active{% endif %}"
+              type="submit"
+              name="language_code"
+              value="{{ language.iso_code }}"
+              {% if language.iso_code == localization.language.iso_code %}aria-current="true"{% endif %}
+            >
+              {{ language.iso_code | upcase }}
+            </button>
+            {% unless forloop.last %}
+              <span class="custom-header__locale-separator" aria-hidden="true">|</span>
+            {% endunless %}
+          {% endfor %}
+        {% endform %}
+      {% endif %}
       {% if section.settings.show_cart %}
         <button class="custom-header__offcanvas-cart" type="button" aria-label="{{ 'cart.title' | t }}" data-cart-drawer-trigger>
           {{ 'icon-cart-black.svg' | inline_asset_content }}
@@ -249,7 +277,14 @@
         </form>
       {% endif %}
 
-      {% if section.settings.b2b_label != blank %}
+      {% if customer %}
+        <a class="custom-header__offcanvas-b2b custom-button custom-button--primary" href="/account">
+          <span class="custom-header__b2b-icon custom-header__b2b-profile-icon" aria-hidden="true">
+            {{ 'icon-account-black.svg' | inline_asset_content }}
+          </span>
+          Profile
+        </a>
+      {% elsif section.settings.b2b_label != blank %}
         <a class="custom-header__offcanvas-b2b custom-button custom-button--primary" href="{{ section.settings.b2b_url | default: '#' }}">
           {% if section.settings.b2b_icon != blank %}
             {{ section.settings.b2b_icon | image_url: width: 24 | image_tag: alt: '', loading: 'lazy', class: 'custom-header__offcanvas-b2b-icon' }}
