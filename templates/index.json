@@ -32,7 +32,7 @@
       "name": "Custom Variant Carousel",
       "settings": {
         "heading": "The Jane Collection",
-        "product": "jane-helmet-copy",
+        "product": "jane-helmet",
         "link_text": "> View the Jane Collection"
       }
     },
@@ -203,7 +203,7 @@
         "image": "shopify://shop_images/product-image-hotspot.jpg",
         "show_cta": true,
         "cta_label": "Discover More",
-        "cta_url": "shopify://products/jane-helmet-copy"
+        "cta_url": "shopify://products/jane-helmet"
       }
     },
     "custom_fullscreen_video_AKKtPD": {
