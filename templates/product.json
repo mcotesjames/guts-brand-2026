@@ -12,9 +12,7 @@
     "main": {
       "type": "product",
       "settings": {
-        "size_guide_type": "accordion",
-        "size_guide_content": "",
-        "shipping_modal_content": ""
+        "size_guide_content": ""
       }
     },
     "custom_product_hotspot_c7gqwC": {
