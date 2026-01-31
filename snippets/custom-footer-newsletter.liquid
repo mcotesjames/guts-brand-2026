@@ -26,3 +26,21 @@
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  // Find your specific Klaviyo form element
+  let form = document.querySelector(".klaviyo-form form");
+
+  if (form) {
+    form.addEventListener('submit', function() {
+      console.log('submit');
+      // Find the element you want to hide (e.g., a specific div or the whole form container)
+      // let elementToHide = document.getElementById("your-element-id");
+      // if (elementToHide) {
+      //   elementToHide.style.display = 'none'; // Hide the element
+      // }
+    });
+  }
+});
+</script>
