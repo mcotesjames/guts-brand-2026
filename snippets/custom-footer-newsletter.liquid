@@ -11,36 +11,19 @@
   </div>
   <div class="custom-footer-newsletter__overlay" aria-hidden="true"></div>
 
-  <div class="custom-footer-newsletter__content g-4">
-    <div class="custom-footer-newsletter__text">
-      {% if settings.newsletter_title != blank %}
-        <h2 class="custom-footer-newsletter__title heading-style-h2">{{ settings.newsletter_title }}</h2>
-      {% endif %}
-      {% if settings.newsletter_subtitle != blank %}
-        <div class="custom-footer-newsletter__subtitle">{{ settings.newsletter_subtitle }}</div>
-      {% endif %}
-    </div>
+  <div class=" g-4">
 
     <div class="custom-footer-newsletter__form" aria-hidden="true">
-      <div class="klaviyo-form-Wg6GAT"></div>
+      <div class="klaviyo-form-Wg6GAT d-flex align-items-center" style="z-index: 999;">
+        <div class="custom-footer-newsletter__text">
+          {% if settings.newsletter_title != blank %}
+            <h2 class="custom-footer-newsletter__title heading-style-h2">{{ settings.newsletter_title }}</h2>
+          {% endif %}
+          {% if settings.newsletter_subtitle != blank %}
+            <div class="custom-footer-newsletter__subtitle">{{ settings.newsletter_subtitle }}</div>
+          {% endif %}
+        </div>
+      </div>
     </div>
   </div>
 </section>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-  // Find your specific Klaviyo form element
-  let form = document.querySelector(".klaviyo-form form");
-
-  if (form) {
-    form.addEventListener('submit', function() {
-      console.log('submit');
-      // Find the element you want to hide (e.g., a specific div or the whole form container)
-      // let elementToHide = document.getElementById("your-element-id");
-      // if (elementToHide) {
-      //   elementToHide.style.display = 'none'; // Hide the element
-      // }
-    });
-  }
-});
-</script>
