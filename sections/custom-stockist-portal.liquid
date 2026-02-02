@@ -38,6 +38,18 @@
         >
           {{ section.settings.signup_tab_label }}
         </button>
+        <button
+          class="custom-stockist-portal__tab heading-style-h6 visually-hidden"
+          type="button"
+          role="tab"
+          id="StockistRecoverTab-{{ section.id }}"
+          aria-controls="StockistRecover-{{ section.id }}"
+          aria-selected="false"
+          data-bs-toggle="tab"
+          data-bs-target="#StockistRecover-{{ section.id }}"
+        >
+          {{ section.settings.recover_tab_label }}
+        </button>
       </div>
 
       <div class="tab-content">
@@ -75,9 +87,15 @@
             <button class="custom-button custom-button--primary" type="submit">
               {{ section.settings.login_button_label }}
             </button>
-            <a class="custom-stockist-portal__link" href="{{ section.settings.forgot_password_url }}">
+            <button
+              class="custom-stockist-portal__link"
+              type="button"
+              aria-controls="StockistRecover-{{ section.id }}"
+              data-bs-toggle="tab"
+              data-bs-target="#StockistRecover-{{ section.id }}"
+            >
               {{ section.settings.forgot_password_label }}
-            </a>
+            </button>
           {% endform %}
         </div>
 
@@ -93,6 +111,41 @@
           <div class="custom-stockist-portal__form">
             {{ section.settings.signup_shortcode }}
           </div>
+        </div>
+
+        <div
+          class="tab-pane fade"
+          id="StockistRecover-{{ section.id }}"
+          role="tabpanel"
+          aria-labelledby="StockistRecoverTab-{{ section.id }}"
+        >
+          <button
+            class="custom-stockist-portal__link custom-stockist-portal__back"
+            type="button"
+            aria-controls="StockistLogin-{{ section.id }}"
+            data-bs-toggle="tab"
+            data-bs-target="#StockistLogin-{{ section.id }}"
+          >
+            &larr; {{ section.settings.recover_back_label }}
+          </button>
+          <h1 class="custom-stockist-portal__title heading-style-h3">{{ section.settings.recover_title }}</h1>
+          <p class="custom-stockist-portal__subtitle">{{ section.settings.recover_subtitle }}</p>
+
+          {% form 'recover_customer_password', class: 'custom-stockist-portal__form' %}
+            <div class="custom-input">
+              <label class="custom-input__label" for="StockistRecoverEmail-{{ section.id }}">{{ section.settings.recover_email_label }}</label>
+              <input
+                class="custom-input__field"
+                id="StockistRecoverEmail-{{ section.id }}"
+                type="email"
+                name="email"
+                autocomplete="email"
+              >
+            </div>
+            <button class="custom-button custom-button--primary" type="submit">
+              {{ section.settings.recover_button_label }}
+            </button>
+          {% endform %}
         </div>
       </div>
     </div>
@@ -171,6 +224,42 @@
       "type": "url",
       "id": "forgot_password_url",
       "label": "Forgot password URL"
+    },
+    {
+      "type": "text",
+      "id": "recover_tab_label",
+      "label": "Recover tab label",
+      "default": "Recover password"
+    },
+    {
+      "type": "text",
+      "id": "recover_title",
+      "label": "Recover title",
+      "default": "Reset your password"
+    },
+    {
+      "type": "textarea",
+      "id": "recover_subtitle",
+      "label": "Recover subtitle",
+      "default": "We will email you a link to reset your password."
+    },
+    {
+      "type": "text",
+      "id": "recover_email_label",
+      "label": "Recover email label",
+      "default": "Email"
+    },
+    {
+      "type": "text",
+      "id": "recover_button_label",
+      "label": "Recover button label",
+      "default": "Send reset link"
+    },
+    {
+      "type": "text",
+      "id": "recover_back_label",
+      "label": "Recover back label",
+      "default": "Back to login"
     }
   ],
   "presets": [
