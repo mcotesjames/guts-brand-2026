@@ -12,7 +12,7 @@
     "main": {
       "type": "product",
       "settings": {
-        "size_guide_content": ""
+        "size_guide_content": "<p>S / M: 54cm to 56cm</p><p>M / L: 55cm to 59cm</p>"
       }
     },
     "custom_product_hotspot_c7gqwC": {
@@ -43,6 +43,7 @@
           "settings": {
             "hotspot_x": 35,
             "hotspot_y": 70,
+            "image": "shopify://shop_images/EARS_close_up_black_01_SMALL_SQUARE_copie.jpg",
             "title": "Ear openings",
             "description": "<p>These openings allow the surfer to easily perceive their surrounding sounds.</p>"
           }
@@ -52,6 +53,7 @@
           "settings": {
             "hotspot_x": 29,
             "hotspot_y": 50,
+            "image": "shopify://shop_images/RUBBER_SMALL_SIZE_copie_2_1.jpg",
             "title": "Rubber Outline",
             "description": "<p>Elegant trim running all around the helmet, the signature high-quality mark of Guts.</p>"
           }
@@ -61,6 +63,7 @@
           "settings": {
             "hotspot_x": 80,
             "hotspot_y": 38,
+            "image": "shopify://shop_images/ABS_plastic__shell__02_9e68c005-bae2-439a-8337-0bae94fbb90f.jpg",
             "title": "ABS Plastic",
             "description": "<p>A thermoplastic polymer shell, a rigid, lightweight, and highly impact-resistant material.</p>"
           }
@@ -70,8 +73,19 @@
           "settings": {
             "hotspot_x": 10,
             "hotspot_y": 28,
+            "image": "shopify://shop_images/Water_Evacuation_Guts_Helmet_1.jpg",
             "title": "Water Drainage",
             "description": "<p>These vents on the top of the helmet ensure quick water evacuation.</p>"
+          }
+        },
+        "hotspot_tU4qKA": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_x": 50,
+            "hotspot_y": 50,
+            "image": "shopify://shop_images/EPP_02_inside_the_helmet_1.jpg",
+            "title": "EPP",
+            "description": "<p>Certified EN ISO 1043-1, memory foam absorbing impacts to guarantee a real security.</p>"
           }
         },
         "hotspot_8niCLk": {
@@ -91,6 +105,7 @@
         "hotspot_BjhDFc",
         "hotspot_e4hzbq",
         "hotspot_yNiiLw",
+        "hotspot_tU4qKA",
         "hotspot_8niCLk"
       ],
       "name": "Custom Product Hotspot",
@@ -260,63 +275,108 @@
         "animation_duration": 30
       }
     },
-    "custom_faq_VTBitq": {
-      "type": "custom-faq",
+    "contact_faq_UptrD4": {
+      "type": "contact-faq",
       "blocks": {
-        "item_DLiVKc": {
+        "item_UXAGm9": {
           "type": "item",
           "settings": {
-            "question": "Pellentesque venenatis mi et erat consequat, in tincidunt dui varius?",
-            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus posuere enim at eleifend. Etiam in diam vitae sem porta vehicula nec eget neque. Nulla at consectetur dui, sed gravida erat. In vestibulum eros vel ligula porta, sit amet mollis.</p>"
+            "category": "Size & Fit",
+            "question": "Is the helmet suitable for children?",
+            "answer": "<p>Some helmet sizes may be suitable for older children, depending on their head measurement and the activity. Always check the size chart and product description, and ensure the helmet fits snugly and securely before use.</p>"
           }
         },
-        "item_FiKLGf": {
+        "item_NMQKAN": {
           "type": "item",
           "settings": {
-            "question": "What makes this product special?",
-            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus posuere enim at eleifend. Etiam in diam vitae sem porta vehicula nec eget neque. Nulla at consectetur dui, sed gravida erat. In vestibulum eros vel ligula porta, sit amet mollis.</p>"
+            "category": "Size & Fit",
+            "question": "How do I choose the right size?",
+            "answer": "<p>To find your size, measure the circumference of your head with a flexible tape measure, placing it about 2 cm above your eyebrows and ears. Then compare your measurement with our size chart and choose the size where your measurement falls in the correct range.</p>"
           }
         },
-        "item_jgCnNp": {
+        "item_7WaryB": {
           "type": "item",
           "settings": {
-            "question": "Praesent ultricies est in massa bibendum, quis porttitor nisl suscipit?",
-            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus posuere enim at eleifend. Etiam in diam vitae sem porta vehicula nec eget neque. Nulla at consectetur dui, sed gravida erat. In vestibulum eros vel ligula porta, sit amet mollis.</p>"
+            "category": "Shipping",
+            "question": "Do you ship internationally?",
+            "answer": "<p>Yes, we ship to many countries worldwide. Available destinations and shipping options will be shown at checkout; if your country is not listed, please contact us to explore a solution.</p>"
           }
         },
-        "item_e3MNF7": {
+        "item_tDgGCq": {
           "type": "item",
           "settings": {
-            "question": "How do I ensure the perfect fit?",
-            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus posuere enim at eleifend. Etiam in diam vitae sem porta vehicula nec eget neque. Nulla at consectetur dui, sed gravida erat. In vestibulum eros vel ligula porta, sit amet mollis.</p>"
+            "category": "Shipping",
+            "question": "What is your return policy?",
+            "answer": "<p>If you are not satisfied with your purchase, you can return unused items in their original condition and packaging within 15 days of delivery. Please contact our support team before sending any return so we can provide instructions and confirm eligibility.</p>"
           }
         },
-        "item_NgbeMq": {
+        "item_VnCpTw": {
           "type": "item",
           "settings": {
-            "question": "Quisque nec imperdiet tellus. Morbi at bibendum ex?",
-            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus posuere enim at eleifend. Etiam in diam vitae sem porta vehicula nec eget neque. Nulla at consectetur dui, sed gravida erat. In vestibulum eros vel ligula porta, sit amet mollis.</p>"
+            "category": "Shipping",
+            "question": "When will my order be shipped?",
+            "answer": "<p>Orders are usually processed and shipped within 2-3 business days after payment is confirmed. You will receive a shipping confirmation email with tracking details once your order has been dispatched.</p>"
           }
         },
-        "item_8atAEc": {
+        "item_CxpNyK": {
           "type": "item",
           "settings": {
-            "question": "Praesent ultricies est in massa bibendum, quis porttitor nisl suscipit?",
-            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus posuere enim at eleifend. Etiam in diam vitae sem porta vehicula nec eget neque. Nulla at consectetur dui, sed gravida erat. In vestibulum eros vel ligula porta, sit amet mollis.</p>"
+            "category": "Shipping",
+            "question": "How much does shipping cost?",
+            "answer": "<p>Shipping costs depend on your location and the shipping method selected at checkout. The exact amount is calculated and displayed before you confirm your order.</p>"
+          }
+        },
+        "item_4YaRh7": {
+          "type": "item",
+          "settings": {
+            "category": "Use & Care",
+            "question": "Can I use the helmet in all conditions?",
+            "answer": "<p>The helmet is designed and certified for watersports and conditions indicated in the product description and user manual. Do not use it outside its intended use, and always inspect it before each session for any visible damage or deformation.</p>"
+          }
+        },
+        "item_wRminh": {
+          "type": "item",
+          "settings": {
+            "category": "Logistics",
+            "question": "Are GUTS helmets certified?",
+            "answer": "<p>Our helmets are tested according to relevant safety standards EN 1385. Please refer to each product page or the user manual to see the exact certifications for that model. It is important to understand even with our certification a helmet can not keep you free from all accidents.</p>"
+          }
+        },
+        "item_KdQDY4": {
+          "type": "item",
+          "settings": {
+            "category": "Use & Care",
+            "question": "How do I take care of my helmet?",
+            "answer": "<p>Rinse the helmet with fresh water after use, especially after contact with salt water or chlorine, and let it air dry away from direct heat or sunlight. Avoid harsh chemicals or solvents, and never modify the helmet or its components.</p>"
+          }
+        },
+        "item_BX36TJ": {
+          "type": "item",
+          "settings": {
+            "category": "Use & Care",
+            "question": "What is the lifespan of a GUTS helmet?",
+            "answer": "<p>Helmet lifespan depends on intensity of use, exposure to elements, and any impacts. As a general guideline, replace your helmet after a significant impact or after around 5 years of regular use, even if there is no visible damage.</p>"
           }
         }
       },
       "block_order": [
-        "item_DLiVKc",
-        "item_FiKLGf",
-        "item_jgCnNp",
-        "item_e3MNF7",
-        "item_NgbeMq",
-        "item_8atAEc"
+        "item_UXAGm9",
+        "item_NMQKAN",
+        "item_7WaryB",
+        "item_tDgGCq",
+        "item_VnCpTw",
+        "item_CxpNyK",
+        "item_4YaRh7",
+        "item_wRminh",
+        "item_KdQDY4",
+        "item_BX36TJ"
       ],
-      "name": "Custom FAQ",
+      "name": "Contact FAQ",
       "settings": {
-        "heading": "FAQs"
+        "heading": "FAQs",
+        "category_1": "Shipping",
+        "category_2": "Size & Fit",
+        "category_3": "Use & Care"
       }
     },
     "custom_upsell_carousel_yTfHzC": {
@@ -337,7 +397,7 @@
     "custom_gallery_ibbwwe",
     "custom_the_standard_7bTHj4",
     "custom_testimonials_BW8xzp",
-    "custom_faq_VTBitq",
+    "contact_faq_UptrD4",
     "custom_upsell_carousel_yTfHzC"
   ]
 }

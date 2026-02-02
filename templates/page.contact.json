@@ -21,7 +21,7 @@
         "image": "shopify://shop_images/guts-contact.jpg",
         "heading": "Contact us",
         "description": "<p>If you'd like to get in touch, please send us a message below.</p>",
-        "reasons": "<p>Test1<br/>Test2<br/>Test3</p>",
+        "reasons": "<p>Order & Delivery Issues<br/>Returns, Refunds & Exchanges<br/>Product Questions<br/>Payment & Account Problems<br/>General Feedback & Other Enquiries</p>",
         "reason_placeholder": "Select enquiry",
         "submit_label": "Submit",
         "success_button_label": "Message sent",
