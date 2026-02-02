@@ -52,17 +52,17 @@
           "type": "statistic",
           "settings": {
             "stat": "1",
-            "metric": " million+",
+            "metric": " Million+",
             "description": "surfers in France, +100% post COVID",
-            "source": "Ministère des Sports via Fédération Française de Surf (2025 data)"
+            "source": "Ministère des Sports via Fédération Française de Surf (2025)"
           }
         },
         "statistic_fkkkfN": {
           "type": "statistic",
           "settings": {
             "stat": "35",
-            "metric": "&nbsp;Million",
-            "description": "de surfeurs mondiaux (+25%) since 2018",
+            "metric": " Million",
+            "description": "surfers worldwide (+25%) since 2018",
             "source": "International Surfing Association"
           }
         },
@@ -81,7 +81,7 @@
             "stat": "2,100",
             "metric": "",
             "description": "surfing head injuries per year in average are severe enough to reach US emergency departments",
-            "source": "XXX"
+            "source": "International Surfing Association"
           }
         },
         "statistic_Ax3k3K": {
@@ -90,7 +90,7 @@
             "stat": "50",
             "metric": "%+",
             "description": "of French Aquitaine Coast surf accidents hit the head",
-            "source": "XXX"
+            "source": "Hawaiian South Shore (2025)"
           }
         }
       },
