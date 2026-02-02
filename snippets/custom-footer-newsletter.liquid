@@ -13,7 +13,10 @@
 
   <div class="custom-footer-newsletter__content g-4">
     <div class="custom-footer-newsletter__form" aria-hidden="true">
-      <div class="klaviyo-form-Wg6GAT"></div>
+      {% assign klaviyo_form_id = 'newsletter.klaviyo_form_id' | t %}
+      {% if klaviyo_form_id != blank and klaviyo_form_id != 'newsletter.klaviyo_form_id' %}
+        <div class="klaviyo-form-{{ klaviyo_form_id }}"></div>
+      {% endif %}
     </div>
   </div>
 </section>
