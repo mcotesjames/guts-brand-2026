@@ -394,7 +394,7 @@
       ],
       "name": "Custom Stockist Locator",
       "settings": {
-        "heading": "Find GUTS near you",
+        "heading": "Find GUTS <mark>near you</mark>",
         "subheading": "<p>Explore shops and surf schools featuring our products.</p>"
       }
     }
