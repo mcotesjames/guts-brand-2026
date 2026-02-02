@@ -1,0 +1,9 @@
+{
+  "contact": {
+    "reason_label": "Motif de la demande",
+    "first_name": "Prénom",
+    "last_name": "Nom",
+    "email": "E-mail",
+    "message": "Message"
+  }
+}
