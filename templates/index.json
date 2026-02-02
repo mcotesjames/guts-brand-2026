@@ -105,6 +105,7 @@
       "name": "Statistic Slider",
       "settings": {
         "video": "shopify://files/videos/138961-770800088_small.webm",
+        "poster": "shopify://shop_images/GUTS_SMALL_VIDEO_03.jpg",
         "stat": "Statistic",
         "description": "<p>Lipsum dolor sit amet, consectetur adipiscing elit. Vivamus velit metus, maximus vel congue in, lobortis at lacus.</p>"
       }
