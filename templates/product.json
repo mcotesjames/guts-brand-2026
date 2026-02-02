@@ -364,65 +364,6 @@
         "category_3": "Use & Care"
       }
     },
-    "custom_faq_VTBitq": {
-      "type": "custom-faq",
-      "blocks": {
-        "item_DLiVKc": {
-          "type": "item",
-          "settings": {
-            "question": "Pellentesque venenatis mi et erat consequat, in tincidunt dui varius?",
-            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus posuere enim at eleifend. Etiam in diam vitae sem porta vehicula nec eget neque. Nulla at consectetur dui, sed gravida erat. In vestibulum eros vel ligula porta, sit amet mollis.</p>"
-          }
-        },
-        "item_FiKLGf": {
-          "type": "item",
-          "settings": {
-            "question": "What makes this product special?",
-            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus posuere enim at eleifend. Etiam in diam vitae sem porta vehicula nec eget neque. Nulla at consectetur dui, sed gravida erat. In vestibulum eros vel ligula porta, sit amet mollis.</p>"
-          }
-        },
-        "item_jgCnNp": {
-          "type": "item",
-          "settings": {
-            "question": "Praesent ultricies est in massa bibendum, quis porttitor nisl suscipit?",
-            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus posuere enim at eleifend. Etiam in diam vitae sem porta vehicula nec eget neque. Nulla at consectetur dui, sed gravida erat. In vestibulum eros vel ligula porta, sit amet mollis.</p>"
-          }
-        },
-        "item_e3MNF7": {
-          "type": "item",
-          "settings": {
-            "question": "How do I ensure the perfect fit?",
-            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus posuere enim at eleifend. Etiam in diam vitae sem porta vehicula nec eget neque. Nulla at consectetur dui, sed gravida erat. In vestibulum eros vel ligula porta, sit amet mollis.</p>"
-          }
-        },
-        "item_NgbeMq": {
-          "type": "item",
-          "settings": {
-            "question": "Quisque nec imperdiet tellus. Morbi at bibendum ex?",
-            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus posuere enim at eleifend. Etiam in diam vitae sem porta vehicula nec eget neque. Nulla at consectetur dui, sed gravida erat. In vestibulum eros vel ligula porta, sit amet mollis.</p>"
-          }
-        },
-        "item_8atAEc": {
-          "type": "item",
-          "settings": {
-            "question": "Praesent ultricies est in massa bibendum, quis porttitor nisl suscipit?",
-            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus posuere enim at eleifend. Etiam in diam vitae sem porta vehicula nec eget neque. Nulla at consectetur dui, sed gravida erat. In vestibulum eros vel ligula porta, sit amet mollis.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "item_DLiVKc",
-        "item_FiKLGf",
-        "item_jgCnNp",
-        "item_e3MNF7",
-        "item_NgbeMq",
-        "item_8atAEc"
-      ],
-      "name": "Custom FAQ",
-      "settings": {
-        "heading": "FAQs"
-      }
-    },
     "custom_upsell_carousel_yTfHzC": {
       "type": "custom-upsell-carousel",
       "name": "Custom Upsell Carousel",
@@ -442,7 +383,6 @@
     "custom_the_standard_7bTHj4",
     "custom_testimonials_BW8xzp",
     "contact_faq_UptrD4",
-    "custom_faq_VTBitq",
     "custom_upsell_carousel_yTfHzC"
   ]
 }
