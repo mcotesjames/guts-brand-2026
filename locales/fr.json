@@ -1,3 +1,10 @@
+{
+  "contact": {
+    "reason_label": "Motif de la demande",
+    "first_name": "Prénom",
+    "last_name": "Nom",
+    "email": "E-mail",
+    "message": "Message"
 /*
  * ------------------------------------------------------------
  * IMPORTANT: The contents of this file are auto-generated.
