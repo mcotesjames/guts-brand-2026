@@ -50,7 +50,6 @@
                   {% assign reasons = section.settings.reasons |  split: '<br/>' %}
                   
                   {% for reason in reasons %}
-                    {{ 'contact.reason_label' | t }}
                     {% assign trimmed_reason = reason | strip_html %}
                     {% if trimmed_reason != blank %}
                       <option value="{{ trimmed_reason }}">{{ trimmed_reason }}</option>
