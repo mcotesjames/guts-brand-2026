@@ -313,7 +313,9 @@
       "quantity_maximum": "Maximum de {{ maximum }}",
       "in_cart": "dans le panier",
       "default_title": "Titre par défaut",
-      "sticky_add_to_cart": "Barre d’ajout rapide au panier"
+      "sticky_add_to_cart": "Barre d’ajout rapide au panier",
+      "shipping_returns": "Expéditions et retours",
+      "size_guide": "Guide des tailles"
     }
   },
   "fields": {
