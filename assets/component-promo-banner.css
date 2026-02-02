@@ -19,7 +19,7 @@
 .promo-banner__track {
   display: flex;
   width: max-content;
-  animation: promo-banner-scroll 36s linear infinite;
+  animation: promo-banner-scroll 60s linear infinite;
 }
 
 .promo-banner__row {
@@ -42,9 +42,9 @@
 
 @keyframes promo-banner-scroll {
   from {
-    transform: translateX(-50%);
+    transform: translateX(0);
   }
   to {
-    transform: translateX(0);
+    transform: translateX(-50%);
   }
 }
