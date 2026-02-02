@@ -17,6 +17,12 @@
     "footer_menu_legal": "legal",
     "footer_background_image": "shopify://shop_images/guts-white-vector.svg",
     "footer_social_instagram": "https://www.instagram.com/guts_surfing/",
+    "sections": {
+      "promo-banner": {
+        "type": "promo-banner",
+        "settings": {}
+      }
+    },
     "content_for_index": [],
     "blocks": {
       "9513407616245537438": {
