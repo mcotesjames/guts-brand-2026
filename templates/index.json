@@ -233,7 +233,7 @@
       "settings": {
         "heading_1": "Lifestyle",
         "image_1": "shopify://shop_images/lifestyle-1.jpg",
-        "description": "<p>Guts is more than a surf brand, it is a philosophie inspired by the connection between the surfer and the ocean, this unique emotion called “Surfing”</p>",
+        "description": "<h5>More Than a Surf Brand.</h5><p><br/>For us, surfing is a lifestyle to share — a culture built on connection and emotion.<br/>A community united by the same values and a deep passion for the ocean.</p>",
         "cta_label": "Contact us",
         "cta_url": "shopify://pages/contact",
         "cta_variant": "standout-black",
