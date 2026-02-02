@@ -72,5 +72,11 @@
       "subtitle": "Subtitle",
       "normal": "Normal text"
     }
+  },
+  "promo_banner": {
+    "name": "Promo banner",
+    "enable_label": "Enable promo banner",
+    "text_label": "Promo banner text",
+    "aria_label": "Promo banner accessibility label"
   }
 }

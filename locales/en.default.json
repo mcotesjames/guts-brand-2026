@@ -77,7 +77,8 @@
   },
   "newsletter": {
     "email_placeholder": "Enter email address",
-    "join": "Join"
+    "join": "Join",
+    "klaviyo_form_id": "Wg6GAT"
   },
   "password": {
     "title": "This shop is private",
