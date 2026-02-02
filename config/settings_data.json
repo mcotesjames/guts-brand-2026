@@ -9,7 +9,6 @@
  */
 {
   "current": {
-    "color_scheme": "scheme-1",
     "newsletter_bg_video": "shopify://files/videos/286278_medium.webm",
     "footer_menu_upsell": "upsell-menu",
     "footer_menu_support": "support_menu",
@@ -20,6 +19,11 @@
     "blocks": {
       "9513407616245537438": {
         "type": "shopify://apps/sami-wholesale/blocks/app-embed-block/799b9db0-2c2b-4b20-8675-98acd123fbb2",
+        "disabled": false,
+        "settings": {}
+      },
+      "855628211100114053": {
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
         "disabled": false,
         "settings": {}
       }

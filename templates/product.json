@@ -12,9 +12,7 @@
     "main": {
       "type": "product",
       "settings": {
-        "size_guide_type": "accordion",
-        "size_guide_content": "",
-        "shipping_modal_content": ""
+        "size_guide_content": ""
       }
     },
     "custom_product_hotspot_c7gqwC": {
@@ -171,7 +169,7 @@
         "heading": "The Standard",
         "description": "<p>The Guts Jane helmet stands out for its exceptional lightness and precise fit.<br/><br/>Made with next-generation materials, it combines innovation and performance to deliver maximum comfort.<br/><br/>It’s certified to meet the NF EN 1385 standard and features an approved magnetic buckle for added safety and ease of use.</p>",
         "primary_label": "See more details",
-        "primary_url": "shopify://products/jane-helmet-copy",
+        "primary_url": "shopify://products/jane-helmet",
         "primary_variant": "standout-black",
         "secondary_label": "Download the manual",
         "secondary_url": "shopify://products/guts-tote-bag",
@@ -328,7 +326,7 @@
         "heading": "You might also like",
         "products": [
           "guts-tote-bag",
-          "jane-helmet-copy"
+          "jane-helmet"
         ]
       }
     }
