@@ -376,8 +376,8 @@
       ],
       "name": "Custom Stockist Locator",
       "settings": {
-        "heading": "Find GUTS <mark>near you</mark>",
-        "subheading": "<p>Find GUTS products in your area. We are based in France but can be found internationally too.</p>"
+        "heading": "Find GUTS near you",
+        "subheading": "<p>Explore shops and surf schools featuring our products.</p>"
       }
     }
   },
