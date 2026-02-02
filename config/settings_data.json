@@ -10,6 +10,7 @@
 {
   "current": {
     "promo_banner_enabled": true,
+    "promo_banner_text": "Free shipping on orders over $75",
     "newsletter_bg_video": "shopify://files/videos/286278_medium.webm",
     "footer_menu_upsell": "upsell-menu",
     "footer_menu_support": "support_menu",
