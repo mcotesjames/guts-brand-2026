@@ -53,14 +53,6 @@
               ${image ? `<img class="custom-cart-drawer__item-image" src="${image}" alt="${item.product_title}">` : ''}
             </div>
             <div class="cart-item__details">
-              <button
-                class="custom-cart-drawer__remove"
-                type="button"
-                aria-label="Remove ${item.product_title} from cart"
-                samitaWS-drawer-line-item-remove-button
-              >
-                Remove
-              </button>
               <p class="custom-cart-drawer__item-title">${item.product_title}</p>
               ${variantTitle ? `<div class="custom-cart-drawer__item-variant">${variantTitle}</div>` : ''}
               <div

@@ -139,6 +139,7 @@
   width: 32px;
   text-align: center;
   font-size: 12px;
+  border: none;
 }
 
 .custom-cart-drawer__footer {
