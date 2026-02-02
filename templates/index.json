@@ -276,6 +276,7 @@
         },
         "ambassador_4k6HTw": {
           "type": "ambassador",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Mahohi.jpg",
             "image_position": "center center",
@@ -289,6 +290,7 @@
         },
         "ambassador_YKjAbb": {
           "type": "ambassador",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Mahohi.jpg",
             "image_position": "center center",
@@ -302,6 +304,7 @@
         },
         "ambassador_rYNBcf": {
           "type": "ambassador",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Mahohi.jpg",
             "image_position": "center center",
