@@ -75,6 +75,10 @@
     "expires_on": "Expires on {{ expires_on }}",
     "use_at_checkout": "Use this gift card at checkout"
   },
+  "promo_banner": {
+    "text": "Free shipping on orders over $75",
+    "aria_label": "Promotional message"
+  },
   "newsletter": {
     "email_placeholder": "Enter email address",
     "join": "Join",
