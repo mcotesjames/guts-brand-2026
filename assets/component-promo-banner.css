@@ -1,0 +1,50 @@
+.promo-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1100;
+  height: var(--promo-banner-height, 30px);
+  background: var(--color-tertiary);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.has-promo-banner {
+  --promo-banner-height: 30px;
+}
+
+.promo-banner__track {
+  display: flex;
+  width: max-content;
+  animation: promo-banner-scroll 36s linear infinite;
+}
+
+.promo-banner__row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-right: 24px;
+  white-space: nowrap;
+}
+
+.promo-banner__item {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.promo-banner__separator {
+  opacity: 0.6;
+}
+
+@keyframes promo-banner-scroll {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

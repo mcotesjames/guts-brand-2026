@@ -25,8 +25,8 @@
           alignVert: false,
           alignHoriz: false,
           widthOnly: true,
-          maxFontSize: 180,
-          minFontSize: 20,
+          maxFontSize: 126,
+          minFontSize: 14,
         });
       });
     };

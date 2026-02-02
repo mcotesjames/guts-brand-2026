@@ -1,0 +1,21 @@
+{{ 'component-promo-banner.css' | asset_url | stylesheet_tag }}
+
+{% if settings.promo_banner_text != blank %}
+  <div
+    class="promo-banner"
+    role="region"
+    aria-label="{{ settings.promo_banner_aria_label | default: settings.promo_banner_text | escape }}"
+  >
+    <span class="visually-hidden">{{ settings.promo_banner_text }}</span>
+    <div class="promo-banner__track" aria-hidden="true">
+      {% for _ in (1..2) %}
+        <div class="promo-banner__row">
+          {% for __ in (1..6) %}
+            <span class="promo-banner__item">{{ settings.promo_banner_text }}</span>
+            <span class="promo-banner__separator" aria-hidden="true">•</span>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
