@@ -39,15 +39,6 @@
     "custom_statistic_slider_pdHi8a": {
       "type": "custom-statistic-slider",
       "blocks": {
-        "statistic_YbGUtr": {
-          "type": "statistic",
-          "settings": {
-            "stat": "40",
-            "metric": "%",
-            "description": "of all of surf-related injuries involve the head",
-            "source": "XXX"
-          }
-        },
         "statistic_Y7LKTk": {
           "type": "statistic",
           "settings": {
@@ -95,7 +86,6 @@
         }
       },
       "block_order": [
-        "statistic_YbGUtr",
         "statistic_Y7LKTk",
         "statistic_fkkkfN",
         "statistic_BJnHk8",
