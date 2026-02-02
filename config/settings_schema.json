@@ -160,24 +160,24 @@
     ]
   },
   {
-    "name": "Promo banner",
+    "name": "t:promo_banner.name",
     "settings": [
       {
         "type": "checkbox",
         "id": "promo_banner_enabled",
-        "label": "Enable promo banner",
+        "label": "t:promo_banner.enable_label",
         "default": false
       },
       {
         "type": "text",
         "id": "promo_banner_text",
-        "label": "Promo banner text",
+        "label": "t:promo_banner.text_label",
         "default": "Free shipping on orders over $75"
       },
       {
         "type": "text",
         "id": "promo_banner_aria_label",
-        "label": "Promo banner accessibility label",
+        "label": "t:promo_banner.aria_label",
         "default": "Promotional message"
       }
     ]
