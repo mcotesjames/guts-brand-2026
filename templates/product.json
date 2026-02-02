@@ -43,6 +43,7 @@
           "settings": {
             "hotspot_x": 35,
             "hotspot_y": 70,
+            "image": "shopify://shop_images/EARS_close_up_black_01_SMALL_SQUARE_copie.jpg",
             "title": "Ear openings",
             "description": "<p>These openings allow the surfer to easily perceive their surrounding sounds.</p>"
           }
@@ -52,6 +53,7 @@
           "settings": {
             "hotspot_x": 29,
             "hotspot_y": 50,
+            "image": "shopify://shop_images/RUBBER_SMALL_SIZE_copie_2_1.jpg",
             "title": "Rubber Outline",
             "description": "<p>Elegant trim running all around the helmet, the signature high-quality mark of Guts.</p>"
           }
@@ -61,6 +63,7 @@
           "settings": {
             "hotspot_x": 80,
             "hotspot_y": 38,
+            "image": "shopify://shop_images/ABS_plastic__shell__02_9e68c005-bae2-439a-8337-0bae94fbb90f.jpg",
             "title": "ABS Plastic",
             "description": "<p>A thermoplastic polymer shell, a rigid, lightweight, and highly impact-resistant material.</p>"
           }
@@ -70,8 +73,19 @@
           "settings": {
             "hotspot_x": 10,
             "hotspot_y": 28,
+            "image": "shopify://shop_images/Water_Evacuation_Guts_Helmet_1.jpg",
             "title": "Water Drainage",
             "description": "<p>These vents on the top of the helmet ensure quick water evacuation.</p>"
+          }
+        },
+        "hotspot_tU4qKA": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_x": 50,
+            "hotspot_y": 50,
+            "image": "shopify://shop_images/EPP_02_inside_the_helmet_1.jpg",
+            "title": "EPP",
+            "description": "<p>Certified EN ISO 1043-1, memory foam absorbing impacts to guarantee a real security.</p>"
           }
         },
         "hotspot_8niCLk": {
@@ -91,6 +105,7 @@
         "hotspot_BjhDFc",
         "hotspot_e4hzbq",
         "hotspot_yNiiLw",
+        "hotspot_tU4qKA",
         "hotspot_8niCLk"
       ],
       "name": "Custom Product Hotspot",
