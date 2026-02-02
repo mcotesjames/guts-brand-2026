@@ -61,9 +61,9 @@
           "type": "statistic",
           "settings": {
             "stat": "35",
-            "metric": " million",
+            "metric": "&nbsp;Million",
             "description": "de surfeurs mondiaux (+25%) since 2018",
-            "source": "XXX"
+            "source": "International Surfing Association"
           }
         },
         "statistic_BJnHk8": {
@@ -72,7 +72,7 @@
             "stat": "70",
             "metric": "%",
             "description": "of surfers report at least one head or face injury during their surfing life",
-            "source": "XXX"
+            "source": "Journal of Science and Medicine in Sport"
           }
         },
         "statistic_fqBJWY": {
