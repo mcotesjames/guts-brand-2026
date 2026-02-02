@@ -44,7 +44,10 @@
     {{ content_for_header }}
   </head>
 
-  <body>
+  <body class="{% if settings.promo_banner_enabled and settings.promo_banner_text != blank %}has-promo-banner{% endif %}">
+    {% if settings.promo_banner_enabled and settings.promo_banner_text != blank %}
+      {% section 'promo-banner' %}
+    {% endif %}
     {% sections 'header-group' %}
 
     {{ content_for_layout }}
