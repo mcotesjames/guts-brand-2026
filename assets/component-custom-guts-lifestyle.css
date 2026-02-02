@@ -24,7 +24,7 @@
 .custom-guts-lifestyle__col {
   display: flex;
   flex-direction: column;
-  gap: var(--guts-lifestyle-col-gap);
+  gap: var(--space-lg);
   height: 100%;
 }
 
