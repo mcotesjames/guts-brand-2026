@@ -71,8 +71,8 @@
         "hotspot_yNiiLw": {
           "type": "hotspot",
           "settings": {
-            "hotspot_x": 10,
-            "hotspot_y": 28,
+            "hotspot_x": 50,
+            "hotspot_y": 14,
             "image": "shopify://shop_images/Water_Evacuation_Guts_Helmet_1.jpg",
             "title": "Water Drainage",
             "description": "<p>These vents on the top of the helmet ensure quick water evacuation.</p>"
@@ -91,8 +91,9 @@
         "hotspot_8niCLk": {
           "type": "hotspot",
           "settings": {
-            "hotspot_x": 50,
-            "hotspot_y": 14,
+            "hotspot_x": 11,
+            "hotspot_y": 27,
+            "image": "shopify://shop_images/Water_Evacuation_Guts_Helmet_1.jpg",
             "title": "EVA",
             "description": "<p>A flexible and impact-resistant material with a soft touch, this visor helps prevent water droplets from running into the eyes.</p>"
           }
