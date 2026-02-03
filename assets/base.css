@@ -28,11 +28,19 @@ body.no-global-top-padding {
 }
 
 a {
-  color: currentColor;
+  color: var(--color-primary);
+  -webkit-text-fill-color: var(--color-primary);
 }
 
 a:visited {
-  color: currentColor;
+  color: var(--color-primary);
+  -webkit-text-fill-color: var(--color-primary);
+}
+
+a:hover,
+a:active {
+  color: var(--color-primary);
+  -webkit-text-fill-color: var(--color-primary);
 }
 
 p {
