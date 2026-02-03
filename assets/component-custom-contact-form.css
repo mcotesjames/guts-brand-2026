@@ -1,7 +1,6 @@
 .custom-contact {
   box-sizing: content-box;
   min-height: calc(100vh - var(--header-height));
-  padding-top: var(--header-height);
   background: var(--color-secondary, #ffffff);
 }
 
