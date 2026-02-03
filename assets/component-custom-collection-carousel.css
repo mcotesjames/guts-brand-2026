@@ -275,6 +275,10 @@
 }
 
 @media (max-width: 768px) {
+  .custom-product-card__title {
+    font-size: 26px;
+  }
+
   .custom-collection-carousel .custom-collection-carousel__arrow {
     height: 30px;
   }
