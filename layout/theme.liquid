@@ -44,7 +44,7 @@
     {{ content_for_header }}
   </head>
 
-  <body class="{% if settings.promo_banner_enabled and settings.promo_banner_text != blank %}has-promo-banner{% endif %}">
+  <body class="{% if settings.promo_banner_enabled and settings.promo_banner_text != blank %}has-promo-banner{% endif %}{% if request.page_type == 'index' or request.page_type == 'page' and page.handle == 'stockist-portal' %} no-global-top-padding{% endif %}">
     {% if settings.promo_banner_enabled and settings.promo_banner_text != blank %}
       {% section 'promo-banner' %}
     {% endif %}
