@@ -42,6 +42,9 @@
   data-color-index="{{ color_index | default: -1 }}"
   data-size-index="{{ size_index | default: -1 }}"
 >
+  {% if product.tags contains 'coming-soon' %}
+    <span class="custom-product-card__badge">Coming soon</span>
+  {% endif %}
   <a class="custom-product-card__image" href="{{ product.url }}">
     {% if product_image != blank %}
       {{ product_image | image_url: width: 900 | image_tag: alt: product.title, loading: 'lazy', class: 'custom-product-card__image-main' }}
@@ -141,6 +144,7 @@
       data-quick-add
       data-quick-add-mode="product"
       data-has-size="{% if size_option != nil %}true{% else %}false{% endif %}"
+      {% if product.tags contains 'coming-soon' %}disabled aria-disabled="true"{% endif %}
     >
       <span class="custom-product-card__icon custom-product-card__icon--plus" aria-hidden="true">
         <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">

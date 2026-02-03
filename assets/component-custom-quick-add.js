@@ -157,6 +157,7 @@
 
     if (quickAdd) {
       quickAdd.addEventListener('click', async () => {
+        if (quickAdd.disabled) return;
         const selectedColor = getSelectedColor(card);
         const selectedSize = getSelectedSize(card);
         const hasSize = quickAdd.dataset.hasSize === 'true';

@@ -57,6 +57,9 @@
   {% if swatch_hex != blank %}data-swatch-primary="{{ swatch_hex }}"{% endif %}
   {% if swatch_hex_secondary != blank %}data-swatch-secondary="{{ swatch_hex_secondary }}"{% endif %}
 >
+  {% if product.tags contains 'coming-soon' %}
+    <span class="custom-product-card__badge">Coming soon</span>
+  {% endif %}
   <a class="custom-product-card__image" href="{{ product.url }}">
     {% if variant_image != blank %}
       {{ variant_image | image_url: width: 900 | image_tag: alt: product.title, loading: 'lazy', class: 'custom-product-card__image-main' }}
@@ -107,6 +110,7 @@
       data-quick-add
       data-quick-add-mode="variant"
       data-has-size="{% if size_values.size > 0 %}true{% else %}false{% endif %}"
+      {% if product.tags contains 'coming-soon' %}disabled aria-disabled="true"{% endif %}
     >
       <span class="custom-product-card__icon custom-product-card__icon--plus" aria-hidden="true">
         <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
