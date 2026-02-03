@@ -43,6 +43,14 @@ a:active {
   -webkit-text-fill-color: var(--color-primary);
 }
 
+button,
+input[type='button'],
+input[type='submit'],
+input[type='reset'] {
+  color: var(--color-primary);
+  -webkit-text-fill-color: var(--color-primary);
+}
+
 p {
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
