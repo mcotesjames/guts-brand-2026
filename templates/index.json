@@ -218,7 +218,7 @@
         "video": "shopify://files/videos/GUTS_HERO_VIDEO_03.webm",
         "poster": "shopify://shop_images/guts-lifestyle.jpg",
         "show_cta": false,
-        "mobile_height_svh": 60,
+        "mobile_height_svh": 80,
         "cta_label": "Dive in",
         "cta_url": ""
       }
