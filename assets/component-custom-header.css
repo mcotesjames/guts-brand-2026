@@ -513,7 +513,7 @@
     max-width: 350px;
     background: var(--color-tertiary);
     color: var(--color-primary);
-    height: 100vh;
+    height: 100svh;
     display: flex;
     flex-direction: column;
   }
