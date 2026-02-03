@@ -137,6 +137,9 @@
 
   <div class="product-hero__details g-4" aria-label="{{ 'products.product.details_label' | t }}">
     <div class="product-hero__details-placeholder">
+      {% if product.tags contains 'coming-soon' %}
+        <span class="product-hero__badge">Coming soon</span>
+      {% endif %}
       {% form 'product', product, class: 'product-hero__form', data-product-hero-form: '' %}
         {% assign current_variant = product.selected_or_first_available_variant %}
         {% assign price = current_variant.price %}
@@ -236,7 +239,13 @@
             <input class="product-hero__qty-input" type="number" name="quantity" min="1" value="1" inputmode="numeric">
             <button class="product-hero__qty-btn" type="button" data-qty-change="1">+</button>
           </div>
-          <button class="product-hero__add-to-cart" type="submit">{{ 'products.product.add_to_cart' | t }}</button>
+          <button
+            class="product-hero__add-to-cart"
+            type="submit"
+            {% if product.tags contains 'coming-soon' %}disabled aria-disabled="true"{% endif %}
+          >
+            {{ 'products.product.add_to_cart' | t }}
+          </button>
         </div>
 
         {% if product.metafields.custom.size_guide != blank or shop.shipping_policy.body != blank %}
