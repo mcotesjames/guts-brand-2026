@@ -186,8 +186,8 @@
         "primary_label": "See more details",
         "primary_url": "shopify://products/jane-helmet",
         "primary_variant": "standout-black",
-        "secondary_label": "Download the manual",
-        "secondary_url": "shopify://products/guts-tote-bag",
+        "secondary_label": "Download User guide",
+        "secondary_url": "https://cdn.shopify.com/s/files/1/0977/8026/9431/files/Guts_Helmet_User_Guide.pdf?v=1770103341",
         "secondary_variant": "secondary"
       }
     },
