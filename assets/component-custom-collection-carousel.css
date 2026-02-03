@@ -203,6 +203,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
 }
 
 .custom-product-card__icon--cart {
@@ -233,6 +236,7 @@
 .custom-product-card__quick-add svg {
   width: 18px;
   height: 18px;
+  display: block;
 }
 
 .custom-product-card__icon--plus svg {
@@ -275,6 +279,11 @@
 }
 
 @media (max-width: 768px) {
+  .custom-product-card__title {
+    font-size: 20px;
+    line-height: 1;
+  }
+
   .custom-collection-carousel .custom-collection-carousel__arrow {
     height: 30px;
   }

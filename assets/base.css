@@ -33,6 +33,13 @@ a {
 
 a:visited {
   color: currentColor;
+} 
+
+button,
+input[type='button'],
+input[type='submit'],
+input[type='reset'] {
+  color: var(--color-primary);
 }
 
 p {
