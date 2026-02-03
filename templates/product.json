@@ -7,7 +7,6 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-
 {
   "sections": {
     "main": {
@@ -270,6 +269,7 @@
         "testimonial_L4WtRV",
         "testimonial_Ft7zFq"
       ],
+      "disabled": true,
       "name": "Custom Testimonials",
       "settings": {
         "heading": "What the people say",
