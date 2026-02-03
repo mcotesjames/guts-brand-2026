@@ -264,7 +264,8 @@
 
 @media (max-width: 768px) {
   .custom-product-card__title {
-    font-size: 26px;
+    font-size: 20px;
+    line-height: 1;
   }
 
   .custom-variant-carousel .custom-variant-carousel__arrow {
