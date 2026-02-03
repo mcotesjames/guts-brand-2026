@@ -19,6 +19,7 @@
       "name": "Custom Fullscreen Video",
       "settings": {
         "is_hero": true,
+        "video": "shopify://files/videos/MONTAGE_GUTS_B&W_MOVIE_2025_1_6c077a99-9a9b-4055-ac5b-7b5cfecd4ae6.webm",
         "poster": "shopify://shop_images/MONTAGE_GUTS_B_W_MOVIE_2025_1.jpg",
         "show_cta": true,
         "mobile_height_svh": 100,
