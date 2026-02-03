@@ -256,7 +256,7 @@
           "type": "ambassador",
           "settings": {
             "image": "shopify://shop_images/Mahohi.jpg",
-            "image_position": "center left",
+            "image_position": "center center",
             "name": "Mahohi Nguyen",
             "description": "<p>Young surfer from Hong Kong part of the Swiss Surf national team U12s.<br/>He represents this community of future Guts surfers</p>",
             "instagram_url": "https://www.instagram.com/mahohi_nguyen?igsh=MWFrZmhpcW5hb3hnZw==",
