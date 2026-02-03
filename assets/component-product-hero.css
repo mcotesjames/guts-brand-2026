@@ -372,7 +372,6 @@
 
 @media (max-width: 900px) {
   .product-hero {
-    padding: calc(var(--header-height)) 0 6vh;
     min-height: auto;
     flex-direction: column;
     align-items: stretch;
