@@ -9,12 +9,21 @@
  */
 {
   "current": {
+    "promo_banner_enabled": true,
+    "promo_banner_text": "Free shipping on orders over $75",
     "newsletter_bg_video": "shopify://files/videos/286278_medium.webm",
     "footer_menu_upsell": "upsell-menu",
     "footer_menu_support": "support_menu",
     "footer_menu_contact": "contact",
     "footer_menu_legal": "legal",
     "footer_background_image": "shopify://shop_images/guts-white-vector.svg",
+    "footer_social_instagram": "https://www.instagram.com/guts_surfing/",
+    "sections": {
+      "promo-banner": {
+        "type": "promo-banner",
+        "settings": {}
+      }
+    },
     "content_for_index": [],
     "blocks": {
       "9513407616245537438": {

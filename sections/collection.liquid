@@ -14,6 +14,9 @@
           {% assign money_price = price | money %}
 
           <article class="collection-grid__card custom-product-card">
+            {% if product.tags contains 'coming-soon' %}
+              <span class="custom-product-card__badge">Coming soon</span>
+            {% endif %}
             {% if product.featured_image %}
               {% render 'image',
                 class: 'custom-product-card__image',

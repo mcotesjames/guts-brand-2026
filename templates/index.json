@@ -39,31 +39,22 @@
     "custom_statistic_slider_pdHi8a": {
       "type": "custom-statistic-slider",
       "blocks": {
-        "statistic_YbGUtr": {
-          "type": "statistic",
-          "settings": {
-            "stat": "40",
-            "metric": "%",
-            "description": "of all of surf-related injuries involve the head",
-            "source": "XXX"
-          }
-        },
         "statistic_Y7LKTk": {
           "type": "statistic",
           "settings": {
             "stat": "1",
-            "metric": " million+",
-            "description": "surfers in France, +100% post COVID",
-            "source": "Ministère des Sports via Fédération Française de Surf (2025 data)"
+            "metric": " Million+",
+            "description": "surfers in France, a 100% increase post COVID",
+            "source": "Ministère des Sports via Fédération Française de Surf (2025)"
           }
         },
         "statistic_fkkkfN": {
           "type": "statistic",
           "settings": {
             "stat": "35",
-            "metric": " million",
-            "description": "de surfeurs mondiaux (+25%) since 2018",
-            "source": "XXX"
+            "metric": " Million",
+            "description": "surfers worldwide, a 25% increase since 2018",
+            "source": "International Surfing Association"
           }
         },
         "statistic_BJnHk8": {
@@ -72,7 +63,7 @@
             "stat": "70",
             "metric": "%",
             "description": "of surfers report at least one head or face injury during their surfing life",
-            "source": "XXX"
+            "source": "Journal of Science and Medicine in Sport"
           }
         },
         "statistic_fqBJWY": {
@@ -80,8 +71,8 @@
           "settings": {
             "stat": "2,100",
             "metric": "",
-            "description": "surfing head injuries per year in average are severe enough to reach US emergency departments",
-            "source": "XXX"
+            "description": "surfing head injuries per year on average are severe enough to reach US emergency departments",
+            "source": "International Surfing Association"
           }
         },
         "statistic_Ax3k3K": {
@@ -89,13 +80,12 @@
           "settings": {
             "stat": "50",
             "metric": "%+",
-            "description": "of French Aquitaine Coast surf accidents hit the head",
-            "source": "XXX"
+            "description": "of French Aquitaine Coast surf accidents injure the head",
+            "source": "Hawaiian South Shore (2025)"
           }
         }
       },
       "block_order": [
-        "statistic_YbGUtr",
         "statistic_Y7LKTk",
         "statistic_fkkkfN",
         "statistic_BJnHk8",
@@ -105,6 +95,7 @@
       "name": "Statistic Slider",
       "settings": {
         "video": "shopify://files/videos/138961-770800088_small.webm",
+        "poster": "shopify://shop_images/GUTS_SMALL_VIDEO_03.jpg",
         "stat": "Statistic",
         "description": "<p>Lipsum dolor sit amet, consectetur adipiscing elit. Vivamus velit metus, maximus vel congue in, lobortis at lacus.</p>"
       }
@@ -119,6 +110,16 @@
     "custom_product_hotspot_xkyPGh": {
       "type": "custom-product-hotspot",
       "blocks": {
+        "hotspot_EctWW9": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_x": 50,
+            "hotspot_y": 50,
+            "image": "shopify://shop_images/EPP_02_inside_the_helmet_1.jpg",
+            "title": "EPP",
+            "description": "<p>Certified EN ISO 1043-1, memory foam absorbing impacts to guarantee a real security</p>"
+          }
+        },
         "hotspot_HEGbir": {
           "type": "hotspot",
           "settings": {
@@ -144,6 +145,7 @@
           "settings": {
             "hotspot_x": 35,
             "hotspot_y": 70,
+            "image": "shopify://shop_images/EARS_close_up_black_01_SMALL_SQUARE_copie.jpg",
             "title": "Ear openings",
             "description": "<p>These openings allow the surfer to easily perceive their surrounding sounds.</p>"
           }
@@ -153,6 +155,7 @@
           "settings": {
             "hotspot_x": 29,
             "hotspot_y": 50,
+            "image": "shopify://shop_images/RUBBER_SMALL_SIZE_copie_2_1.jpg",
             "title": "Rubber Outline",
             "description": "<p>Elegant trim running all around the helmet, the signature high-quality mark of Guts.</p>"
           }
@@ -162,7 +165,7 @@
           "settings": {
             "hotspot_x": 80,
             "hotspot_y": 38,
-            "image": "shopify://shop_images/ABS.jpg",
+            "image": "shopify://shop_images/ABS_plastic__shell__02_9e68c005-bae2-439a-8337-0bae94fbb90f.jpg",
             "title": "ABS Plastic",
             "description": "<p>A thermoplastic polymer shell, a rigid, lightweight, and highly impact-resistant material.</p>"
           }
@@ -172,7 +175,7 @@
           "settings": {
             "hotspot_x": 10,
             "hotspot_y": 28,
-            "image": "shopify://shop_images/ABS.jpg",
+            "image": "shopify://shop_images/Water_Evacuation_Guts_Helmet_1.jpg",
             "title": "Water Drainage",
             "description": "<p>These vents on the top of the helmet ensure quick water ecavuation.</p>"
           }
@@ -188,6 +191,7 @@
         }
       },
       "block_order": [
+        "hotspot_EctWW9",
         "hotspot_HEGbir",
         "hotspot_UHzz9B",
         "hotspot_F6bn7g",
@@ -211,6 +215,7 @@
       "name": "Custom Fullscreen Video",
       "settings": {
         "is_hero": false,
+        "video": "shopify://files/videos/GUTS_HERO_VIDEO_03.webm",
         "poster": "shopify://shop_images/guts-lifestyle.jpg",
         "show_cta": false,
         "mobile_height_svh": 60,
@@ -233,7 +238,7 @@
       "settings": {
         "heading_1": "Lifestyle",
         "image_1": "shopify://shop_images/lifestyle-1.jpg",
-        "description": "<p>Guts is more than a surf brand, it is a philosophie inspired by the connection between the surfer and the ocean, this unique emotion called “Surfing”</p>",
+        "description": "<h5>More Than a Surf Brand.</h5><p><br/>For us, surfing is a lifestyle to share — a culture built on connection and emotion.<br/>A community united by the same values and a deep passion for the ocean.</p>",
         "cta_label": "Contact us",
         "cta_url": "shopify://pages/contact",
         "cta_variant": "standout-black",
@@ -253,15 +258,16 @@
             "image": "shopify://shop_images/Mahohi.jpg",
             "image_position": "center left",
             "name": "Mahohi Nguyen",
-            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis dapibus enim vitae blandit. Nunc at elit finibus, tempor justo vel, tristique sem.</p>",
-            "instagram_url": "shopify://collections/all",
-            "tiktok_url": "shopify://collections/all",
+            "description": "<p>Young surfer from Hong Kong part of the Swiss Surf national team U12s.<br/>He represents this community of future Guts surfers</p>",
+            "instagram_url": "https://www.instagram.com/mahohi_nguyen?igsh=MWFrZmhpcW5hb3hnZw==",
+            "tiktok_url": "",
             "facebook_url": "",
-            "youtube_url": "shopify://collections/all"
+            "youtube_url": ""
           }
         },
         "ambassador_4k6HTw": {
           "type": "ambassador",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Mahohi.jpg",
             "image_position": "center center",
@@ -275,6 +281,7 @@
         },
         "ambassador_YKjAbb": {
           "type": "ambassador",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Mahohi.jpg",
             "image_position": "center center",
@@ -288,6 +295,7 @@
         },
         "ambassador_rYNBcf": {
           "type": "ambassador",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Mahohi.jpg",
             "image_position": "center center",
@@ -377,48 +385,7 @@
       "name": "Custom Stockist Locator",
       "settings": {
         "heading": "Find GUTS <mark>near you</mark>",
-        "subheading": "<p>Find GUTS products in your area. We are based in France but can be found internationally too.</p>"
-      }
-    },
-    "1769834773db1c4a9d": {
-      "type": "_blocks",
-      "blocks": {
-        "klaviyo_email_marketing_sms_form_embed_block_rGJn6M": {
-          "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/form-embed-block/2632fe16-c075-4321-a88b-50b567f42507",
-          "settings": {
-            "formId": "Wg6GAT"
-          }
-        }
-      },
-      "block_order": [
-        "klaviyo_email_marketing_sms_form_embed_block_rGJn6M"
-      ],
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 12,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "color_scheme": "",
-        "background_media": "none",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "subheading": "<p>Explore shops and surf schools featuring our products.</p>"
       }
     }
   },
@@ -434,7 +401,6 @@
     "custom_guts_lifestyle_LwKVhT",
     "custom_ambassadors_DMJBxn",
     "custom_spacer_nJhjiK",
-    "custom_stockist_locator_9TALP9",
-    "1769834773db1c4a9d"
+    "custom_stockist_locator_9TALP9"
   ]
 }
