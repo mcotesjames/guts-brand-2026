@@ -28,19 +28,11 @@ body.no-global-top-padding {
 }
 
 a {
-  color: var(--color-primary);
-  -webkit-text-fill-color: var(--color-primary);
+  color: currentColor;
 }
 
 a:visited {
-  color: var(--color-primary);
-  -webkit-text-fill-color: var(--color-primary);
-}
-
-a:hover,
-a:active {
-  color: var(--color-primary);
-  -webkit-text-fill-color: var(--color-primary);
+  color: currentColor;
 }
 
 button,
@@ -48,7 +40,6 @@ input[type='button'],
 input[type='submit'],
 input[type='reset'] {
   color: var(--color-primary);
-  -webkit-text-fill-color: var(--color-primary);
 }
 
 p {
