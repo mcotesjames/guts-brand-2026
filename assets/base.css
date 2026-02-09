@@ -31,7 +31,7 @@ a {
   color: currentColor;
 }
 
-a:visited {
+a:visited:not(.custom-button) {
   color: currentColor;
 } 
 
