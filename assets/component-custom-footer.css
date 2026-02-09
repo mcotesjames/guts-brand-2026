@@ -84,6 +84,12 @@
   font-size: 11px;
 }
 
+.custom-footer__social svg {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
 @media (max-width: 768px) {
   .custom-footer {
     padding: 60px 0;

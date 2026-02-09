@@ -232,11 +232,18 @@
       });
       if (store.marker) {
         map.panTo(store.marker.getPosition());
-        map.setZoom(13);
       }
       if (scrollToCard) {
         scrollCardIntoView(store.card);
       }
+    };
+
+    const showOnlyStoreCard = (store) => {
+      stores.forEach((item) => {
+        const isMatch = item === store;
+        item.card.style.display = isMatch ? 'flex' : 'none';
+      });
+      updateEmptyState();
     };
 
     const ensureMarker = (store) => {
@@ -247,7 +254,10 @@
         title: store.name,
         icon: defaultIcon,
       });
-      store.marker.addListener('click', () => setActiveStore(store, { scrollToCard: true }));
+      store.marker.addListener('click', () => {
+        setActiveStore(store, { scrollToCard: true });
+        showOnlyStoreCard(store);
+      });
     };
 
     const geocodeStore = (store) =>
@@ -304,18 +314,40 @@
       emptyState.hidden = hasVisible;
     };
 
+    const setClosestStoreActive = (origin, radiusData, selectedType) => {
+      if (!origin) return;
+      let closestStore = null;
+      let closestDistance = Infinity;
+      stores.forEach((store) => {
+        if (!matchesType(store, selectedType)) return;
+        if (!Number.isFinite(store.lat) || !Number.isFinite(store.lng)) return;
+        const miles = haversineMiles(origin.lat, origin.lng, store.lat, store.lng);
+        const withinRadius =
+          radiusData.radius === 0 ||
+          miles <= (radiusData.unit === 'km' ? radiusData.radius / 1.60934 : radiusData.radius);
+        if (!withinRadius) return;
+        if (miles < closestDistance) {
+          closestDistance = miles;
+          closestStore = store;
+        }
+      });
+      if (closestStore) {
+        setActiveStore(closestStore, { scrollToCard: true });
+      }
+    };
+
     const updateListVisibility = (radiusData, filterOrigin, distanceOrigin, selectedType) => {
       const { radius, unit } = radiusData;
       stores.forEach((store) => {
         const distanceEl = store.card.querySelector('[data-stockist-distance]');
-        if (!matchesType(store, selectedType)) {
+        const matchesSelectedType = matchesType(store, selectedType);
+        if (store.marker) store.marker.setVisible(matchesSelectedType);
+        if (!matchesSelectedType) {
           store.card.style.display = 'none';
-          if (store.marker) store.marker.setVisible(false);
           return;
         }
         if (!Number.isFinite(store.lat) || !Number.isFinite(store.lng)) {
           store.card.style.display = 'none';
-          if (store.marker) store.marker.setVisible(false);
           return;
         }
         const filterMiles = haversineMiles(
@@ -329,7 +361,6 @@
           : filterMiles;
         const withinRadius = radius === 0 || filterMiles <= (unit === 'km' ? radius / 1.60934 : radius);
         store.card.style.display = withinRadius ? 'flex' : 'none';
-        if (store.marker) store.marker.setVisible(withinRadius);
         if (distanceEl) distanceEl.textContent = formatDistance(distanceMiles, unit);
       });
       updateEmptyState();
@@ -395,13 +426,8 @@
       });
     });
 
-    let userOrigin = null;
     let hasSearch = false;
     let filterOrigin = null;
-
-    const setUserOrigin = (origin) => {
-      userOrigin = origin;
-    };
 
     const getSelectedType = () => {
       if (!typeSelect) return 'all';
@@ -411,7 +437,9 @@
     const applyFilters = () => {
       const selectedType = getSelectedType();
       if (filterOrigin) {
-        updateListVisibility(parseRadius(radiusSelect.value), filterOrigin, userOrigin, selectedType);
+        const radiusData = parseRadius(radiusSelect.value);
+        updateListVisibility(radiusData, filterOrigin, filterOrigin, selectedType);
+        setClosestStoreActive(filterOrigin, radiusData, selectedType);
         return;
       }
       applyTypeOnly(selectedType);
@@ -447,19 +475,9 @@
           searchCircle.setRadius(radiusMeters);
         }
         map.fitBounds(searchCircle.getBounds());
-        updateListVisibility(radiusData, origin, userOrigin, getSelectedType());
-
-        if (!userOrigin && navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(
-            (position) => {
-              const userLocation = { lat: position.coords.latitude, lng: position.coords.longitude };
-              setUserOrigin(userLocation);
-              updateListVisibility(radiusData, origin, userLocation, getSelectedType());
-            },
-            () => {},
-            { timeout: 8000 }
-          );
-        }
+        const selectedType = getSelectedType();
+        updateListVisibility(radiusData, origin, origin, selectedType);
+        setClosestStoreActive(origin, radiusData, selectedType);
       });
     });
 
@@ -471,8 +489,8 @@
 
     radiusSelect.addEventListener('change', () => {
       applyFilters();
-      if (!filterOrigin && userOrigin) {
-        updateDistancesOnly(userOrigin, parseRadius(radiusSelect.value).unit);
+      if (filterOrigin) {
+        updateDistancesOnly(filterOrigin, parseRadius(radiusSelect.value).unit);
       }
     });
 
@@ -494,7 +512,7 @@
         if (store.marker) store.marker.setVisible(true);
       });
       applyTypeOnly(getSelectedType());
-      if (!hasSearch && !userOrigin) {
+      if (!hasSearch) {
         fitMapToStores();
       }
     });

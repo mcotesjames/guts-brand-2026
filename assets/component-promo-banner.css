@@ -13,7 +13,7 @@
 }
 
 .has-promo-banner {
-  --promo-banner-height: 30px;
+  height: var(--promo-banner-height)
 }
 
 .promo-banner__track {
