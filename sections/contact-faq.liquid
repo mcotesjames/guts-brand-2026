@@ -1,5 +1,5 @@
 {{ 'component-custom-faq.css' | asset_url | stylesheet_tag }}
-{{ 'component-contact-faq.js' | asset_url | script_tag }}
+<script src="{{ 'component-contact-faq.js' | asset_url }}" defer></script>
 
 {% assign first_category = '' %}
 {% for i in (1..3) %}
