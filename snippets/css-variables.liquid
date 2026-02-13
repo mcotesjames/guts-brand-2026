@@ -1,5 +1,75 @@
 {% style %}
   {% # Loads all font variantions with display: swap %}
+  @font-face {
+    font-family: 'Antonio';
+    src: url('{{ 'Antonio-Light.ttf' | asset_url }}') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Antonio';
+    src: url('{{ 'Antonio-Regular.ttf' | asset_url }}') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Antonio';
+    src: url('{{ 'Antonio-Medium.ttf' | asset_url }}') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Antonio';
+    src: url('{{ 'Antonio-SemiBold.ttf' | asset_url }}') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Antonio';
+    src: url('{{ 'Antonio-Bold.ttf' | asset_url }}') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Karla';
+    src: url('{{ 'Karla-Light.ttf' | asset_url }}') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Karla';
+    src: url('{{ 'Karla-Regular.ttf' | asset_url }}') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Karla';
+    src: url('{{ 'Karla-Medium.ttf' | asset_url }}') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Karla';
+    src: url('{{ 'Karla-SemiBold.ttf' | asset_url }}') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Karla';
+    src: url('{{ 'Karla-Bold.ttf' | asset_url }}') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
   {{ settings.type_primary_font | font_face: font_display: 'swap' }}
   {{ settings.type_primary_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
   {{ settings.type_primary_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}

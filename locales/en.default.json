@@ -4,6 +4,21 @@
     "not_found": "Page not found.",
     "back_to_shopping": "Back to shopping"
   },
+  "newsletter": {
+    "klaviyo_form_id": "Wg6GAT"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "color": "Color",
+      "details_label": "Product details",
+      "price": {
+        "regular_price": "Regular price"
+      },
+      "shipping_returns": "Shipping & Returns",
+      "size_guide": "Size guide"
+    }
+  },
   "blog": {
     "article_comments": "Comments",
     "article_metadata_html": "{{ date }} by {{ author }}",
@@ -12,10 +27,6 @@
     "comment_form_name": "Name",
     "comment_form_submit": "Post",
     "comment_form_title": "Add a comment"
-  },
-  "ambassadors": {
-    "open_ambassador": "Open ambassador {{ position }}",
-    "label": "GUTS AMBASSADOR"
   },
   "cart": {
     "checkout": "Checkout",
@@ -29,60 +40,27 @@
   "contact": {
     "contact_us": "Contact us",
     "email": "Email",
-    "first_name": "Firstname",
+    "first_name": "First name",
     "image_placeholder": "Contact image placeholder",
-    "last_name": "Lastname",
+    "last_name": "Last name",
     "message": "Message",
     "reason_label": "Reason for enquiry"
   },
   "customers": {
     "login": {
-      "email": "Email",
       "password": "Password",
-      "submit": "Sign in",
-      "title": "Login",
       "username": "Username"
     }
   },
   "collections": {
     "title": "Collections"
   },
-  "faq": {
-    "categories_label": "FAQ categories"
-  },
-  "footer": {
-    "contact": "Contact",
-    "legal": "Legal",
-    "socials": "Socials",
-    "support": "Support"
-  },
-  "general": {
-    "close": "Close",
-    "locale_switcher_html": "<mark>EN</mark> | FR",
-    "menu": "Menu",
-    "navigation_main": "Main",
-    "navigation_mobile": "Mobile menu",
-    "next": "Next",
-    "open_menu": "Open menu",
-    "previous": "Previous",
-    "spacer": "Spacer",
-    "video_placeholder": "Video placeholder"
-  },
   "gift_card": {
     "add_to_apple_wallet": "Add to Apple Wallet",
     "card": "Gift card",
-    "expired": "This gift card has expired",
+    "expired": "This gift card has expired.",
     "expires_on": "Expires on {{ expires_on }}",
-    "use_at_checkout": "Use this gift card at checkout"
-  },
-  "promo_banner": {
-    "text": "Free shipping on orders over $75",
-    "aria_label": "Promotional message"
-  },
-  "newsletter": {
-    "email_placeholder": "Enter email address",
-    "join": "Join",
-    "klaviyo_form_id": "Wg6GAT"
+    "use_at_checkout": "Use this gift card at checkout."
   },
   "password": {
     "title": "This shop is private",
@@ -96,20 +74,29 @@
     "no_results_html": "No results found for {{ terms }}",
     "results_for_html": "{{ count }} results found for {{ terms }}"
   },
-  "products": {
-    "product": {
-      "add_to_cart": "Add to cart",
-      "color": "Color",
-      "details_label": "Product details",
-      "price": {
-        "from_price_html": "From {{ price }}",
-        "regular_price": "Regular price",
-        "sale_price": "Sale price",
-        "unit_price": "Unit price"
-      },
-      "shipping_returns": "Shipping & Returns",
-      "size_guide": "Size guide"
-    }
+  "ambassadors": {
+    "open_ambassador": "Open ambassador {{ position }}",
+    "label": "GUTS AMBASSADOR"
+  },
+  "faq": {
+    "categories_label": "FAQ categories"
+  },
+  "footer": {
+    "contact": "Contact",
+    "legal": "Legal",
+    "socials": "Socials",
+    "support": "Support"
+  },
+  "general": {
+    "close": "Close",
+    "menu": "Menu",
+    "navigation_main": "Main",
+    "navigation_mobile": "Mobile menu",
+    "next": "Next",
+    "open_menu": "Open menu",
+    "previous": "Previous",
+    "spacer": "Spacer",
+    "video_placeholder": "Video placeholder"
   },
   "sections": {
     "collection_carousel": {
@@ -127,13 +114,8 @@
   },
   "socials": {
     "facebook": "Facebook",
-    "facebook_short": "FB",
     "instagram": "Instagram",
-    "instagram_short": "IG",
-    "linkedin": "LinkedIn",
-    "linkedin_short": "IN",
     "tiktok": "TikTok",
-    "tiktok_short": "TT",
     "youtube": "YouTube"
   },
   "stockist": {
