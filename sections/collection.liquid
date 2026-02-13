@@ -10,7 +10,6 @@
         {% for product in collection.products %}
 
           {% assign price = product.price %}
-          {% assign compare_at_price = product.compare_at_price %}
           {% assign money_price = price | money %}
 
           <article class="collection-grid__card custom-product-card">

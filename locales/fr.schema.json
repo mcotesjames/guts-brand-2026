@@ -1,5 +1,55 @@
 
 {
+  "general": {
+    "404": "404",
+    "article": "Article",
+    "block": "Bloc",
+    "blog": "Blog",
+    "cart": "Panier",
+    "collection": "Collection",
+    "collections": "Collections",
+    "collection_card": "Carte de collection",
+    "collections_grid": "Grille de collections",
+    "colors": "Couleurs",
+    "column": "Colonne",
+    "content": "Contenu",
+    "custom_section": "Section personnalisée",
+    "fonts": "Polices",
+    "footer": "Pied de page",
+    "group": "Groupe",
+    "header": "En-tête",
+    "layout": "Mise en page",
+    "main": "Principal",
+    "page": "Page",
+    "password": "Mot de passe",
+    "primary": "Principal",
+    "product": "Produit",
+    "row": "Rangée",
+    "search": "Recherche",
+    "secondary": "Secondaire",
+    "section": "Section",
+    "settings": "Paramètres",
+    "sidebar": "Barre latérale",
+    "text": "Texte",
+    "theme": "Thème",
+    "typography": "Typographie"
+  },
+  "labels": {
+    "alignment": "Alignement",
+    "background": "Arrière-plan",
+    "foreground": "Avant-plan",
+    "grid_gap": "Espacement de la grille",
+    "grid_item_width": "Largeur des éléments de la grille",
+    "input_corner_radius": "Rayon des coins des champs",
+    "layout_direction": "Direction de la mise en page",
+    "menu": "Menu",
+    "padding": "Espacement",
+    "page_margin": "Marge de la page",
+    "page_width": "Largeur de la page",
+    "show_payment_icons": "Afficher les icônes de paiement",
+    "text_style": "Style de texte",
+    "text": "Texte"
+  },
   "names": {
     "404": "404",
     "borders": "Bordures",
@@ -581,6 +631,28 @@
     "sticky_add_to_cart": "Ajout au panier flottant"
   },
   "options": {
+    "alignment": {
+      "left": "Gauche",
+      "center": "Centre",
+      "right": "Droite"
+    },
+    "direction": {
+      "horizontal": "Horizontal",
+      "vertical": "Vertical"
+    },
+    "page_width": {
+      "narrow": "Étroit",
+      "wide": "Large"
+    },
+    "size": {
+      "large": "Grand",
+      "small": "Petit"
+    },
+    "text_style": {
+      "title": "Titre",
+      "subtitle": "Sous-titre",
+      "normal": "Texte normal"
+    },
     "apple": "Pomme",
     "arrow": "Flèche",
     "banana": "Banane",

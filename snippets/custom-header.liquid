@@ -57,7 +57,7 @@
 
     <div class="custom-header__actions">
       {% if customer %}
-        <a class="custom-header__b2b" href="/account">
+        <a class="custom-header__b2b" href="{{ routes.account_url }}">
           <span class="custom-header__b2b-icon custom-header__b2b-profile-icon" aria-hidden="true">
             {{ 'icon-account.svg' | inline_asset_content }}
           </span>
@@ -277,7 +277,7 @@
       {% endif %}
 
       {% if customer %}
-        <a class="custom-header__offcanvas-b2b custom-button custom-button--primary" href="/account">
+        <a class="custom-header__offcanvas-b2b custom-button custom-button--primary" href="{{ routes.account_url }}">
           <span class="custom-header__b2b-icon custom-header__b2b-profile-icon" aria-hidden="true">
             {{ 'icon-account-black.svg' | inline_asset_content }}
           </span>
