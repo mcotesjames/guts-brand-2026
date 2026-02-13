@@ -1,4 +1,12 @@
-
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -63,8 +71,8 @@
         "hotspot_yNiiLw": {
           "type": "hotspot",
           "settings": {
-            "hotspot_x": 10,
-            "hotspot_y": 28,
+            "hotspot_x": 50,
+            "hotspot_y": 14,
             "image": "shopify://shop_images/Water_Evacuation_Guts_Helmet_1.jpg",
             "title": "Water Drainage",
             "description": "<p>These vents on the top of the helmet ensure quick water evacuation.</p>"
@@ -83,8 +91,9 @@
         "hotspot_8niCLk": {
           "type": "hotspot",
           "settings": {
-            "hotspot_x": 50,
-            "hotspot_y": 14,
+            "hotspot_x": 11,
+            "hotspot_y": 27,
+            "image": "shopify://shop_images/ABS_plastic__shell__01.jpg",
             "title": "EVA",
             "description": "<p>A flexible and impact-resistant material with a soft touch, this visor helps prevent water droplets from running into the eyes.</p>"
           }
@@ -178,8 +187,8 @@
         "primary_label": "See more details",
         "primary_url": "shopify://products/jane-helmet",
         "primary_variant": "standout-black",
-        "secondary_label": "Download the manual",
-        "secondary_url": "shopify://products/guts-tote-bag",
+        "secondary_label": "Download User guide",
+        "secondary_url": "https://cdn.shopify.com/s/files/1/0977/8026/9431/files/Guts_Helmet_User_Guide.pdf?v=1770103341",
         "secondary_variant": "secondary"
       }
     },
@@ -261,6 +270,7 @@
         "testimonial_L4WtRV",
         "testimonial_Ft7zFq"
       ],
+      "disabled": true,
       "name": "Custom Testimonials",
       "settings": {
         "heading": "What the people say",

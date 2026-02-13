@@ -1,8 +1,17 @@
-
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
+    "favicon": "shopify://shop_images/favicon.jpg",
     "promo_banner_enabled": true,
-    "promo_banner_text": "Free shipping on orders over $75",
+    "promo_banner_text": "Jane Helmet Coming Soon",
     "newsletter_bg_video": "shopify://files/videos/286278_medium.webm",
     "footer_menu_upsell": "upsell-menu",
     "footer_menu_support": "support_menu",

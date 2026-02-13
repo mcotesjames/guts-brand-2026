@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -10,7 +19,7 @@
       "name": "Custom Fullscreen Video",
       "settings": {
         "is_hero": true,
-        "video": "shopify://files/videos/MONTAGE_GUTS_B&W_MOVIE_2025_1.webm",
+        "video": "shopify://files/videos/MONTAGE_GUTS_B&W_MOVIE_2025_1_6c077a99-9a9b-4055-ac5b-7b5cfecd4ae6.webm",
         "poster": "shopify://shop_images/MONTAGE_GUTS_B_W_MOVIE_2025_1.jpg",
         "show_cta": true,
         "mobile_height_svh": 100,
@@ -164,8 +173,8 @@
         "hotspot_cXCgbK": {
           "type": "hotspot",
           "settings": {
-            "hotspot_x": 10,
-            "hotspot_y": 28,
+            "hotspot_x": 50,
+            "hotspot_y": 14,
             "image": "shopify://shop_images/Water_Evacuation_Guts_Helmet_1.jpg",
             "title": "Water Drainage",
             "description": "<p>These vents on the top of the helmet ensure quick water ecavuation.</p>"
@@ -174,8 +183,9 @@
         "hotspot_iFjqhR": {
           "type": "hotspot",
           "settings": {
-            "hotspot_x": 50,
-            "hotspot_y": 14,
+            "hotspot_x": 12,
+            "hotspot_y": 29,
+            "image": "shopify://shop_images/ABS_plastic__shell__01.jpg",
             "title": "EVA",
             "description": "<p>A flexible and impact-resistant material with a soft touch, this visor helps prevent water droplets from running into the eyes.</p>"
           }
@@ -209,7 +219,7 @@
         "video": "shopify://files/videos/GUTS_HERO_VIDEO_03.webm",
         "poster": "shopify://shop_images/guts-lifestyle.jpg",
         "show_cta": false,
-        "mobile_height_svh": 60,
+        "mobile_height_svh": 80,
         "cta_label": "Dive in",
         "cta_url": ""
       }
@@ -230,11 +240,11 @@
         "heading_1": "Lifestyle",
         "image_1": "shopify://shop_images/lifestyle-1.jpg",
         "description": "<h5>More Than a Surf Brand.</h5><p><br/>For us, surfing is a lifestyle to share — a culture built on connection and emotion.<br/>A community united by the same values and a deep passion for the ocean.</p>",
-        "cta_label": "Contact us",
-        "cta_url": "shopify://pages/contact",
+        "cta_label": "Follow Us",
+        "cta_url": "https://www.instagram.com/guts_surfing/",
         "cta_variant": "standout-black",
-        "image_2": "shopify://shop_images/lifestyle-2.jpg",
-        "image_3": "shopify://shop_images/lifestyle-3.jpg",
+        "image_2": "shopify://shop_images/SERGDADY.9A4L6A3073_copie.jpg",
+        "image_3": "shopify://shop_images/GAUTHIER_TRARIEUX_10_00000.jpg",
         "culture_text": "Culture",
         "image_4": "shopify://shop_images/lifestyle-4.jpg",
         "heading_2": "Culture"
@@ -247,7 +257,7 @@
           "type": "ambassador",
           "settings": {
             "image": "shopify://shop_images/Mahohi.jpg",
-            "image_position": "center left",
+            "image_position": "center center",
             "name": "Mahohi Nguyen",
             "description": "<p>Young surfer from Hong Kong part of the Swiss Surf national team U12s.<br/>He represents this community of future Guts surfers</p>",
             "instagram_url": "https://www.instagram.com/mahohi_nguyen?igsh=MWFrZmhpcW5hb3hnZw==",
