@@ -255,6 +255,7 @@
       "blocks": {
         "ambassador_FgDgtF": {
           "type": "ambassador",
+          "name": "COMMUNITY",
           "settings": {
             "image": "shopify://shop_images/Mahohi.jpg",
             "image_position": "center center",
