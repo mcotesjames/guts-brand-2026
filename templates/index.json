@@ -216,7 +216,7 @@
       "name": "Custom Fullscreen Video",
       "settings": {
         "is_hero": false,
-        "video": "shopify://files/videos/GUTS_LIFESTYLE_VIDEO_03D_WEBSITE.mov",
+        "video": "shopify://files/videos/GUTS_LIFESTYLE_VIDEO_03F_WEBSITE.mp4",
         "poster": "shopify://shop_images/guts-lifestyle.jpg",
         "show_cta": false,
         "mobile_height_svh": 80,
