@@ -19,7 +19,7 @@
       "name": "Custom Fullscreen Video",
       "settings": {
         "is_hero": true,
-        "video": "shopify://files/videos/MONTAGE_GUTS_B&W_MOVIE_2025_1_6c077a99-9a9b-4055-ac5b-7b5cfecd4ae6.webm",
+        "video": "shopify://files/videos/MONTAGE_GUTS_B&W_MOVIE_2026.mp4",
         "poster": "shopify://shop_images/MONTAGE_GUTS_B_W_MOVIE_2025_1.jpg",
         "show_cta": true,
         "mobile_height_svh": 100,
@@ -94,7 +94,7 @@
       ],
       "name": "Statistic Slider",
       "settings": {
-        "video": "shopify://files/videos/138961-770800088_small.webm",
+        "video": "shopify://files/videos/GUTS_SMALL_VIDEO_03.mp4",
         "poster": "shopify://shop_images/GUTS_SMALL_VIDEO_03.jpg",
         "stat": "Statistic",
         "description": "<p>Lipsum dolor sit amet, consectetur adipiscing elit. Vivamus velit metus, maximus vel congue in, lobortis at lacus.</p>"
@@ -269,12 +269,11 @@
         },
         "ambassador_4k6HTw": {
           "type": "ambassador",
-          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/Mahohi.jpg",
+            "image": "shopify://shop_images/B_W_SergDady_copie.jpg",
             "image_position": "center center",
-            "name": "Mahohi Nguyen",
-            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis dapibus enim vitae blandit.</p>",
+            "name": "Serg Dady",
+            "description": "<p>illustrator turned freelancer, he captures immersive shots through his own surfing experience, blending aesthetics, emotion, and nature, and showcases his work in galleries.</p>",
             "instagram_url": "",
             "tiktok_url": "",
             "facebook_url": "",
