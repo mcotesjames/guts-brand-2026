@@ -75,7 +75,7 @@
       mapTypeControl: false,
       streetViewControl: false,
       fullscreenControl: false,
-      mapId: 'DEMO_MAP_ID',
+      mapId: 'f2918bff41d5d3599ee4a46a',
     });
     let searchCircle = null;
 
