@@ -422,7 +422,7 @@
   };
 
   const waitForMaps = () => {
-    if (window.google && window.google.maps) {
+    if (window.google && window.google.maps && window.google.maps.marker) {
       initAll();
       return;
     }
