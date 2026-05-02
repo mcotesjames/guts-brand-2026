@@ -65,149 +65,45 @@
     });
 
     const geocoder = new google.maps.Geocoder();
-    const mapStyles = [
-      {
-        featureType: 'poi',
-        elementType: 'all',
-        stylers: [
-          { hue: '#000000' },
-          { saturation: -100 },
-          { lightness: -100 },
-          { visibility: 'off' },
-        ],
-      },
-      {
-        featureType: 'administrative',
-        elementType: 'all',
-        stylers: [
-          { hue: '#000000' },
-          { saturation: 0 },
-          { lightness: -100 },
-          { visibility: 'off' },
-        ],
-      },
-      {
-        featureType: 'road',
-        elementType: 'labels',
-        stylers: [
-          { hue: '#ffffff' },
-          { saturation: -100 },
-          { lightness: 100 },
-          { visibility: 'off' },
-        ],
-      },
-      {
-        featureType: 'water',
-        elementType: 'labels',
-        stylers: [
-          { hue: '#000000' },
-          { saturation: -100 },
-          { lightness: -100 },
-          { visibility: 'off' },
-        ],
-      },
-      {
-        featureType: 'road.local',
-        elementType: 'all',
-        stylers: [
-          { hue: '#ffffff' },
-          { saturation: -100 },
-          { lightness: 100 },
-          { visibility: 'on' },
-        ],
-      },
-      {
-        featureType: 'water',
-        elementType: 'geometry',
-        stylers: [
-          { hue: '#ffffff' },
-          { saturation: -100 },
-          { lightness: 100 },
-          { visibility: 'on' },
-        ],
-      },
-      {
-        featureType: 'transit',
-        elementType: 'labels',
-        stylers: [
-          { hue: '#000000' },
-          { saturation: 0 },
-          { lightness: -100 },
-          { visibility: 'off' },
-        ],
-      },
-      {
-        featureType: 'landscape',
-        elementType: 'labels',
-        stylers: [
-          { hue: '#000000' },
-          { saturation: -100 },
-          { lightness: -100 },
-          { visibility: 'off' },
-        ],
-      },
-      {
-        featureType: 'road',
-        elementType: 'geometry',
-        stylers: [
-          { hue: '#bbbbbb' },
-          { saturation: -100 },
-          { lightness: 26 },
-          { visibility: 'on' },
-        ],
-      },
-      {
-        featureType: 'landscape',
-        elementType: 'geometry',
-        stylers: [
-          { hue: '#dddddd' },
-          { saturation: -100 },
-          { lightness: -3 },
-          { visibility: 'on' },
-        ],
-      },
-    ];
 
+    // mapId is required for AdvancedMarkerElement. Replace 'DEMO_MAP_ID' with a
+    // real Map ID from Google Cloud Console to re-enable custom map styling
+    // (cloud-based styles replace the legacy `styles` array below).
     const map = new google.maps.Map(mapEl, {
       center: { lat: 46.2276, lng: 2.2137 },
       zoom: 5,
       mapTypeControl: false,
       streetViewControl: false,
       fullscreenControl: false,
-      styles: mapStyles,
+      mapId: '411467539389485bfab19106',
     });
     let searchCircle = null;
 
-    const createMarkerIcon = (url, scale = 1) => {
-      if (!url) return null;
-      const width = 24 * scale;
-      const height = 32 * scale;
-      return {
-        url,
-        scaledSize: new google.maps.Size(width, height),
-        anchor: new google.maps.Point(width / 2, height),
-      };
+    const createDefaultContent = () => {
+      const url = section.dataset.markerDefault;
+      if (url) {
+        const img = document.createElement('img');
+        img.src = url;
+        img.style.cssText = 'width:24px;height:32px;display:block';
+        return img;
+      }
+      const dot = document.createElement('div');
+      dot.style.cssText = 'width:10px;height:10px;border-radius:50%;background:#000;border:1px solid #000';
+      return dot;
     };
 
-    const defaultIcon =
-      createMarkerIcon(section.dataset.markerDefault, 1) || {
-        path: google.maps.SymbolPath.CIRCLE,
-        scale: 5,
-        fillColor: '#000000',
-        fillOpacity: 1,
-        strokeColor: '#000000',
-        strokeWeight: 1,
-      };
-
-    const activeIcon =
-      createMarkerIcon(section.dataset.markerActive, 1.5) || {
-        path: google.maps.SymbolPath.CIRCLE,
-        scale: 10,
-        fillColor: '#f0c000',
-        fillOpacity: 1,
-        strokeColor: '#f0c000',
-        strokeWeight: 1,
-      };
+    const createActiveContent = () => {
+      const url = section.dataset.markerActive;
+      if (url) {
+        const img = document.createElement('img');
+        img.src = url;
+        img.style.cssText = 'width:36px;height:48px;display:block';
+        return img;
+      }
+      const dot = document.createElement('div');
+      dot.style.cssText = 'width:20px;height:20px;border-radius:50%;background:#f0c000;border:1px solid #f0c000';
+      return dot;
+    };
 
     const scrollCardIntoView = (card) => {
       if (!list || !card) return;
@@ -227,11 +123,11 @@
           cta.classList.toggle('custom-button--primary', !isActive);
         }
         if (item.marker) {
-          item.marker.setIcon(isActive ? activeIcon : defaultIcon);
+          item.marker.content = isActive ? createActiveContent() : createDefaultContent();
         }
       });
       if (store.marker) {
-        map.panTo(store.marker.getPosition());
+        map.panTo(store.marker.position);
       }
       if (scrollToCard) {
         scrollCardIntoView(store.card);
@@ -248,13 +144,13 @@
 
     const ensureMarker = (store) => {
       if (!Number.isFinite(store.lat) || !Number.isFinite(store.lng)) return;
-      store.marker = new google.maps.Marker({
+      store.marker = new google.maps.marker.AdvancedMarkerElement({
         map,
         position: { lat: store.lat, lng: store.lng },
         title: store.name,
-        icon: defaultIcon,
+        content: createDefaultContent(),
       });
-      store.marker.addListener('click', () => {
+      store.marker.addEventListener('gmp-click', () => {
         setActiveStore(store, { scrollToCard: true });
         showOnlyStoreCard(store);
       });
@@ -341,7 +237,7 @@
       stores.forEach((store) => {
         const distanceEl = store.card.querySelector('[data-stockist-distance]');
         const matchesSelectedType = matchesType(store, selectedType);
-        if (store.marker) store.marker.setVisible(matchesSelectedType);
+        if (store.marker) store.marker.map = matchesSelectedType ? map : null;
         if (!matchesSelectedType) {
           store.card.style.display = 'none';
           return;
@@ -370,7 +266,7 @@
       stores.forEach((store) => {
         const isVisible = matchesType(store, selectedType);
         store.card.style.display = isVisible ? 'flex' : 'none';
-        if (store.marker) store.marker.setVisible(isVisible);
+        if (store.marker) store.marker.map = isVisible ? map : null;
       });
       updateEmptyState();
     };
@@ -509,7 +405,7 @@
       }
       stores.forEach((store) => {
         store.card.style.display = 'flex';
-        if (store.marker) store.marker.setVisible(true);
+        if (store.marker) store.marker.map = map;
       });
       applyTypeOnly(getSelectedType());
       if (!hasSearch) {
@@ -526,7 +422,7 @@
   };
 
   const waitForMaps = () => {
-    if (window.google && window.google.maps) {
+    if (window.google && window.google.maps && window.google.maps.marker) {
       initAll();
       return;
     }
