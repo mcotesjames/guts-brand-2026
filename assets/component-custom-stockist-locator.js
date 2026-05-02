@@ -75,7 +75,7 @@
       mapTypeControl: false,
       streetViewControl: false,
       fullscreenControl: false,
-      mapId: 'f2918bff41d5d3599ee4a46a',
+      mapId: '411467539389485bfab19106',
     });
     let searchCircle = null;
 
@@ -150,7 +150,7 @@
         title: store.name,
         content: createDefaultContent(),
       });
-      store.marker.addListener('click', () => {
+      store.marker.addEventListener('gmp-click', () => {
         setActiveStore(store, { scrollToCard: true });
         showOnlyStoreCard(store);
       });
