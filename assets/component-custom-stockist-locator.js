@@ -150,7 +150,7 @@
         title: store.name,
         content: createDefaultContent(),
       });
-      store.marker.addListener('click', () => {
+      store.marker.addEventListener('gmp-click', () => {
         setActiveStore(store, { scrollToCard: true });
         showOnlyStoreCard(store);
       });
