@@ -253,6 +253,18 @@
     "custom_ambassadors_DMJBxn": {
       "type": "custom-ambassadors",
       "blocks": {
+        "ambassador_GyJ8cW": {
+          "type": "ambassador",
+          "settings": {
+            "image_position": "center center",
+            "name": "Mahohi Nguyen",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis dapibus enim vitae blandit.</p>",
+            "instagram_url": "",
+            "tiktok_url": "",
+            "facebook_url": "",
+            "youtube_url": ""
+          }
+        },
         "ambassador_FgDgtF": {
           "type": "ambassador",
           "name": "COMMUNITY",
@@ -273,7 +285,7 @@
             "image": "shopify://shop_images/B_W_SergDady_copie.jpg",
             "image_position": "center center",
             "name": "Serg Dady",
-            "description": "<p>illustrator turned freelancer, he captures immersive shots through his own surfing experience, blending aesthetics, emotion, and nature, and showcases his work in galleries.</p>",
+            "description": "<p>Passionate about surfing and motorbike, SergDady captures immersive shots through his own surfing experience, blending aesthetics, emotion, and nature. He takes part of Guts story since the beginning.</p>",
             "instagram_url": "",
             "tiktok_url": "",
             "facebook_url": "",
@@ -310,6 +322,7 @@
         }
       },
       "block_order": [
+        "ambassador_GyJ8cW",
         "ambassador_FgDgtF",
         "ambassador_4k6HTw",
         "ambassador_YKjAbb",
