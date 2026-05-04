@@ -157,14 +157,6 @@
       if (variant && priceEl) {
         priceEl.textContent = formatMoney(variant.price);
       }
-      const submitButton = form?.querySelector('.product-hero__add-to-cart');
-      if (submitButton) {
-        const soldOut = variant ? !variant.available : false;
-        submitButton.disabled = soldOut;
-        submitButton.textContent = soldOut
-          ? 'SOLD OUT'
-          : (submitButton.dataset.originalLabel || submitButton.textContent);
-      }
       const colorValue = getSelectedValueByNames(['color', 'colour', 'couleur']);
       if (!colorValue) {
         applyFilter(null);
@@ -208,7 +200,11 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ id: variantId, quantity }),
         });
-        if (!response.ok) return;
+        if (!response.ok) {
+          const err = await response.json().catch(() => ({}));
+          console.error('cart/add.js failed:', response.status, err);
+          return;
+        }
         const cartResponse = await fetch('/cart.js');
         if (!cartResponse.ok) return;
         const cart = await cartResponse.json();
