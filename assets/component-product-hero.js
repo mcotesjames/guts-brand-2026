@@ -157,6 +157,14 @@
       if (variant && priceEl) {
         priceEl.textContent = formatMoney(variant.price);
       }
+      const submitButton = form?.querySelector('.product-hero__add-to-cart');
+      if (submitButton) {
+        const soldOut = variant ? !variant.available : false;
+        submitButton.disabled = soldOut;
+        submitButton.textContent = soldOut
+          ? 'SOLD OUT'
+          : (submitButton.dataset.originalLabel || submitButton.textContent);
+      }
       const colorValue = getSelectedValueByNames(['color', 'colour', 'couleur']);
       if (!colorValue) {
         applyFilter(null);
@@ -192,7 +200,7 @@
       const submitButton = form.querySelector('.product-hero__add-to-cart');
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
-        const variantId = $variantInput.val();
+        const variantId = Number($variantInput.val());
         if (!variantId) return;
         const quantity = Math.max(Number(qtyInput?.value || 1), 1);
         const response = await fetch('/cart/add.js', {
