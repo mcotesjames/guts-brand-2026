@@ -194,6 +194,8 @@
         event.preventDefault();
         const variantId = Number($variantInput.val());
         if (!variantId) return;
+        const availableVariants = variants.filter((v) => v.available);
+        console.log('available variants:', availableVariants.length, availableVariants);
         const quantity = Math.max(Number(qtyInput?.value || 1), 1);
         const response = await fetch('/cart/add.js', {
           method: 'POST',
