@@ -255,6 +255,7 @@
       "blocks": {
         "ambassador_GyJ8cW": {
           "type": "ambassador",
+          "disabled": true,
           "settings": {
             "image_position": "center center",
             "name": "Mahohi Nguyen",
