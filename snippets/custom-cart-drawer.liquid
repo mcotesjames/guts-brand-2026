@@ -32,7 +32,7 @@
       <div class="custom-cart-drawer__footer">
         <div class="custom-cart-drawer__subtotal">
           <span>{{ 'cart.subtotal' | t }}</span>
-          <span class="totals__subtotal-value" data-cart-drawer-subtotal samitaWS-drawer-line-item-subtotal-price>$0.00</span>
+          <span class="totals__subtotal-value" data-cart-drawer-subtotal samitaWS-drawer-line-item-subtotal-price>{{ cart.total_price | money }}</span>
         </div>
         <button
           class="custom-cart-drawer__checkout custom-button custom-button--secondary"
