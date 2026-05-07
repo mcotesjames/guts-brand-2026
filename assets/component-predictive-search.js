@@ -4,11 +4,13 @@
   const MAX_NON_PRODUCTS = 3;
 
   const formatMoney = (cents) => {
-    if (window.Shopify && typeof window.Shopify.formatMoney === 'function') {
-      return window.Shopify.formatMoney(cents);
-    }
+    const currency = window.Shopify?.currency?.active || 'USD';
     const amount = Number(cents || 0) / 100;
-    return `$${amount.toFixed(2)}`;
+    try {
+      return new Intl.NumberFormat(undefined, { style: 'currency', currency }).format(amount);
+    } catch {
+      return amount.toFixed(2);
+    }
   };
 
   const buildUrl = (query) => {

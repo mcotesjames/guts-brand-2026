@@ -1,10 +1,12 @@
 (() => {
   const formatMoney = (cents) => {
-    if (window.Shopify && typeof window.Shopify.formatMoney === 'function') {
-      return window.Shopify.formatMoney(cents);
-    }
+    const currency = window.Shopify?.currency?.active || 'USD';
     const amount = Number(cents || 0) / 100;
-    return `$${amount.toFixed(2)}`;
+    try {
+      return new Intl.NumberFormat(undefined, { style: 'currency', currency }).format(amount);
+    } catch {
+      return amount.toFixed(2);
+    }
   };
 
   const initSection = (section) => {
@@ -155,7 +157,7 @@
         $variantInput.val(variant.id);
       }
       if (variant && priceEl) {
-        priceEl.textContent = formatMoney(variant.price);
+        priceEl.textContent = variant.price_formatted || formatMoney(variant.price);
       }
       const colorValue = getSelectedValueByNames(['color', 'colour', 'couleur']);
       if (!colorValue) {
@@ -192,15 +194,21 @@
       const submitButton = form.querySelector('.product-hero__add-to-cart');
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
-        const variantId = $variantInput.val();
+        const variantId = Number($variantInput.val());
         if (!variantId) return;
+        const availableVariants = variants.filter((v) => v.available);
+        console.log('available variants:', availableVariants.length, availableVariants);
         const quantity = Math.max(Number(qtyInput?.value || 1), 1);
         const response = await fetch('/cart/add.js', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ id: variantId, quantity }),
         });
-        if (!response.ok) return;
+        if (!response.ok) {
+          const err = await response.json().catch(() => ({}));
+          console.error('cart/add.js failed:', response.status, err);
+          return;
+        }
         const cartResponse = await fetch('/cart.js');
         if (!cartResponse.ok) return;
         const cart = await cartResponse.json();
