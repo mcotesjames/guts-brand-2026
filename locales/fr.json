@@ -22,7 +22,7 @@
       "color": "Couleur",
       "details_label": "Détails du produit",
       "price": {
-        "regular_price": "Prix régulier"
+        "regular_price": "Prix "
       },
       "shipping_returns": "Expéditions et retours",
       "size_guide": "Guide des tailles"
