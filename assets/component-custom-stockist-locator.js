@@ -167,7 +167,7 @@
             store.lng = location.lng();
             ensureMarker(store);
           }
-          resolve();
+          resolve(); 
         });
       });
 
