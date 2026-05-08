@@ -383,6 +383,34 @@
       }
     });
 
+    const resetSearch = () => {
+      const addressInput = form.querySelector('input');
+      if (addressInput) addressInput.value = '';
+      radiusSelect.value = '10-km';
+      if (typeSelect) typeSelect.value = 'all';
+      hasSearch = false;
+      filterOrigin = null;
+      if (searchCircle) {
+        searchCircle.setMap(null);
+        searchCircle = null;
+      }
+      stores.forEach((item) => {
+        item.card.classList.remove('is-active');
+        const cta = item.card.querySelector('.custom-stockist-locator__cta');
+        if (cta) {
+          cta.classList.remove('custom-button--secondary');
+          cta.classList.add('custom-button--primary');
+        }
+        if (item.marker) item.marker.content = createDefaultContent();
+      });
+      updateDistancesEmpty();
+      applyTypeOnly('all');
+      fitMapToStores();
+    };
+
+    const resetBtn = mapEl.querySelector('[data-stockist-reset]');
+    if (resetBtn) resetBtn.addEventListener('click', resetSearch);
+
     updateDistancesEmpty();
     let pendingOrigin = null;
     const markersReady = initMarkers().then(() => {
