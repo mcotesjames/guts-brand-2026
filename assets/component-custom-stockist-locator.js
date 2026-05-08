@@ -128,7 +128,7 @@
       });
       if (store.marker) {
         map.panTo(store.marker.position);
-        map.setZoom(14);
+        map.setZoom(11);
       }
       if (scrollToCard) {
         scrollCardIntoView(store.card);
