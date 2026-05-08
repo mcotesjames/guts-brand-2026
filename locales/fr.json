@@ -7,7 +7,6 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-
 {
   "404": {
     "title": "404",
@@ -23,7 +22,7 @@
       "color": "Couleur",
       "details_label": "Détails du produit",
       "price": {
-        "regular_price": "Prix régulier"
+        "regular_price": "Prix "
       },
       "shipping_returns": "Expéditions et retours",
       "size_guide": "Guide des tailles"
@@ -39,7 +38,7 @@
     "comment_form_title": "Ajouter un commentaire"
   },
   "cart": {
-    "checkout": "Vérifier",
+    "checkout": "Valider Mon Panier",
     "empty": "Votre panier est vide.",
     "subtotal": "Sous-total",
     "title": "Chariot",

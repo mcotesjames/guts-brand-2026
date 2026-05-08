@@ -94,7 +94,7 @@
       ],
       "name": "Statistic Slider",
       "settings": {
-        "video": "shopify://files/videos/138961-770800088_small.webm",
+        "video": "shopify://files/videos/GUTS_SMALL_VIDEO_03.mp4",
         "poster": "shopify://shop_images/GUTS_SMALL_VIDEO_03.jpg",
         "stat": "Statistic",
         "description": "<p>Lipsum dolor sit amet, consectetur adipiscing elit. Vivamus velit metus, maximus vel congue in, lobortis at lacus.</p>"
@@ -216,7 +216,7 @@
       "name": "Custom Fullscreen Video",
       "settings": {
         "is_hero": false,
-        "video": "shopify://files/videos/GUTS_HERO_VIDEO_03.webm",
+        "video": "shopify://files/videos/GUTS_LIFESTYLE_VIDEO_03F_WEBSITE.mp4",
         "poster": "shopify://shop_images/guts-lifestyle.jpg",
         "show_cta": false,
         "mobile_height_svh": 80,
@@ -253,8 +253,22 @@
     "custom_ambassadors_DMJBxn": {
       "type": "custom-ambassadors",
       "blocks": {
+        "ambassador_GyJ8cW": {
+          "type": "ambassador",
+          "disabled": true,
+          "settings": {
+            "image_position": "center center",
+            "name": "Mahohi Nguyen",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis dapibus enim vitae blandit.</p>",
+            "instagram_url": "",
+            "tiktok_url": "",
+            "facebook_url": "",
+            "youtube_url": ""
+          }
+        },
         "ambassador_FgDgtF": {
           "type": "ambassador",
+          "name": "COMMUNITY",
           "settings": {
             "image": "shopify://shop_images/Mahohi.jpg",
             "image_position": "center center",
@@ -268,13 +282,12 @@
         },
         "ambassador_4k6HTw": {
           "type": "ambassador",
-          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/Mahohi.jpg",
+            "image": "shopify://shop_images/B_W_SergDady_copie.jpg",
             "image_position": "center center",
-            "name": "Mahohi Nguyen",
-            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis dapibus enim vitae blandit.</p>",
-            "instagram_url": "",
+            "name": "Serg Dady",
+            "description": "<p>Passionate about surfing and motorbike, SergDady captures immersive shots through his own surfing experience, blending aesthetics, emotion, and nature. He takes part of Guts story since the beginning.</p>",
+            "instagram_url": "https://www.instagram.com/sergdady/",
             "tiktok_url": "",
             "facebook_url": "",
             "youtube_url": ""
@@ -310,6 +323,7 @@
         }
       },
       "block_order": [
+        "ambassador_GyJ8cW",
         "ambassador_FgDgtF",
         "ambassador_4k6HTw",
         "ambassador_YKjAbb",
