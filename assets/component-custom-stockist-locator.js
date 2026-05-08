@@ -79,6 +79,12 @@
     });
     let searchCircle = null;
 
+    const resetBtn = document.createElement('button');
+    resetBtn.className = 'custom-stockist-locator__reset';
+    resetBtn.type = 'button';
+    resetBtn.textContent = 'Reset';
+    mapEl.appendChild(resetBtn);
+
     const createDefaultContent = () => {
       const url = section.dataset.markerDefault;
       if (url) {
@@ -408,8 +414,7 @@
       fitMapToStores();
     };
 
-    const resetBtn = mapEl.querySelector('[data-stockist-reset]');
-    if (resetBtn) resetBtn.addEventListener('click', resetSearch);
+    resetBtn.addEventListener('click', resetSearch);
 
     updateDistancesEmpty();
     let pendingOrigin = null;
