@@ -82,7 +82,7 @@
     const resetBtn = document.createElement('button');
     resetBtn.className = 'custom-stockist-locator__reset';
     resetBtn.type = 'button';
-    resetBtn.textContent = 'Reset';
+    resetBtn.textContent = 'Clear';
     mapEl.appendChild(resetBtn);
 
     const createDefaultContent = () => {
