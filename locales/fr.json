@@ -7,7 +7,6 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-
 {
   "404": {
     "title": "404",
@@ -39,7 +38,7 @@
     "comment_form_title": "Ajouter un commentaire"
   },
   "cart": {
-    "checkout": "Vérifier",
+    "checkout": "Voir Mon Panier",
     "empty": "Votre panier est vide.",
     "subtotal": "Sous-total",
     "title": "Chariot",
