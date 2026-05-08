@@ -128,6 +128,7 @@
       });
       if (store.marker) {
         map.panTo(store.marker.position);
+        map.setZoom(14);
       }
       if (scrollToCard) {
         scrollCardIntoView(store.card);
@@ -166,7 +167,7 @@
             store.lng = location.lng();
             ensureMarker(store);
           }
-          resolve();
+          resolve(); 
         });
       });
 
