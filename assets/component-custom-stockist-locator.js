@@ -134,14 +134,6 @@
       }
     };
 
-    const showOnlyStoreCard = (store) => {
-      stores.forEach((item) => {
-        const isMatch = item === store;
-        item.card.style.display = isMatch ? 'flex' : 'none';
-      });
-      updateEmptyState();
-    };
-
     const ensureMarker = (store) => {
       if (!Number.isFinite(store.lat) || !Number.isFinite(store.lng)) return;
       store.marker = new google.maps.marker.AdvancedMarkerElement({
@@ -149,10 +141,10 @@
         position: { lat: store.lat, lng: store.lng },
         title: store.name,
         content: createDefaultContent(),
+        gmpClickable: true,
       });
       store.marker.addEventListener('gmp-click', () => {
         setActiveStore(store, { scrollToCard: true });
-        showOnlyStoreCard(store);
       });
     };
 
