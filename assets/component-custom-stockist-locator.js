@@ -141,6 +141,7 @@
         position: { lat: store.lat, lng: store.lng },
         title: store.name,
         content: createDefaultContent(),
+        gmpClickable: true,
       });
       store.marker.addEventListener('gmp-click', () => {
         setActiveStore(store, { scrollToCard: true });
