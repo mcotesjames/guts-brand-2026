@@ -169,7 +169,7 @@
 .custom-product-card__quick-add[aria-disabled='true'] {
   opacity: 0.5;
   cursor: not-allowed;
-  background: transparent;
+  background: var(--color-primary);
   color: var(--color-primary);
   border: 1px solid var(--color-primary);
 }
