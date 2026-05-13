@@ -66,6 +66,27 @@
     return card.querySelector('.custom-product-card__size.is-active')?.dataset.sizeValue || null;
   };
 
+  const updateCardLink = (card, variants, colorIndex, sizeIndex) => {
+    const link = card.querySelector('a.custom-product-card__image');
+    if (!link) return;
+
+    const selectedColor = getSelectedColor(card);
+    const selectedSize = getSelectedSize(card);
+
+    const match = variants.find((variant) => {
+      if (colorIndex !== -1 && selectedColor && variant.options[colorIndex] !== selectedColor) return false;
+      if (sizeIndex !== -1 && selectedSize && variant.options[sizeIndex] !== selectedSize) return false;
+      return true;
+    }) || variants.find((variant) => {
+      if (colorIndex !== -1 && selectedColor && variant.options[colorIndex] !== selectedColor) return false;
+      return true;
+    });
+
+    if (!match) return;
+    const base = link.href.split('?')[0];
+    link.href = `${base}?variant=${match.id}`;
+  };
+
   const updateProductImage = (card, variantImages, colorIndex, sizeIndex) => {
     const img = card.querySelector('.custom-product-card__image-main');
     const hoverImg = card.querySelector('.custom-product-card__image--hover');
@@ -123,6 +144,7 @@
           swatch.setAttribute('aria-pressed', 'true');
           updateQuickAddState(card);
           updateProductImage(card, variantImages, colorIndex, sizeIndex);
+          updateCardLink(card, variants, colorIndex, sizeIndex);
         });
       });
     }
@@ -138,6 +160,7 @@
           size.setAttribute('aria-pressed', 'true');
           updateQuickAddState(card);
           updateProductImage(card, variantImages, colorIndex, sizeIndex);
+          updateCardLink(card, variants, colorIndex, sizeIndex);
         });
       });
 
@@ -206,6 +229,7 @@
 
     updateQuickAddState(card);
     updateProductImage(card, variantImages, colorIndex, sizeIndex);
+    updateCardLink(card, variants, colorIndex, sizeIndex);
   };
 
   const initAll = (root = document) => {

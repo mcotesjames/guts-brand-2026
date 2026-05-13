@@ -1,5 +1,6 @@
 {{ 'component-collection.css' | asset_url | stylesheet_tag }}
 {{ 'component-custom-collection-carousel.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'component-custom-quick-add.js' | asset_url }}" defer></script>
 
 <section class="collection-grid section-padding--lg-bottom">
   <div class="container-xl g-4">
@@ -8,42 +9,7 @@
     <div class="collection-grid__products">
       {% paginate collection.products by 20 %}
         {% for product in collection.products %}
-
-          {% assign price = product.price %}
-          {% assign money_price = price | money %}
-
-          <article class="collection-grid__card custom-product-card">
-            {% if product.tags contains 'coming-soon' %}
-              <span class="custom-product-card__badge">Coming soon</span>
-            {% endif %}
-            {% if product.featured_image %}
-              {% render 'image',
-                class: 'custom-product-card__image',
-                image: product.featured_image,
-                url: product.url,
-                width: 600,
-                height: 600,
-                crop: 'center'
-              %}
-            {% endif %}
-            <div class="custom-product-card__details">
-              <div class="custom-product-card__info">
-                <a class="custom-product-card__title" href="{{ product.url }}">
-                {{ product.title | escape }}
-                </a>
-                <div class="price">
-                  <div class="price__container">
-                    <div class="price__regular">                  
-                        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
-                        <span class="price-item price-item--regular">
-                          {{ money_price }}
-                        </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
+          {% render 'custom-product-card', product: product %}
         {% endfor %}
 
         {{ paginate | default_pagination }}
