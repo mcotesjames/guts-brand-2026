@@ -253,6 +253,32 @@
     "custom_ambassadors_DMJBxn": {
       "type": "custom-ambassadors",
       "blocks": {
+        "ambassador_we4Fcx": {
+          "type": "ambassador",
+          "settings": {
+            "image": "shopify://shop_images/LYA_01.jpg",
+            "image_position": "center center",
+            "name": "Lya",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis dapibus enim vitae blandit.</p>",
+            "instagram_url": "",
+            "tiktok_url": "",
+            "facebook_url": "",
+            "youtube_url": ""
+          }
+        },
+        "ambassador_rABmDw": {
+          "type": "ambassador",
+          "settings": {
+            "image": "shopify://shop_images/TOM_01.jpg",
+            "image_position": "center center",
+            "name": "Tom",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis dapibus enim vitae blandit.</p>",
+            "instagram_url": "",
+            "tiktok_url": "",
+            "facebook_url": "",
+            "youtube_url": ""
+          }
+        },
         "ambassador_GyJ8cW": {
           "type": "ambassador",
           "disabled": true,
@@ -323,6 +349,8 @@
         }
       },
       "block_order": [
+        "ambassador_we4Fcx",
+        "ambassador_rABmDw",
         "ambassador_GyJ8cW",
         "ambassador_FgDgtF",
         "ambassador_4k6HTw",
