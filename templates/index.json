@@ -296,7 +296,7 @@
           "type": "ambassador",
           "name": "COMMUNITY",
           "settings": {
-            "image": "shopify://shop_images/Mahohi.jpg",
+            "image": "shopify://shop_images/mahohi_nguyen_16-9_02_copie.jpg",
             "image_position": "center center",
             "name": "Mahohi Nguyen",
             "description": "<p>Young surfer from Hong Kong part of the Swiss Surf national team U12s.<br/>He represents this community of future Guts surfers</p>",
@@ -323,7 +323,7 @@
           "type": "ambassador",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/Mahohi.jpg",
+            "image": "shopify://shop_images/mahohi_nguyen_16-9_02_copie.jpg",
             "image_position": "center center",
             "name": "Mahohi Nguyen",
             "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis dapibus enim vitae blandit.</p>",
@@ -337,7 +337,7 @@
           "type": "ambassador",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/Mahohi.jpg",
+            "image": "shopify://shop_images/mahohi_nguyen_16-9_02_copie.jpg",
             "image_position": "center center",
             "name": "Mahohi Nguyen",
             "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis dapibus enim vitae blandit.</p>",
