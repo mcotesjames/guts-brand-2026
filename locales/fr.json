@@ -8,6 +8,11 @@
  * ------------------------------------------------------------
  */
 {
+  "content": {
+    "product_badge_sold_out": "Épuisé",
+    "product_badge_sale": "Promotion",
+    "product_card_placeholder": "Titre du produit"
+  },
   "404": {
     "title": "404",
     "not_found": "Page introuvable.",
@@ -128,7 +133,7 @@
     "youtube": "YouTube"
   },
   "stockist": {
-    "distance_placeholder": "Distance : &mdash;",
+    "distance_placeholder": "Distance : &mdash;",
     "empty_message": "Désolé, il n’y a pas de revendeur GUTS dans votre région. Contactez-nous ci-dessous.",
     "enter_address": "Saisir une adresse",
     "portal": {

@@ -8,6 +8,11 @@
  * ------------------------------------------------------------
  */
 {
+  "content": {
+    "product_badge_sold_out": "Sold out",
+    "product_badge_sale": "Sale",
+    "product_card_placeholder": "Product title"
+  },
   "404": {
     "title": "404",
     "not_found": "Page not found.",
